@@ -1,6 +1,6 @@
 # read_port.py
 # test git
-import reader
+from . import reader    # Package-relative import
 
 def read_portfolio(filename, *, errors='warn'):
     '''
