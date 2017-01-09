@@ -1,0 +1,27 @@
+C:\Users\yann.yu\workspace\breadnbutter>workon dabeaz
+(dabeaz) C:\Users\yann.yu\workspace\breadnbutter>python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> f = open('Data/portfolio.csv', 'r')
+>>> import csv
+>>> rows = csv.reader(f)
+>>> headers = next(rows)
+>>> headers
+['name', 'date', 'shares', 'price']
+>>> row = next(rows)
+>>> row
+['AA', '2007-06-11', '100', '32.20']
+>>> types = [str, str, int, float]
+>>> types
+[<class 'str'>, <class 'str'>, <class 'int'>, <class 'float'>]
+>>> for func, val in zip(types, row):
+...     print(func, val)
+...
+<class 'str'> AA
+<class 'str'> 2007-06-11
+<class 'int'> 100
+<class 'float'> 32.20
+>>> converted = [func(val) for func, val in zip(types, row)]
+>>> converted
+['AA', '2007-06-11', 100, 32.2]
+>>>
