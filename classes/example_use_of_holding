@@ -1,0 +1,32 @@
+(dabeaz) yann.yu@mllxv-yu:classes$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+<__main__.Holding object at 0x7f7f6d10cda0>
+>>> h.name
+'AA'
+>>>
+>>> h.cost()
+3220.0000000000005
+>>>
+>>> h.sell(25)
+>>> h.shares
+75
+>>> h.cost()
+2415.0
+>>> 
+>>> getattr(h, 'name')    # h.name
+'AA'
+>>> setattr(h, 'shares', 50)    # h.shares = 50
+>>> h.shares
+50
+>>> 
+>>> output_columns = ['name', 'shares', 'price']    # cherry-pick
+>>> for colname in output_columns:
+...     print(colname, '=', getattr(h, colname))
+... 
+name = AA
+shares = 50
+price = 32.2
+>>> 
+
+ 
