@@ -1,0 +1,29 @@
+(dabeaz) yann.yu@mllxv-yu:inheritance_in_practice$ python -i holding.py 
+>>> portfolio
+[<__main__.Holding object at 0x7f89ceebd2e8>, <__main__.Holding object at 0x7f89ceebd278>, <__main__.Holding object at 0x7f89ceebd358>, <__main__.Holding object at 0x7f89ceebd3c8>, <__main__.Holding object at 0x7f89ceebd438>, <__main__.Holding object at 0x7f89ceebd4a8>, <__main__.Holding object at 0x7f89ceebd518>]
+>>> import table
+>>> formatter = table.TextTableFormatter()
+>>> table.print_table(portfolio, ['shares', 'price', 'name'], formatter)
+    shares      price       name 
+       100       32.2         AA 
+        50       91.1        IBM 
+       150      83.44        CAT 
+       200      51.23       MSFT 
+        95      40.37         GE 
+        50       65.1       MSFT 
+       100      70.44        IBM 
+>>> 
+>>> del sys.modules['table']
+>>> import table
+>>> 
+>>> formatter2 = table.CSVTableFormatter()
+>>> table.print_table(portfolio, ['name', 'price'], formatter2)
+name,price
+AA,32.2
+IBM,91.1
+CAT,83.44
+MSFT,51.23
+GE,40.37
+MSFT,65.1
+IBM,70.44
+>>> 
