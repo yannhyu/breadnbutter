@@ -67,5 +67,15 @@ class HTMLTableFormatter(TableFormatter):
         print('</tr>')
 
 
-class QuotedTextTableFormatter(TextTableFormatter):
-    def row()        
+class QuotedTextTableFormatter(TextTableFormatter):    # Tightly coupled
+    def row(self, rowdata):    # Alter the behavior
+        # Put quotes around all values
+        quoted = [ '"{}"'.format(d) for d in rowdata ]
+        super().row(quoted)
+
+
+class QuotedMixin(object):    # Loosely coupled
+    def row(self, rowdata):    # Alter the behavior
+        # Put quotes around all values
+        quoted = [ '"{}"'.format(d) for d in rowdata ]
+        super().row(quoted)
