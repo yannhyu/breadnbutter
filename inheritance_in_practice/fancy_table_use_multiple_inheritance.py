@@ -7,7 +7,7 @@ class Formatter(table.QuotedMixin, table.CSVTableFormatter):    # Compose behavi
     pass
 
 
-class TextFormatter(table.QuotedMixin, table.TextTableFormatter):    # like logo
+class TextFormatter(table.QuotedMixin, table.TextTableFormatter):    # like lego
     pass    
 
 portfolio = read_portfolio('../Data/portfolio.csv')
