@@ -1,0 +1,65 @@
+
+(dabeaz) yann.yu@mllxv-yu:how_inheritance_actually_works$ python -i inherit.py
+A.spam
+Parent.spam
+None
+B.spam
+A.spam
+Parent.spam
+None
+>>> B.__mro__
+(<class '__main__.B'>, <class '__main__.A'>, <class '__main__.Parent'>, <class 'object'>)
+>>> 
+>>> A.__mro__
+(<class '__main__.A'>, <class '__main__.Parent'>, <class 'object'>)
+>>> 
+
+
+>>> a = A()
+>>> c = C()
+>>> d = D()
+>>> a.spam()
+A.spam
+Parent.spam
+>>> c.spam()
+C.spam
+Parent.spam
+>>> d.spam()
+D.spam
+Parent.spam
+>>> class E(A, C, D):
+...     pass
+... 
+>>> e = E()
+>>> e.spam()
+A.spam
+C.spam
+D.spam
+Parent.spam
+>>> 
+>>> class F(D, C, A):
+...     pass
+... 
+>>> f = F()
+>>> f.spam()
+D.spam
+C.spam
+A.spam
+Parent.spam
+>>> 
+
+# two rules:
+(1) any child class always needs to be checked before its parent;
+(2) if a child has more than one parents, they must be checked in order
+
+this means we can use it to create interesting class composition, 
+and control the order of calls.
+
+
+# what the super().spam() does, it that it moves it down the MRO chain:
+
+>>> E.__mro__
+(<class '__main__.E'>, <class '__main__.A'>, <class '__main__.C'>, <class '__main__.D'>, <class '__main__.Parent'>, <class 'object'>)
+>>> F.__mro__
+(<class '__main__.F'>, <class '__main__.D'>, <class '__main__.C'>, <class '__main__.A'>, <class '__main__.Parent'>, <class 'object'>)
+>>> 
