@@ -1,0 +1,33 @@
+# dot is mapped to the '__get__' and '__set__' machinery under the cover
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(dabeaz) yann.yu@mllxv-yu:own_the_dot_with_descriptors$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('IBM','2007-06-11',100,32.2)
+>>> h.shares
+100
+>>> h.shares = '100'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding.py", line 17, in shares
+    raise TypeError('Expected int')
+TypeError: Expected int
+>>> 
+
+
+>>> p = h.__class__
+>>> p = h.__class__.__dict__['shares']    # Property lookup
+>>> p
+<property object at 0x7f0ebb5b03b8>
+>>> hasattr(p, '__set__')    # Do you know how to do a '__set__'?
+True
+>>> p.__set__(h, '100')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding.py", line 17, in shares
+    raise TypeError('Expected int')
+TypeError: Expected int
+>>> 
+
+

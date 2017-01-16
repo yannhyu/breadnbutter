@@ -1,0 +1,21 @@
+(dabeaz) yann.yu@mllxv-yu:own_the_dot_with_descriptors$ python -i holding_validated.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.price = 'a lot'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding_validated.py", line 25, in __set__
+    raise TypeError('Expected float...')
+TypeError: Expected float...
+>>> h = Holding('AA', '2007-06-11', '100', 32.2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding_validated.py", line 35, in __init__
+    self.shares = shares
+  File "holding_validated.py", line 12, in __set__
+    raise TypeError('Expected int...')
+TypeError: Expected int...
+>>> 
+
+

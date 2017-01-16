@@ -1,0 +1,38 @@
+# sample_review
++++++++++++++++
+# dot is mapped to the '__get__' and '__set__' machinery under the cover
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(dabeaz) yann.yu@mllxv-yu:own_the_dot_with_descriptors$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.__dict__
+{'date': '2007-06-11', 'name': 'AA', '_shares': 100, '_price': 32.2}
+>>> h.name = 'IBM'
+>>> h.__dict__['name'] = 'IBM'
+>>> h.shares = '100'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding.py", line 17, in shares
+    raise TypeError('Expected int')
+TypeError: Expected int
+>>> h.__class__
+<class '__main__.Holding'>
+>>> h.__class__.__dict__
+mappingproxy({'__str__': <function Holding.__str__ at 0x7f0ebb626c80>, 'price': <property object at 0x7f0ebb5b0408>, '__dict__': <attribute '__dict__' of 'Holding' objects>, '__init__': <function Holding.__init__ at 0x7f0ebb626950>, 'cost': <property object at 0x7f0ebb5b02c8>, '__module__': '__main__', '__weakref__': <attribute '__weakref__' of 'Holding' objects>, 'shares': <property object at 0x7f0ebb5b03b8>, 'sell': <function Holding.sell at 0x7f0ebb626d90>, '__doc__': None, '__repr__': <function Holding.__repr__ at 0x7f0ebb626bf8>})
+>>> h.__class__.__dict__['shares']
+<property object at 0x7f0ebb5b03b8>
+>>> 
+
+>>> h.__class__.__dict__['shares']    # Do you know anything about this 'shares'?
+<property object at 0x7f0ebb5b03b8>
+>>> p = _
+>>> p
+<property object at 0x7f0ebb5b03b8>
+>>> hasattr(p, '__get__')    # Do you know how to do a '__get__'?
+True
+>>> p.__get__(h)
+100
+>>> 
+
