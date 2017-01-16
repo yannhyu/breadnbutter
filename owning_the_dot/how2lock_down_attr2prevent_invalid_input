@@ -1,0 +1,77 @@
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.shares
+100
+>>> h.price
+32.2
+>>> h.price = 'a lot'    # Very invalid
+>>> h.price = '38.4'    # Add quotes by accident
+>>> 
+>>> h.cost()
+'38.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.438.4'
+>>> 
+
+
+# use @property to regulate attribute management;
+# doing so allows us to own the dot on this attr!
+
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, newprice):
+        if not isinstance(newprice, float):
+            raise TypeError('Expected float')
+        self._price = newprice
+
+
+(dabeaz) yann.yu@mllxv-yu:owning_the_dot$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.shares
+100
+>>> h.price
+32.2
+>>> h.name
+'AA'
+>>> h.date
+'2007-06-11'
+>>> 
+
+>>> h.price = 'a lot'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding.py", line 17, in price
+    raise TypeError('Expected float')
+TypeError: Expected float
+>>> 
+
+>>> h.price = '42.3'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding.py", line 17, in price
+    raise TypeError('Expected float')
+TypeError: Expected float
+>>> 
+
+>>> h.price = -10.0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding.py", line 19, in price
+    raise ValueError('Must be >= 0')
+ValueError: Must be >= 0
+>>> 
+
+>>> h = Holding('AA', '2007-06-11', 100, '32.2')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding.py", line 8, in __init__
+    self.price = price
+  File "holding.py", line 17, in price
+    raise TypeError('Expected float')
+TypeError: Expected float
+>>> 
+

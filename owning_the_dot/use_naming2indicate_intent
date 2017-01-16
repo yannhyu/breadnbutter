@@ -1,0 +1,15 @@
+>>> class Spam(object):
+...     def __init__(self, value):
+...         self._value = value    # "Private"
+... 
+>>> s = Spam(42)
+>>> s._value    # bad habit
+42
+>>> s._value = 45    # ought to get dope slap
+>>> 
+
+>>> def _internal_func():
+...     print('private stuff')
+... 
+>>> 
+

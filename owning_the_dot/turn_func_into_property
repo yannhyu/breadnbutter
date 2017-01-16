@@ -1,0 +1,31 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    @property
+    def cost(self):
+        return self.shares * self.price
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(dabeaz) yann.yu@mllxv-yu:owning_the_dot$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.name
+'AA'
+>>> h.cost
+3220.0000000000005
+>>> h.cost()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'float' object is not callable
+>>>
+
+>>> h.sell(25)
+>>> h.cost    # Updates itself automatically!!
+2415.0
+>>> 
+
+>>> h.cost = 48.5    # The only clue that this may not be an attr
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: can't set attribute
+>>> 

@@ -1,0 +1,47 @@
+resource management
+
+open/close files
+acquire/release locks
+subscribe/unsubscribe some message producer
++++++++++++++++++++++++++++++++++++++++++++
+
+(dabeaz) yann.yu@mllxv-yu:make_custom_context_manager$ python -i manager.py 
+>>> import manager
+>>> m = manager.Manager()
+>>> m
+<manager.Manager object at 0x7f14ead75d68>
+>>> with m:
+...     print('hello from inside the context manager')
+... 
+Entering
+hello from inside the context manager
+Exiting
+None None None
+>>> 
+
+
+>>> with m as val:
+...     print('val =', val)
+... 
+Entering
+val = some value
+Exiting
+None None None
+>>> 
+
+
+# exit() reveals any pending exceptions:
+++++++++++++++++++++++++++++++++++++++++
+
+>>> with m:
+...     print('hey, here is a bad thing')
+...     int('n/a')
+... 
+Entering
+hey, here is a bad thing
+Exiting
+<class 'ValueError'> invalid literal for int() with base 10: 'n/a' <traceback object at 0x7f14ead908c8>
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+ValueError: invalid literal for int() with base 10: 'n/a'
+>>> 

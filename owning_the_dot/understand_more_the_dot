@@ -1,0 +1,21 @@
+# functions (methods) are found in the class def dict:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+>>> Holding
+<class '__main__.Holding'>
+>>> h.__class__
+<class '__main__.Holding'>
+>>> Holding.__dict__
+mappingproxy({'cost': <function Holding.cost at 0x7fb7682e1ae8>, '__init__': <function Holding.__init__ at 0x7fb7682e1950>, 'sell': <function Holding.sell at 0x7fb7682e1b70>, '__str__': <function Holding.__str__ at 0x7fb7682e19d8>, '__dict__': <attribute '__dict__' of 'Holding' objects>, '__doc__': None, '__repr__': <function Holding.__repr__ at 0x7fb7682e1a60>, '__weakref__': <attribute '__weakref__' of 'Holding' objects>, '__module__': '__main__'})
+>>> 
+
+
+>>> h.cost()
+3220.0000000000005
+>>> h.__class__
+<class '__main__.Holding'>
+>>> Holding.__dict__['cost']
+<function Holding.cost at 0x7fb7682e1ae8>
+>>> Holding.__dict__['cost'](h)
+3220.0000000000005
+>>> 

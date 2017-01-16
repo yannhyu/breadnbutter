@@ -1,0 +1,18 @@
+# attributes are found in the instance dict:
+++++++++++++++++++++++++++++++++++++++++++++
+
+(dabeaz) yann.yu@mllxv-yu:owning_the_dot$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.name
+'AA'
+>>> h.price
+32.2
+>>> h.shares
+100
+>>> h.__dict__
+{'date': '2007-06-11', 'name': 'AA', 'price': 32.2, 'shares': 100}
+>>> 
+
+
