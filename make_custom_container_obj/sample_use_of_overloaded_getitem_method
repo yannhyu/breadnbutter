@@ -1,0 +1,11 @@
+(dabeaz) yann.yu@mllxv-yu:make_custom_container_obj$ python -i holding.py 
+>>> portfolio
+Holding('AA','2007-06-11',100,32.2)::Holding('IBM','2007-05-13',50,91.1)::Holding('CAT','2006-09-23',150,83.44)::Holding('MSFT','2007-05-17',200,51.23)::Holding('GE','2006-02-01',95,40.37)::Holding('MSFT','2006-10-31',50,65.1)::Holding('IBM','2006-07-09',100,70.44)
+>>> portfolio[1]
+Holding('IBM','2007-05-13',50,91.1)
+>>> portfolio['IBM']
+[Holding('IBM','2007-05-13',50,91.1), Holding('IBM','2006-07-09',100,70.44)]
+>>> portfolio['MSFT']
+[Holding('MSFT','2007-05-17',200,51.23), Holding('MSFT','2006-10-31',50,65.1)]
+>>> 
+

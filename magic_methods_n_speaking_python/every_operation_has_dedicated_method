@@ -1,0 +1,26 @@
+(dabeaz) yann.yu@mllxv-yu:breadnbutter$ python
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x = 42
+>>> x + 10
+52
+>>> x * 10
+420
+>>> x.__add__(10)
+52
+>>> x.mul__(10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'int' object has no attribute 'mul__'
+>>> x.__mul__(10)
+420
+>>> names = ['IBM', 'YHOO', 'MSFT']
+>>> names[0]
+'IBM'
+>>> names.__getitem__(0)
+'IBM'
+>>> names[1] = 'FB'
+>>> names.__setitem__(1, 'FB')
+>>> 
+

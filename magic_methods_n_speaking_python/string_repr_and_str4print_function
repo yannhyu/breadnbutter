@@ -1,0 +1,11 @@
+>>> h = Holding('AA', '2007-06-11', 100, 32.5)
+>>> h
+Holding('AA','2007-06-11',100,32.5)
+>>> print(h)
+100 shares of AA at $32.50
+>>> 
+>>> str(h)
+'100 shares of AA at $32.50'
+>>> repr(h)
+"Holding('AA','2007-06-11',100,32.5)"
+>>> 

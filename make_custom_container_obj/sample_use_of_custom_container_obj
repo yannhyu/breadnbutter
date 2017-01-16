@@ -1,0 +1,28 @@
+(dabeaz) yann.yu@mllxv-yu:make_custom_container_obj$ python -i holding.py 
+>>> portfolio = Portfolio.from_csv('../Data/portfolio.csv')
+>>> portfolio
+<__main__.Portfolio object at 0x7f73eb4e8898>
+>>> print(portfolio)
+<__main__.Portfolio object at 0x7f73eb4e8898>
+>>> portfolio.holdings
+[Holding('AA','2007-06-11',100,32.2), Holding('IBM','2007-05-13',50,91.1), Holding('CAT','2006-09-23',150,83.44), Holding('MSFT','2007-05-17',200,51.23), Holding('GE','2006-02-01',95,40.37), Holding('MSFT','2006-10-31',50,65.1), Holding('IBM','2006-07-09',100,70.44)]
+>>> 
+
+(dabeaz) yann.yu@mllxv-yu:make_custom_container_obj$ python -i holding.py 
+>>> portfolio = Portfolio.from_csv('../Data/portfolio.csv')
+>>> portfolio
+Holding('AA','2007-06-11',100,32.2)::Holding('IBM','2007-05-13',50,91.1)::Holding('CAT','2006-09-23',150,83.44)::Holding('MSFT','2007-05-17',200,51.23)::Holding('GE','2006-02-01',95,40.37)::Holding('MSFT','2006-10-31',50,65.1)::Holding('IBM','2006-07-09',100,70.44)
+>>> portfolio.total_cost()
+44671.15
+>>> portfolio[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'Portfolio' object does not support indexing
+>>> 
+
+# portfolio does not yet act like a list;
+# to help it along to behave like a list:
+# the thing is Portfolio container object must implement a few magic method!
+
+
+
