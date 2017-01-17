@@ -1,0 +1,49 @@
+(dabeaz) yann.yu@mllxv-yu:breadnbutter$ python -i own_the_dot_with_descriptors/holding_validated_refactored_02.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.name = 42
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'str'>...
+>>> h.name = 'IBM'
+>>> h.shares = 'a lot'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 21, in __set__
+    super().__set__(instance, value)
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'int'>...
+>>> h.shares = 12.3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 21, in __set__
+    super().__set__(instance, value)
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'int'>...
+>>> h.shares = -12
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 23, in __set__
+    raise ValueError('Must be > 0...') 
+ValueError: Must be > 0...
+>>> h.price = 42
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'float'>...
+>>> h.price = -42.0
+>>> h.price = 'too high'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "own_the_dot_with_descriptors/holding_validated_refactored_02.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'float'>...
+>>> h
+Holding('IBM','2007-06-11',-12,-42.0)
+>>> 

@@ -1,0 +1,16 @@
+(dabeaz) yann.yu@mllxv-yu:own_the_dot_with_descriptors$ python -i holding_validated_refactored.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.price = 0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding_validated_refactored.py", line 21, in __set__
+    raise TypeError('Expected float...')
+TypeError: Expected float...
+>>> h.price = 0.00
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "holding_validated_refactored.py", line 23, in __set__
+    raise ValueError('Must be > 0...')            
+ValueError: Must be > 0...
