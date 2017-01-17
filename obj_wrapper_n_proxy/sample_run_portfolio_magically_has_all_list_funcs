@@ -1,0 +1,30 @@
+(dabeaz) yann.yu@mllxv-yu:obj_wrapper_n_proxy$ python -i holding.py
+>>> portfolio = Portfolio.from_csv('../Data/portfolio.csv')
+>>> portfolio
+Holding('AA','2007-06-11',100,32.2)::Holding('IBM','2007-05-13',50,91.1)::Holding('CAT','2006-09-23',150,83.44)::Holding('MSFT','2007-05-17',200,51.23)::Holding('GE','2006-02-01',95,40.37)::Holding('MSFT','2006-10-31',50,65.1)::Holding('IBM','2006-07-09',100,70.44)
+>>> len(portfolio)
+7
+>>> portfolio.append
+<built-in method append of list object at 0x7f97f926ecc8>
+>>> portfolio.sort
+<built-in method sort of list object at 0x7f97f926ecc8>
+>>> portfolio.insert
+<built-in method insert of list object at 0x7f97f926ecc8>
+>>> 
+>>> len(portfolio)
+7
+>>> portfolio.append(Holding('GOOG', '2008-05-01', 50, 405.23))
+>>> len(portfolio)
+8
+>>> portfolio
+Holding('AA','2007-06-11',100,32.2)::Holding('IBM','2007-05-13',50,91.1)::Holding('CAT','2006-09-23',150,83.44)::Holding('MSFT','2007-05-17',200,51.23)::Holding('GE','2006-02-01',95,40.37)::Holding('MSFT','2006-10-31',50,65.1)::Holding('IBM','2006-07-09',100,70.44)::Holding('GOOG','2008-05-01',50,405.23)
+>>> 
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++
+class Portfolio(object):
+    ...
+    def __getattr__(self, name):
+        return getattr(self.holdings, name)    # Forward to internal list method
++++++++++++++++++++++++++++++++++++++++++++++

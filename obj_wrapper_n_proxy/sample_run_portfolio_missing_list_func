@@ -1,0 +1,20 @@
+(dabeaz) yann.yu@mllxv-yu:obj_wrapper_n_proxy$ python -i holding.py
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> portfolio = Portfolio.from_csv('../Data/portfolio.csv')
+>>> portfolio
+Holding('AA','2007-06-11',100,32.2)::Holding('IBM','2007-05-13',50,91.1)::Holding('CAT','2006-09-23',150,83.44)::Holding('MSFT','2007-05-17',200,51.23)::Holding('GE','2006-02-01',95,40.37)::Holding('MSFT','2006-10-31',50,65.1)::Holding('IBM','2006-07-09',100,70.44)
+>>> portfolio[0]
+Holding('AA','2007-06-11',100,32.2)
+>>> len(portfolio)
+7
+>>> portfolio.append
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Portfolio' object has no attribute 'append'
+>>> portfolio.sort
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Portfolio' object has no attribute 'sort'
+>>> 

@@ -1,0 +1,11 @@
+(dabeaz) yann.yu@mllxv-yu:obj_wrapper_n_proxy$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.iamnotinthelist
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Holding' object has no attribute 'iamnotinthelist'
+>>> 
+
+

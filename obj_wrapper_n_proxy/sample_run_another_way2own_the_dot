@@ -1,0 +1,13 @@
+(dabeaz) yann.yu@mllxv-yu:obj_wrapper_n_proxy$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.name
+'AA'
+>>> h.shares
+100
+>>> h.__getattribute__('name')
+'AA'
+>>> h.__getattribute__('shares')
+100
+>>> 

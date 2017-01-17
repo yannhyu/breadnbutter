@@ -1,0 +1,25 @@
+(dabeaz) yann.yu@mllxv-yu:obj_wrapper_n_proxy$ python -i holding.py wrapper_proxy.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+
+>>> from wrapper_proxy import Readonly
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> p = Readonly(h)
+>>> p.name
+'AA'
+>>> p.shares
+100
+>>> p.date
+'2007-06-11'
+>>> p.shares = 50
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/yann.yu/workspace/pythoncode/breadnbutter/obj_wrapper_n_proxy/wrapper_proxy.py", line 14, in __setattr__
+    raise AttributeError('Read only')
+AttributeError: Read only
+>>> 
+
+
+
