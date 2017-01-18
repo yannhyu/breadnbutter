@@ -1,0 +1,24 @@
+(dabeaz) yann.yu@mllxv-yu:generate_code_with_closure$ python -i holding.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.price = 'too high'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/yann.yu/workspace/pythoncode/breadnbutter/generate_code_with_closure/typedproperty.py", line 13, in prop
+    raise TypeError('Expected {}'.format(expected_type))
+TypeError: Expected <class 'float'>
+>>> h.price = '34.1'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/yann.yu/workspace/pythoncode/breadnbutter/generate_code_with_closure/typedproperty.py", line 13, in prop
+    raise TypeError('Expected {}'.format(expected_type))
+TypeError: Expected <class 'float'>
+>>> h.shares = 43.2 
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/yann.yu/workspace/pythoncode/breadnbutter/generate_code_with_closure/typedproperty.py", line 13, in prop
+    raise TypeError('Expected {}'.format(expected_type))
+TypeError: Expected <class 'int'>
+>>> 
+

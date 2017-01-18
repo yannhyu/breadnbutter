@@ -1,0 +1,19 @@
+(dabeaz) yann.yu@mllxv-yu:generate_code_with_closure$ python -i typedproperty_better.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+<__main__.Holding object at 0x7f8623e68198>
+>>> h.name
+'AA'
+>>> h.name = 42
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "typedproperty_better.py", line 13, in prop
+    raise TypeError('Expected {}'.format(expected_type))
+TypeError: Expected <class 'str'>
+>>> h.shares = 'too many'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "typedproperty_better.py", line 13, in prop
+    raise TypeError('Expected {}'.format(expected_type))
+TypeError: Expected <class 'int'>
+>>> 

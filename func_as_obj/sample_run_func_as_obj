@@ -1,0 +1,23 @@
+(dabeaz) yann.yu@mllxv-yu:breadnbutter$ python
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def greeting(name):
+...      print('hello', name)
+... 
+>>> greeting('Guido')
+hello Guido
+>>> greeting
+<function greeting at 0x7fb17da44840>
+>>> g = greeting
+>>> g('Yann')
+hello Yann
+>>> items = [10, 20]
+>>> items.append(greeting)
+>>> items
+[10, 20, <function greeting at 0x7fb17da44840>]
+>>> items[2]
+<function greeting at 0x7fb17da44840>
+>>> items[2]('Nobody')
+hello Nobody
+>>> 
