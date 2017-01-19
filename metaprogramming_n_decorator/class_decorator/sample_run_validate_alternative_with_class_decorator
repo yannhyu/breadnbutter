@@ -1,0 +1,31 @@
+(dabeaz) yann.yu@mllxv-yu:class_decorator$ python -i validate_alternative_using_class_decorator.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.name = 42
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "validate_alternative_using_class_decorator.py", line 54, in __setattr__
+    super().__setattr__(name, value)
+  File "validate_alternative_using_class_decorator.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'str'>...
+>>> h.shares = 'a lot'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "validate_alternative_using_class_decorator.py", line 54, in __setattr__
+    super().__setattr__(name, value)
+  File "validate_alternative_using_class_decorator.py", line 21, in __set__
+    super().__set__(instance, value)
+  File "validate_alternative_using_class_decorator.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'int'>...
+>>> h.price = 'very high'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "validate_alternative_using_class_decorator.py", line 54, in __setattr__
+    super().__setattr__(name, value)
+  File "validate_alternative_using_class_decorator.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'float'>...
+>>> 
