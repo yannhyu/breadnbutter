@@ -15,7 +15,7 @@ Calling sub
 -4
 >>> add = logged(add)
 >>> add
-<function logged.<locals>.wrapper at 0x7f0e21a4fb70>
+<function logged.<locals>.wrapper at 0x7f0e21a4fb70>    # Indentify itself somewhat vaguely
 >>> add(4, 9)
 Calling add
 13
@@ -33,7 +33,15 @@ Calling add
 >>> 
 Help on function add in module __main__:
 
-add(x, y)
-    Want this doc string to show when wrapped
+add(x, y)    # show correct signature and doc string
+    Want this doc string to show when wrapped    
 (END)
+
+
+>>> add
+<function add at 0x7fe0cd5b3ae8>    # Identify itself better
+>>> help(add)
+
+>>> 
+
 

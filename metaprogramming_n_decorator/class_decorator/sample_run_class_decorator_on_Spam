@@ -1,0 +1,19 @@
+(dabeaz) yann.yu@mllxv-yu:class_decorator$ python -i sample.py 
+Adding logging to add
+Adding logging to sub
+Adding logging to mul
+Adding logging to yow
+Adding logging to __init__
+Adding logging to grok
+>>> import Spam
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named 'Spam'
+>>> spam = Spam(42)
+YOU ARE CALLING __init__
+>>> spam.yow
+<bound method Spam.yow of <__main__.Spam object at 0x7f0f32a9e7f0>>
+>>> spam.yow()
+YOU ARE CALLING yow
+Yow !
+>>> 
