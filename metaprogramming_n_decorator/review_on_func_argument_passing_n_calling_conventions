@@ -1,0 +1,47 @@
+(dabeaz) yann.yu@mllxv-yu:metaprogramming_n_decorator$ python
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def func(x, y, z):
+...     print(x, y, z)
+... 
+>>> func(1, 2, 3)
+1 2 3
+>>> func(1, z=3, y=4)
+1 4 3
+>>> def func(x, *args):
+...     print(x)
+...     print(args)
+... 
+>>> func(1)
+1
+()
+>>> func(1, 2, 3, 4, 5)
+1
+(2, 3, 4, 5)
+>>> func(1, 2, 3)
+1
+(2, 3)
+>>> 
+>>> func('a', 'b', 1, 2, 3)
+a
+('b', 1, 2, 3)
+>>> 
+
++++++++++++++++++++++++++++++++++++++++
+
+>>> def func(x, **kwargs):
+...     print(x)
+...     print(kwargs)
+... 
+>>> func(1, xmin=10, xmax=20, color='red')
+1
+{'xmax': 20, 'color': 'red', 'xmin': 10}
+>>> func(1)
+1
+{}
+>>> func(1, speed='fast')
+1
+{'speed': 'fast'}
+>>> 
+

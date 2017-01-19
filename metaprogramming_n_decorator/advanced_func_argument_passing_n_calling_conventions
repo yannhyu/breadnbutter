@@ -1,0 +1,15 @@
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def func(a,b,c,d):
+...     print(a, b, c, d)
+... 
+>>> args = (1, 2)
+>>> kwargs = {'c': 3, 'd': 4}
+>>> func(*args, **kwargs)
+1 2 3 4
+>>> data = (1, 2, 3, 4)
+>>> func(*data)
+1 2 3 4
+>>> 
+
