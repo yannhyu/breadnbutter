@@ -1,0 +1,18 @@
+(dabeaz) yann.yu@mllxv-yu:fill_in_details_on_class_def$ python -i validate_old.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h
+Holding('AA','2007-06-11',100,32.2)
+>>> h.shares
+100
+>>> h.shares = 42
+>>> h.shares = 'too many'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "validate.py", line 47, in __setattr__
+    super().__setattr__(name, value)
+  File "validate.py", line 21, in __set__
+    super().__set__(instance, value)
+  File "validate.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'int'>...
+>>> 

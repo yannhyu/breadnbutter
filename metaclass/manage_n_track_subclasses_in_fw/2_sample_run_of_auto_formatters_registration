@@ -1,0 +1,54 @@
+(dabeaz) yann.yu@mllxv-yu:manage_n_track_subclasses_in_fw$ python -i table_with_auto_formatter_reg.py 
+>>> 
+>>> import table_with_auto_formatter_reg as table
+>>> table._formatters
+{'csv': <class 'table_with_auto_formatter_reg.CSVTableFormatter'>, 'html': <class 'table_with_auto_formatter_reg.HTMLTableFormatter'>, 'text': <class 'table_with_auto_formatter_reg.QuotedTextTableFormatter'>}
+>>> 
+
+>>> class MyFormatter(table.TableFormatter):
+...     name = 'spam'
+... 
+>>> table._formatters
+{'csv': <class 'table_with_auto_formatter_reg.CSVTableFormatter'>, 'spam': <class '__main__.MyFormatter'>, 'html': <class 'table_with_auto_formatter_reg.HTMLTableFormatter'>, 'text': <class 'table_with_auto_formatter_reg.QuotedTextTableFormatter'>}
+>>> 
+
+
+(dabeaz) yann.yu@mllxv-yu:manage_n_track_subclasses_in_fw$ python -i table_with_auto_formatter_reg.py
+>>> import table_with_auto_formatter_reg as table
+>>> table._formatters
+{'csv': <class 'table_with_auto_formatter_reg.CSVTableFormatter'>, 'html': <class 'table_with_auto_formatter_reg.HTMLTableFormatter'>, 'text': <class 'table_with_auto_formatter_reg.QuotedTextTableFormatter'>}
+>>> from holding import read_portfolio
+>>> portfolio = read_portfolio('../../Data/portfolio.csv')
+>>> portfolio
+[<holding.Holding object at 0x7fe95dd459e8>, <holding.Holding object at 0x7fe95dd45978>, <holding.Holding object at 0x7fe95dd45a58>, <holding.Holding object at 0x7fe95dd45ac8>, <holding.Holding object at 0x7fe95dd45b38>, <holding.Holding object at 0x7fe95dd45ba8>, <holding.Holding object at 0x7fe95dd45c18>]
+>>> formatter = table.create_formatter('text')
+>>> table.print_table(portfolio, ['name', 'shares', 'price'], formatter)
+      name     shares      price 
+      "AA"      "100"     "32.2" 
+     "IBM"       "50"     "91.1" 
+     "CAT"      "150"    "83.44" 
+    "MSFT"      "200"    "51.23" 
+      "GE"       "95"    "40.37" 
+    "MSFT"       "50"     "65.1" 
+     "IBM"      "100"    "70.44" 
+>>> formatter = table.create_formatter('csv')
+>>> table.print_table(portfolio, ['name', 'shares', 'price', 'date'], formatter)
+name,shares,price,date
+AA,100,32.2,2007-06-11
+IBM,50,91.1,2007-05-13
+CAT,150,83.44,2006-09-23
+MSFT,200,51.23,2007-05-17
+GE,95,40.37,2006-02-01
+MSFT,50,65.1,2006-10-31
+IBM,100,70.44,2006-07-09
+>>> 
+
+
+>>> 
+>>> formatter = table.create_formatter('csv2')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/yann.yu/workspace/pythoncode/breadnbutter/metaclass/manage_n_track_subclasses_in_fw/table_with_auto_formatter_reg.py", line 22, in create_formatter
+    raise ValueError('Unknown format {}'.format(name))
+ValueError: Unknown format csv2
+>>> 

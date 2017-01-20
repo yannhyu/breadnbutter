@@ -1,0 +1,29 @@
+
+(dabeaz) yann.yu@mllxv-yu:manage_n_track_subclasses_in_fw$ python -i table_with_auto_formatter_reg.py
+>>> import table_with_auto_formatter_reg as table
+>>> table._formatters
+{'quotedtext': <class 'table_with_auto_formatter_reg.QuotedTextTableFormatter'>, 'csv': <class 'table_with_auto_formatter_reg.CSVTableFormatter'>, 'html': <class 'table_with_auto_formatter_reg.HTMLTableFormatter'>, 'text': <class 'table_with_auto_formatter_reg.TextTableFormatter'>}
+>>> from holding import read_portfolio
+>>> portfolio = read_portfolio('../../Data/portfolio.csv')
+>>> formatter = table.create_formatter('text')
+>>> table.print_table(portfolio, ['name', 'shares', 'price'], formatter)
+      name     shares      price 
+        AA        100       32.2 
+       IBM         50       91.1 
+       CAT        150      83.44 
+      MSFT        200      51.23 
+        GE         95      40.37 
+      MSFT         50       65.1 
+       IBM        100      70.44 
+>>> formatter = table.create_formatter('quotedtext')
+>>> table.print_table(portfolio, ['name', 'shares', 'price'], formatter)
+      name     shares      price 
+      "AA"      "100"     "32.2" 
+     "IBM"       "50"     "91.1" 
+     "CAT"      "150"    "83.44" 
+    "MSFT"      "200"    "51.23" 
+      "GE"       "95"    "40.37" 
+    "MSFT"       "50"     "65.1" 
+     "IBM"      "100"    "70.44" 
+>>> 
+

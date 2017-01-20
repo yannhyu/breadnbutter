@@ -1,0 +1,34 @@
+(dabeaz) yann.yu@mllxv-yu:fill_in_details_on_class_def$ python -i validate.py 
+>>> h = Holding('AA', '2007-06-11', 100, 32.2)
+>>> h.date = 42
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "validate.py", line 66, in __setattr__
+    super().__setattr__(name, value)
+  File "validate.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'str'>...
+>>> h.name =42
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "validate.py", line 66, in __setattr__
+    super().__setattr__(name, value)
+  File "validate.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'str'>...
+>>> h.price = 42
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "validate.py", line 66, in __setattr__
+    super().__setattr__(name, value)
+  File "validate.py", line 14, in __set__
+    raise TypeError('Expected {}...'.format(self.expected_type))
+TypeError: Expected <class 'float'>...
+>>> h.price
+32.2
+>>> h.price = 30.8
+>>> h.price
+30.8
+>>> h
+Holding('AA','2007-06-11',100,30.8)
+>>> 
