@@ -1,0 +1,26 @@
+>>> 
+>>> class Base(metaclass=mytype):
+...     pass
+... 
+Creating: Base
+Bases: ()
+Methods: ['__module__', '__qualname__']
+
+
+>>> class A(Base):
+...     def yow(self):
+...         pass
+... 
+Creating: A
+Bases: (<class '__main__.Base'>,)
+Methods: ['__module__', 'yow', '__qualname__']
+
+
+>>> class B(Base):
+...     def grok(self):
+...         pass
+... 
+Creating: B
+Bases: (<class '__main__.Base'>,)
+Methods: ['__module__', '__qualname__', 'grok']
+>>> 

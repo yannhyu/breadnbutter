@@ -1,0 +1,39 @@
+(dabeaz) yann.yu@mllxv-yu:manage_n_track_subclasses_in_fw$ python -i holding.py 
+>>> portfolio
+[<__main__.Holding object at 0x7fd5c17c5358>, <__main__.Holding object at 0x7fd5c17c52e8>, <__main__.Holding object at 0x7fd5c17c53c8>, <__main__.Holding object at 0x7fd5c17c5438>, <__main__.Holding object at 0x7fd5c17c54a8>, <__main__.Holding object at 0x7fd5c17c5518>, <__main__.Holding object at 0x7fd5c17c5588>]
+>>> len(portfolio)
+7
+>>> import table
+>>> formatter = table.TextTableFormatter()
+>>> table.print_table(portfolio, ['name', 'shares'], formatter)
+      name     shares 
+        AA        100 
+       IBM         50 
+       CAT        150 
+      MSFT        200 
+        GE         95 
+      MSFT         50 
+       IBM        100 
+>>> table.print_table(portfolio, ['name', 'price', 'shares'], formatter)
+      name      price     shares 
+        AA       32.2        100 
+       IBM       91.1         50 
+       CAT      83.44        150 
+      MSFT      51.23        200 
+        GE      40.37         95 
+      MSFT       65.1         50 
+       IBM      70.44        100 
+>>> 
+
+>>> formatter = table.CSVTableFormatter()
+>>> table.print_table(portfolio, ['name', 'price', 'shares'], formatter)
+name,price,shares
+AA,32.2,100
+IBM,91.1,50
+CAT,83.44,150
+MSFT,51.23,200
+GE,40.37,95
+MSFT,65.1,50
+IBM,70.44,100
+>>> 
+

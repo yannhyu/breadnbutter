@@ -1,0 +1,27 @@
+>>> name = 'Point'
+>>> bases = (object,)    #1-tuple
+>>> def __init__(self, x, y):
+...     self.x = x
+...     self.y = y
+... 
+>>> def move(self, dx, dy):
+...     self.x += dx
+...     self.y += dy
+... 
+>>> methods = {
+...     '__init__': __init__,
+...     'move': move
+... }
+
+>>> name
+'Point'
+>>> bases
+(<class 'object'>,)
+>>> methods
+{'__init__': <function __init__ at 0x7fc1d75ac840>, 'move': <function move at 0x7fc1d758f9d8>}
+>>> type
+<class 'type'>
+>>> Point = type(name, bases, methods)
+>>> Point
+<class '__main__.Point'>
+>>> 

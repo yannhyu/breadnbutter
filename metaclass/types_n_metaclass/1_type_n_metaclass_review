@@ -1,0 +1,51 @@
+(dabeaz) yann.yu@mllxv-yu:breadnbutter$ python
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x = 42
+>>> y = 'hello'
+>>> z = 3.5
+>>> type(x)
+<class 'int'>
+>>> type(y)
+<class 'str'>
+>>> type(z)
+<class 'float'>
+>>> x.__class__
+<class 'int'>
+>>> y.__class__
+<class 'str'>
+>>> class Point(object):
+...     def __init__(self, x, y):
+...         self.x = x
+...         self.y = y
+...     def move(self, dx, dy):
+...         self.x += dx
+...         self.y += dy
+... 
+>>> p = Point(2, 3)
+>>> type(p)
+<class '__main__.Point'>
+>>> a = int()
+>>> a
+0
+>>> b = float()
+>>> b
+0.0
+>>> Point
+<class '__main__.Point'>
+>>> int
+<class 'int'>
+>>> float
+<class 'float'>
+>>> 
+
+>>> type(x)
+<class 'int'>       
+>>> type(int)
+<class 'type'>      # int is an instance of type class
+>>> type(Point)
+<class 'type'>      # Point is an instance of type also
+>>> type            # type is a class: it's the blueprint to create other classes
+<class 'type'>
+>>> 

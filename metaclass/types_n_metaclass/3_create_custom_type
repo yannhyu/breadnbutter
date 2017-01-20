@@ -1,0 +1,41 @@
+>>> name = 'Point'
+>>> bases = (object,)    #1-tuple
+>>> def __init__(self, x, y):
+...     self.x = x
+...     self.y = y
+... 
+>>> def move(self, dx, dy):
+...     self.x += dx
+...     self.y += dy
+... 
+>>> methods = {
+...     '__init__': __init__,
+...     'move': move
+... }
+
+
+
+>>> class mytype(type):
+...     def __new__(meta, clsname, bases, methods):
+...         print('Creating:', clsname)
+...         print('Bases:', bases)
+...         print('Methods:', list(methods))
+...         return super().__new__(meta, clsname, bases, methods)
+... 
+>>> Point = mytype(name, bases, methods)
+Creating: Point
+Bases: (<class 'object'>,)
+Methods: ['__init__', 'move']    # monitor and supervise what happens in class definition
+>>> Point
+<class '__main__.Point'>
+>>> p = Point(2, 3)
+>>> p.x
+2
+>>> p.y
+3
+>>> p.move(4, 5)
+>>> p.x
+6
+>>> p.y
+8
+>>> 

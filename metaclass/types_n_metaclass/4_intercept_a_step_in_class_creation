@@ -1,0 +1,32 @@
+>>> class Point(metaclass=mytype):
+...     def __init__(self, x, y):
+...         self.x = x
+...         self.y = y
+...     def move(self, dx, dy):
+...         self.x += dx
+...         self.y += dy
+... 
+Creating: Point
+Bases: ()
+Methods: ['__module__', '__init__', '__qualname__', 'move']
+>>> 
+
+>>> 
+>>> class NewPoint(Point):
+...     def yow(self):
+...         print('Yow')
+... 
+Creating: NewPoint
+Bases: (<class '__main__.Point'>,)
+Methods: ['__module__', 'yow', '__qualname__']
+>>> 
+
+>>> 
+>>> class MyPoint(NewPoint):
+...     def spam(self):
+...         print('Spam')
+... 
+Creating: MyPoint
+Bases: (<class '__main__.NewPoint'>,)
+Methods: ['__module__', 'spam', '__qualname__']
+>>> 
