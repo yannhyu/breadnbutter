@@ -1,0 +1,25 @@
+(high) C:\Users\yann.yu\Documents\tips\how2python\how2sqlalchemy\how2sqlalchemy303to_postgresql_jsonb>python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>>
+>>> names = ['YHOO', 'IBM', 'AAPL']
+>>> for name in names:
+...     print(name)
+...
+YHOO
+IBM
+AAPL
+>>> it = names.__iter__()
+>>> it.__next__()
+'YHOO'
+>>> it.__next__()
+'IBM'
+>>> it.__next__()
+'AAPL'
+>>> it.__next__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>>
+
