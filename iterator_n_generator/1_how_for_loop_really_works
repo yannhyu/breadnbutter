@@ -26,3 +26,42 @@ StopIteration
 >>> it
 <list_iterator object at 0x0000026D16060C88>
 >>>
+
+
+>>> f = open('how2execute_raw_sql', 'r')
+>>> it = f.__iter__()
+>>> it
+<_io.TextIOWrapper name='how2execute_raw_sql' mode='r' encoding='cp1252'>
+>>> it.__next__()
+'Have you tried:\n'
+>>> it.__next__()
+'\n'
+>>> it.__next__()
+'result = db.engine.execute("<sql here>")\n'
+>>> it.__next__()
+'or:\n'
+>>> it.__next__()
+'\n'
+>>> it.__next__()
+'from sqlalchemy import text\n'
+>>> it.__next__()
+'\n'
+>>> it.__next__()
+"sql = text('select name from penguins')\n"
+>>> it.__next__()
+'result = db.engine.execute(sql)\n'
+>>> it.__next__()
+'names = []\n'
+>>> it.__next__()
+'for row in result:\n'
+>>> it.__next__()
+'    names.append(row[0])\n'
+>>> it.__next__()
+'\n'
+>>> it.__next__()
+'print names'
+>>> it.__next__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>>
