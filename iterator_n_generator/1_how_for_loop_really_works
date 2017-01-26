@@ -23,3 +23,6 @@ Traceback (most recent call last):
 StopIteration
 >>>
 
+>>> it
+<list_iterator object at 0x0000026D16060C88>
+>>>
