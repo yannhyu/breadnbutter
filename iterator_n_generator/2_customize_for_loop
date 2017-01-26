@@ -1,0 +1,29 @@
+yann.yu@mllxv-yu:breadnbutter$ python3 -i iterator_n_generator/customize_for_loop.py 
+Counting from 6
+6
+5
+4
+3
+2
+1
+Done
+>>> c = countdown(3)
+>>> c
+<generator object countdown at 0x7f4a6f88a468>
+>>> it = c.__iter__()
+>>> it
+<generator object countdown at 0x7f4a6f88a468>
+>>> it.__next__()
+Counting from 3
+3
+>>> it.__next__()
+2
+>>> 
+>>> it.__next__()
+1
+>>> it.__next__()
+Done
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> 
