@@ -1,0 +1,15 @@
+etl=> \d+ ins00
+                                              Table "public.ins00"
+ Column  |           Type           |             Modifiers              | Storage  | Stats target | Description
+---------+--------------------------+------------------------------------+----------+--------------+-------------
+ id      | uuid                     | not null default gen_random_uuid() | plain    |              |
+ data    | jsonb                    |                                    | extended |              |
+ created | timestamp with time zone | not null default now()             | plain    |              |
+ updated | timestamp with time zone | not null default now()             | plain    |              |
+Indexes:
+    "ins00_pkey" PRIMARY KEY, btree (id)
+    "idx_ins00_performance_data" gin (data)
+Triggers:
+    trigger_ins00_data_updated BEFORE UPDATE ON ins00 FOR EACH ROW EXECUTE PROCEDURE update_modified_column()
+
+etl=>

@@ -1,0 +1,28 @@
+sudo -u postgres -i
+
+postgres=#
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+GRANT ALL PRIVILEGES ON DATABASE etl TO test_user;
+
+etl=# GRANT ALL PRIVILEGES ON DATABASE etl TO test_user;
+GRANT
+etl=#
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+psql -U test_user -d etl
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+grant all privileges on database db_name to someuser;
+
+REVOKE ALL PRIVILEGES ON testdb FROM airflow;
+
+GRANT ALL PRIVILEGES ON etl TO test_user;
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+select CURRENT_USER;

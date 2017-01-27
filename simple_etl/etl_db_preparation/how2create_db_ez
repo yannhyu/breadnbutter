@@ -1,0 +1,14 @@
+CREATE DATABASE etl;
+
++++++++++++++++++++++++++++++++++++++++
+
+demodb=# CREATE DATABASE etl;
+CREATE DATABASE
+demodb=#
+
++++++++++++++++++++++++++++++++++++++++
+
+
+postgres=# CREATE DATABASE testdb;
+postgres-# 
+
