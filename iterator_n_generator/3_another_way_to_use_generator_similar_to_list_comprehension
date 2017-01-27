@@ -1,0 +1,27 @@
+yann.yu@mllxv-yu:breadnbutter$ python3
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> nums = [1,2,3,4,5,6]
+>>> squares = [x*x for x in nums]
+>>> squares
+[1, 4, 9, 16, 25, 36]
+>>> squares = (x*x for x in nums)
+>>> squares
+<generator object <genexpr> at 0x7fe312c78468>
+>>> it = squares.__iter__()
+>>> it
+<generator object <genexpr> at 0x7fe312c78468>
+>>> it.__next__
+<method-wrapper '__next__' of generator object at 0x7fe312c78468>
+>>> it.__next__()
+1
+>>> it.__next__()
+4
+>>> it.__next__()
+9
+>>> it.__next__()
+16
+>>> it.__next__()
+25
+>>> 
