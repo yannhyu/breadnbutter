@@ -7,25 +7,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.schema import MetaData
 import psycopg2
 
-INPUT_LAYOUT = ('cust_id', 'treatment_code', 'output_id', 'hid', 'acctnum', 'cpi',
-                'lname', 'mname', 'fname', 'addr1', 'addr2', 'city', 'state',
-                'zip5', 'zip4', 'ssn', 'gender', 'dob', 'g_lname', 'g_mname', 'g_fname',
-                'g_addr1', 'g_addr2', 'g_city', 'g_state', 'g_zip5', 'g_zip4', 'g_ssn',
-                'g_gender', 'g_dob', 'g_employ_name', 'provider_state',
-                'service_date_begin', 'service_date_end', 'pat_proc_type', 'pat_type',
-                'fin_class', 'payor_plan1', 'payor_plan2', 'cpt', 'drg', 'diag1', 'diag2',
-                'charges', 'balance', 'acct_status', 'client_field1', 'client_field2',
-                'client_field3', 'client_date1')
+INPUT_LAYOUT = ('acctnum', 'lname', 'mname', 'fname', 'addr1', 'addr2', 
+                'city', 'state', 'zip5', 'zip4', 'ssn', 'gender', 'dob')
 
-OUTPUT_FIELDS = ('cust_id', 'treatment_code', 'output_id', 'hid', 'acctnum', 'cpi',
-                'lname', 'mname', 'fname', 'addr1', 'addr2', 'city', 'state',
-                'zip5', 'zip4', 'ssn', 'gender', 'dob', 'g_lname', 'g_mname', 'g_fname',
-                'g_addr1', 'g_addr2', 'g_city', 'g_state', 'g_zip5', 'g_zip4', 'g_ssn',
-                'g_gender', 'g_dob', 'g_employ_name', 'provider_state',
-                'service_date_begin', 'service_date_end', 'pat_proc_type', 'pat_type',
-                'fin_class', 'payor_plan1', 'payor_plan2', 'cpt', 'drg', 'diag1', 'diag2',
-                'charges', 'balance', 'acct_status', 'client_field1', 'client_field2',
-                'client_field3', 'client_date1')
+OUTPUT_FIELDS = ('acctnum', 'lname', 'mname', 'fname', 'addr1', 'addr2', 
+                 'city', 'state', 'zip5', 'ssn', 'gender', 'dob')
 
 conn_str = 'postgresql://test_user:med@luckdb:5432/etl'
 engine = create_engine(conn_str)
