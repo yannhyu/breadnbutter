@@ -1,4 +1,17 @@
-# step_3_echoserver_via_coroutine.py
+# step_3_echoserver_one_client_at_a_time.py
+"""
+(dabeaz) yann.yu@mllxv-yu:Data$ nc localhost 25000
+hey
+Got:hey
+you
+Got:you
+how you doing slim?
+Got:how you doing slim?
+
+the limitation of this code: it can only handle one
+client connection at a time... a second client is not
+served until the first one closes its connection.
+"""
 
 from socket import *
 
@@ -23,3 +36,5 @@ def echo_handler(client):
 
 if __name__ == '__main__':
     echo_server(('', 25000))
+
+
