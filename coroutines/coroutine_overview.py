@@ -10,5 +10,6 @@ if __name__ == '__main__':
     print(g)
     import asyncio
     loop = asyncio.get_event_loop()
+    # running under management
     res = loop.run_until_complete(g)
     print(res)
