@@ -10,7 +10,7 @@ print(aday)
 print(aday.values())
 print(aday.keys())
 
-new_keys = ['le petit dejeuner', 'le dejeuner', 'le diner']
+new_keys = ['le petit déjeuner', 'le déjeuner', 'le dîner']
 
 un_jour = collections.OrderedDict(zip(new_keys, aday.values()))
 print(un_jour)
