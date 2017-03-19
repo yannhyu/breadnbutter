@@ -1,0 +1,147 @@
+http://stackoverflow.com/questions/115316/how-can-i-consume-a-wsdl-soap-web-service-in-python
+
++++++++++++++++++++++++++++++++++++++++++
+
+http://www.webservicex.com/new/Home/Index
+
++++++++++++++++++++++++++++++++++++++++++
+
+What modules do you need?
+
+Many suggested to use Python modules such as urllib2 ; however, none of the modules work-at least for this particular project.
+
+So, here is the list of the modules you need to get. First of all, you need to download and install the latest version of suds from the following link:
+
+    pypi.python.org/pypi/suds-jurko/0.4.1.jurko.2
+
+Additionally, you need to download and install requests and suds_requests modules from the following links respectively ( disclaimer: I am new to post in here, so I can't post more than one link for now).
+
+    pypi.python.org/pypi/requests
+
+    pypi.python.org/pypi/suds_requests/0.1
+
+Once you successfully download and install these modules, you are good to go.
+
+The code
+
+Following the steps outlined earlier, the code looks like the following: Imports:
+
+import logging
+from suds.client import Client
+from suds.wsse import *
+from datetime import timedelta,date,datetime,tzinfo
+import requests
+from requests.auth import HTTPBasicAuth
+import suds_requests
+
+Session request and authentication:
+
+username=input('Username:')
+password=input('password:')
+session = requests.session()
+session.auth=(username, password)
+
+Create the Client:
+
+client = Client(WSDL_URL, faults=False, cachingpolicy=1, location=WSDL_URL, transport=suds_requests.RequestsTransport(session))
+
+Add WS-Security Header:
+
+...
+addSecurityHeader(client,username,password)
+....
+
+def addSecurityHeader(client,username,password):
+    security=Security()
+    userNameToken=UsernameToken(username,password)
+    timeStampToken=Timestamp(validity=600)
+    security.tokens.append(userNameToken)
+    security.tokens.append(timeStampToken)
+    client.set_options(wsse=security)
+
+Please note that this method creates the security header depicted in Fig.1. So, your implementation may vary depending on the correct security header format provided by the owner of the service you are consuming.
+
+Consume the relevant method (or operation) :
+
+result=client.service.methodName(Inputs)
+
+Logging:
+
+One of the best practices in such implementations as this one is logging to see how the communication is executed. In case there is some issue, it makes debugging easy. The following code does basic logging. However, you can log many aspects of the communication in addition to the ones depicted in the code.
+
+logging.basicConfig(level=logging.INFO) 
+logging.getLogger('suds.client').setLevel(logging.DEBUG) 
+logging.getLogger('suds.transport').setLevel(logging.DEBUG)
+
+Result:
+
+Here is the result in my case. Note that the server returned HTTP 200. This is the standard success code for HTTP request-response.
+
+(200, (collectionNodeLmp){
+   timestamp = 2014-12-03 00:00:00-05:00
+   nodeLmp[] = 
+      (nodeLmp){
+         pnodeId = 35010357
+         name = "YADKIN"
+         mccValue = -0.19
+         mlcValue = -0.13
+         price = 36.46
+         type = "500 KV"
+         timestamp = 2014-12-03 01:00:00-05:00
+         errorCodeId = 0
+      },
+      (nodeLmp){
+         pnodeId = 33138769
+         name = "ZION 1"
+         mccValue = -0.18
+         mlcValue = -1.86
+         price = 34.75
+         type = "Aggregate"
+         timestamp = 2014-12-03 01:00:00-05:00
+         errorCodeId = 0
+      },
+ })
+
+shareedit
+    
+edited Feb 17 at 20:02
+    
+answered Dec 4 '14 at 19:13
+Teddy Belay
+18916
+    
+     
+    
+high five !! thank you sir. – sirvon Feb 23 '15 at 0:13
+1    
+    
+Might be worth of saying that suds_request will fail while installing, so if you are using suds-jurko fork, you can install suds_request which was adapted to work with jurko's version of suds: pip install git+https://github.com/chrcoe/suds_requests.git@feature/pyth‌​on3_suds_jurko – errata Feb 18 '16 at 10:28
+     
+    
+Great help, many thanks – cs_stackX Feb 29 '16 at 3:11
+add a comment
+up vote
+9
+down vote
+    
+
+Right now (as of 2008), all the SOAP libraries available for Python suck. I recommend avoiding SOAP if possible. The last time we where forced to use a SOAP web service from Python, we wrote a wrapper in C# that handled the SOAP on one side and spoke COM out the other.
+shareedit
+    
+edited Aug 8 '14 at 21:24
+the Tin Man
+116k23142211
+    
+answered Sep 22 '08 at 15:55
+Matthew Scouten
+5,07142340
+    
+11   
+    
+That sounds like an insanely complicated way to use a simple protocol based on xml and http. – ddaa Jan 12 '12 at 12:22
+     
+    
+At the time, 2008, this was the method that sucked the least for our needs. I seem to remember that that particular web service was extremely picky about something that all the python libraries were getting wrong. – Matthew Scouten Jan 16 '12 at 18:14
+19   
+    
+@ddaa - SOAP is many things but "simple" is not one of them. – Noah Yetter Aug 22 '12 at 23:53 
