@@ -1,0 +1,10 @@
+ian ~/Documents/pythoncode/breadnbutter/wsdl_soap_ws_lab $ python test_soap_wsdl.py 
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): www.webservicex.net
+DEBUG:suds.client:sending to (http://www.webservicex.net/stockquote.asmx?WSDL)
+message:
+<suds.sax.document.Document instance at 0x21fb908>
+DEBUG:suds.client:headers = {'SOAPAction': '"http://www.webserviceX.NET/GetQuote"', 'Content-Type': 'text/xml; charset=utf-8'}
+DEBUG:suds.client:HTTP succeeded:
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetQuoteResponse xmlns="http://www.webserviceX.NET/"><GetQuoteResult>&lt;StockQuotes&gt;&lt;Stock&gt;&lt;Symbol&gt;GOOG&lt;/Symbol&gt;&lt;Last&gt;852.12&lt;/Last&gt;&lt;Date&gt;3/17/2017&lt;/Date&gt;&lt;Time&gt;4:00pm&lt;/Time&gt;&lt;Change&gt;+3.34&lt;/Change&gt;&lt;Open&gt;851.61&lt;/Open&gt;&lt;High&gt;853.40&lt;/High&gt;&lt;Low&gt;847.11&lt;/Low&gt;&lt;Volume&gt;1716471&lt;/Volume&gt;&lt;MktCap&gt;589.17B&lt;/MktCap&gt;&lt;PreviousClose&gt;848.78&lt;/PreviousClose&gt;&lt;PercentageChange&gt;+0.39%&lt;/PercentageChange&gt;&lt;AnnRange&gt;663.28 - 853.40&lt;/AnnRange&gt;&lt;Earns&gt;27.88&lt;/Earns&gt;&lt;P-E&gt;30.57&lt;/P-E&gt;&lt;Name&gt;Alphabet Inc.&lt;/Name&gt;&lt;/Stock&gt;&lt;/StockQuotes&gt;</GetQuoteResult></GetQuoteResponse></soap:Body></soap:Envelope>
+(200, <StockQuotes><Stock><Symbol>GOOG</Symbol><Last>852.12</Last><Date>3/17/2017</Date><Time>4:00pm</Time><Change>+3.34</Change><Open>851.61</Open><High>853.40</High><Low>847.11</Low><Volume>1716471</Volume><MktCap>589.17B</MktCap><PreviousClose>848.78</PreviousClose><PercentageChange>+0.39%</PercentageChange><AnnRange>663.28 - 853.40</AnnRange><Earns>27.88</Earns><P-E>30.57</P-E><Name>Alphabet Inc.</Name></Stock></StockQuotes>)
+ian ~/Documents/pythoncode/breadnbutter/wsdl_soap_ws_lab $ 
