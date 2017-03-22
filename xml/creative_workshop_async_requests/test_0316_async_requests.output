@@ -1,0 +1,808 @@
+<?xml version="1.0" ?>
+<root>
+  
+  
+  <login>
+    
+    
+    <userid>medly00003</userid>
+    
+    
+    <password>cp96ah11wg18</password>
+    
+    
+    <realtime>1</realtime>
+    
+    
+    <protocol>1</protocol>
+    
+    
+    <timeout>10</timeout>
+    
+    
+    <sid>xtech:locate:consumer:4</sid>
+    
+    
+    <output>account</output>
+    
+  
+  </login>
+  
+  
+  <transaction>
+    
+    
+    <input>
+      
+      
+      <account>
+        
+        
+        <subuserid>Locate 4</subuserid>
+        
+        
+        <sourceid>2017-02-04 00:00:01</sourceid>
+        
+        
+        <groupid>15</groupid>
+        
+        
+        <account>105510</account>
+        
+      
+      </account>
+      
+      
+      <data>
+        
+        
+        <first>RAY</first>
+        
+        
+        <last>DIAZ</last>
+        
+        
+        <address>1000 W 45TH PL</address>
+        
+        
+        <city>HIALEAH</city>
+        
+        
+        <state>FL</state>
+        
+        
+        <zip>33012</zip>
+        
+        
+        <phone>None</phone>
+        
+        
+        <social>593256292</social>
+        
+        
+        <dob>19920811</dob>
+        
+        
+        <email>None</email>
+        
+      
+      </data>
+      
+    
+    </input>
+    
+  
+  </transaction>
+  
+
+</root>
+
+<?xml version="1.0" ?>
+<root>
+  <transaction>
+    <output>
+      <quality>
+        <input>locate</input>
+        <first>green</first>
+        <last>green</last>
+        <address>green</address>
+        <city>green</city>
+        <dob>green</dob>
+        <email>red</email>
+        <phone>red</phone>
+        <social>green</social>
+        <state>green</state>
+        <zip>green</zip>
+      </quality>
+      <address>
+        <first>RAY</first>
+        <last>DIAZ</last>
+        <address>1000 W 45TH PL</address>
+        <city>HIALEAH</city>
+        <dob>199208</dob>
+        <state>FL</state>
+        <zip>330123309</zip>
+        <match>FLAS</match>
+        <status>AA14</status>
+        <score>60</score>
+        <rank>1</rank>
+      </address>
+      <phone>
+        <first>RAFAEL</first>
+        <last>DIAZ</last>
+        <phone>3054012343</phone>
+        <match>L</match>
+        <status>AP04</status>
+        <score>76</score>
+        <rank>1</rank>
+      </phone>
+      <phone>
+        <first>RAY</first>
+        <last>DIAZ</last>
+        <dob>199208</dob>
+        <phone>3052004665</phone>
+        <match>FL</match>
+        <status>AP04</status>
+        <score>72</score>
+        <rank>2</rank>
+      </phone>
+      <message>
+        <input>data</input>
+        <code>MA01</code>
+        <message>Best address is the same or similar to input</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>MP03</code>
+        <message>Best phone is different than input</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>FP01</code>
+        <message>Phone invalid</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>AA14</code>
+        <message>Street Address</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>AP06</code>
+        <message>Phone and zip code mismatch</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>LA11</code>
+        <message>No different addresses found</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>VA02</code>
+        <message>Individual owns real property</message>
+      </message>
+    </output>
+    <status>
+      <result>data</result>
+      <count>4</count>
+      <uuid>ECE060BA-166D-4FA2-82D6-AB159FCFC1CF</uuid>
+      <latency>0.643458</latency>
+    </status>
+    <input>
+      <account>
+        <subuserid>Locate 4</subuserid>
+        <sourceid>2017-02-04 00:00:01</sourceid>
+        <groupid>15</groupid>
+        <account>105510</account>
+      </account>
+    </input>
+  </transaction>
+</root>
+
+<?xml version="1.0" ?>
+<root>
+  
+  
+  <login>
+    
+    
+    <userid>medly00003</userid>
+    
+    
+    <password>cp96ah11wg18</password>
+    
+    
+    <realtime>1</realtime>
+    
+    
+    <protocol>1</protocol>
+    
+    
+    <timeout>10</timeout>
+    
+    
+    <sid>xtech:locate:consumer:4</sid>
+    
+    
+    <output>account</output>
+    
+  
+  </login>
+  
+  
+  <transaction>
+    
+    
+    <input>
+      
+      
+      <account>
+        
+        
+        <subuserid>Locate 4</subuserid>
+        
+        
+        <sourceid>2017-02-04 00:00:01</sourceid>
+        
+        
+        <groupid>15</groupid>
+        
+        
+        <account>104503</account>
+        
+      
+      </account>
+      
+      
+      <data>
+        
+        
+        <first>SHERELL</first>
+        
+        
+        <last>MING</last>
+        
+        
+        <address>8306 CROTON AVE</address>
+        
+        
+        <city>TAMPA</city>
+        
+        
+        <state>FL</state>
+        
+        
+        <zip>33619</zip>
+        
+        
+        <phone>None</phone>
+        
+        
+        <social>595056738</social>
+        
+        
+        <dob>19810605</dob>
+        
+        
+        <email>None</email>
+        
+      
+      </data>
+      
+    
+    </input>
+    
+  
+  </transaction>
+  
+
+</root>
+
+<?xml version="1.0" ?>
+<root>
+  <transaction>
+    <output>
+      <quality>
+        <input>locate</input>
+        <first>green</first>
+        <last>green</last>
+        <address>green</address>
+        <city>green</city>
+        <dob>green</dob>
+        <email>red</email>
+        <phone>red</phone>
+        <social>green</social>
+        <state>green</state>
+        <zip>green</zip>
+      </quality>
+      <address>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <address>8306 CROTON AVE</address>
+        <city>TAMPA</city>
+        <dob>198106</dob>
+        <state>FL</state>
+        <zip>336197430</zip>
+        <match>FLAS</match>
+        <status>AA14</status>
+        <score>60</score>
+        <rank>1</rank>
+      </address>
+      <address>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <address>1501 E HUMPHREY ST APT B</address>
+        <city>TAMPA</city>
+        <state>FL</state>
+        <zip>336041900</zip>
+        <match>FLS</match>
+        <status>AA13</status>
+        <score>45</score>
+        <rank>2</rank>
+      </address>
+      <address>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <address>3710 W CASS ST APT 15</address>
+        <city>TAMPA</city>
+        <dob>198106</dob>
+        <state>FL</state>
+        <zip>336091356</zip>
+        <match>FLS</match>
+        <status>AA13</status>
+        <score>45</score>
+        <rank>3</rank>
+      </address>
+      <address>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <address>9403 N 12TH ST APT A</address>
+        <city>TAMPA</city>
+        <state>FL</state>
+        <zip>336128579</zip>
+        <match>FLS</match>
+        <status>AA13</status>
+        <score>37</score>
+        <rank>4</rank>
+      </address>
+      <phone>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <phone>8136779056</phone>
+        <match>FL</match>
+        <score>74</score>
+        <rank>1</rank>
+      </phone>
+      <phone>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <phone>8134101151</phone>
+        <match>FL</match>
+        <status>AP04</status>
+        <score>74</score>
+        <rank>2</rank>
+      </phone>
+      <phone>
+        <first>RICARDO</first>
+        <last>MING</last>
+        <phone>8132970578</phone>
+        <match>L</match>
+        <status>AP04</status>
+        <score>72</score>
+        <rank>3</rank>
+      </phone>
+      <phone>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <dob>198106</dob>
+        <phone>8133179539</phone>
+        <match>FL</match>
+        <status>AP04</status>
+        <score>72</score>
+        <rank>4</rank>
+      </phone>
+      <phone>
+        <first>FELICIA</first>
+        <last>MING</last>
+        <dob>195808</dob>
+        <phone>8132476639</phone>
+        <match>L</match>
+        <score>72</score>
+        <rank>5</rank>
+      </phone>
+      <phone>
+        <first>MARIO</first>
+        <last>MING</last>
+        <dob>197807</dob>
+        <phone>8136267503</phone>
+        <match>L</match>
+        <score>72</score>
+        <rank>6</rank>
+      </phone>
+      <phone>
+        <first>RICK</first>
+        <last>MING</last>
+        <dob>196501</dob>
+        <phone>8135485400</phone>
+        <match>L</match>
+        <score>72</score>
+        <rank>7</rank>
+      </phone>
+      <phone>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <phone>8134470594</phone>
+        <match>FL</match>
+        <status>AP04</status>
+        <score>69</score>
+        <rank>8</rank>
+      </phone>
+      <phone>
+        <first>SHERELL</first>
+        <last>MING</last>
+        <phone>8136322043</phone>
+        <match>FL</match>
+        <score>69</score>
+        <rank>9</rank>
+      </phone>
+      <message>
+        <input>data</input>
+        <code>MA01</code>
+        <message>Best address is the same or similar to input</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>MP03</code>
+        <message>Best phone is different than input</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>FP01</code>
+        <message>Phone invalid</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>AA14</code>
+        <message>Street Address</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>AP06</code>
+        <message>Phone and zip code mismatch</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>LA13</code>
+        <message>Two or more different addresses found</message>
+      </message>
+    </output>
+    <status>
+      <result>data</result>
+      <count>14</count>
+      <uuid>FE488402-322F-4D90-9294-02FAEFF88782</uuid>
+      <latency>1.017084</latency>
+    </status>
+    <input>
+      <account>
+        <subuserid>Locate 4</subuserid>
+        <sourceid>2017-02-04 00:00:01</sourceid>
+        <groupid>15</groupid>
+        <account>104503</account>
+      </account>
+    </input>
+  </transaction>
+</root>
+
+<?xml version="1.0" ?>
+<root>
+  
+  
+  <login>
+    
+    
+    <userid>medly00003</userid>
+    
+    
+    <password>cp96ah11wg18</password>
+    
+    
+    <realtime>1</realtime>
+    
+    
+    <protocol>1</protocol>
+    
+    
+    <timeout>10</timeout>
+    
+    
+    <sid>xtech:locate:consumer:4</sid>
+    
+    
+    <output>account</output>
+    
+  
+  </login>
+  
+  
+  <transaction>
+    
+    
+    <input>
+      
+      
+      <account>
+        
+        
+        <subuserid>Locate 4</subuserid>
+        
+        
+        <sourceid>2017-02-04 00:00:01</sourceid>
+        
+        
+        <groupid>15</groupid>
+        
+        
+        <account>138969</account>
+        
+      
+      </account>
+      
+      
+      <data>
+        
+        
+        <first>RAYMOND</first>
+        
+        
+        <last>WHITE</last>
+        
+        
+        <address>1280 CEDAR</address>
+        
+        
+        <city>WOOD RIVER</city>
+        
+        
+        <state>IL</state>
+        
+        
+        <zip>62095</zip>
+        
+        
+        <phone>None</phone>
+        
+        
+        <social>342567527</social>
+        
+        
+        <dob>19580420</dob>
+        
+        
+        <email>None</email>
+        
+      
+      </data>
+      
+    
+    </input>
+    
+  
+  </transaction>
+  
+
+</root>
+
+<?xml version="1.0" ?>
+<root>
+  <transaction>
+    <output>
+      <quality>
+        <input>locate</input>
+        <first>green</first>
+        <last>green</last>
+        <address>green</address>
+        <city>green</city>
+        <dob>green</dob>
+        <email>red</email>
+        <phone>red</phone>
+        <social>green</social>
+        <state>green</state>
+        <zip>green</zip>
+      </quality>
+      <address>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <address>12209 SE PLANDOME DR</address>
+        <city>HOBE SOUND</city>
+        <dob>195804</dob>
+        <state>FL</state>
+        <zip>334557919</zip>
+        <match>FLS</match>
+        <status>AA14</status>
+        <score>71</score>
+        <rank>1</rank>
+      </address>
+      <address>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <address>5709 MAIN ST</address>
+        <city>WATAUGA</city>
+        <dob>195804</dob>
+        <state>TX</state>
+        <zip>761483072</zip>
+        <match>FLS</match>
+        <status>AA14</status>
+        <score>50</score>
+        <rank>2</rank>
+      </address>
+      <address>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <address>82 WATERSIDE DR APT F</address>
+        <city>GROVER</city>
+        <dob>195803</dob>
+        <state>MO</state>
+        <zip>630401665</zip>
+        <match>FLS</match>
+        <status>AA13</status>
+        <score>48</score>
+        <rank>3</rank>
+      </address>
+      <address>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <address>2101 STRATFORD DR</address>
+        <city>BEDFORD</city>
+        <dob>195804</dob>
+        <state>TX</state>
+        <zip>760215325</zip>
+        <match>FLS</match>
+        <status>AA14</status>
+        <score>44</score>
+        <rank>4</rank>
+      </address>
+      <address>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <address>1709 ARBOR MILL CIR APT 1314</address>
+        <city>BEDFORD</city>
+        <dob>195804</dob>
+        <state>TX</state>
+        <zip>760215765</zip>
+        <match>FLS</match>
+        <status>AA13</status>
+        <score>39</score>
+        <rank>5</rank>
+      </address>
+      <address>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <address>652 CHARLES AVE</address>
+        <city>WOOD RIVER</city>
+        <dob>195803</dob>
+        <state>IL</state>
+        <zip>620951846</zip>
+        <match>FLS</match>
+        <status>AA14</status>
+        <score>38</score>
+        <rank>6</rank>
+      </address>
+      <address>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <address>546 37TH AVE</address>
+        <city>VERO BEACH</city>
+        <dob>195804</dob>
+        <state>FL</state>
+        <zip>329681931</zip>
+        <match>FLS</match>
+        <status>AA14</status>
+        <score>38</score>
+        <rank>7</rank>
+      </address>
+      <phone>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <phone>7722458414</phone>
+        <match>FL</match>
+        <score>76</score>
+        <rank>1</rank>
+      </phone>
+      <phone>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <phone>8175038543</phone>
+        <match>FL</match>
+        <score>76</score>
+        <rank>2</rank>
+      </phone>
+      <phone>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <phone>3146205623</phone>
+        <match>FL</match>
+        <status>AP04</status>
+        <score>74</score>
+        <rank>3</rank>
+      </phone>
+      <phone>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <phone>5059301512</phone>
+        <match>FL</match>
+        <status>AP04</status>
+        <score>74</score>
+        <rank>4</rank>
+      </phone>
+      <phone>
+        <first>RAY WHITE</first>
+        <last>WHITE</last>
+        <phone>6364582741</phone>
+        <match>L</match>
+        <score>74</score>
+        <rank>5</rank>
+      </phone>
+      <phone>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <phone>8172800568</phone>
+        <match>FL</match>
+        <score>72</score>
+        <rank>6</rank>
+      </phone>
+      <phone>
+        <first>RAYMOND</first>
+        <last>WHITE</last>
+        <phone>7722317995</phone>
+        <match>FL</match>
+        <score>72</score>
+        <rank>7</rank>
+      </phone>
+      <message>
+        <input>data</input>
+        <code>MA02</code>
+        <message>Best address is different than input</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>MP03</code>
+        <message>Best phone is different than input</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>FP01</code>
+        <message>Phone invalid</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>AA14</code>
+        <message>Street Address</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>AP06</code>
+        <message>Phone and zip code mismatch</message>
+      </message>
+      <message>
+        <input>data</input>
+        <code>LA13</code>
+        <message>Two or more different addresses found</message>
+      </message>
+    </output>
+    <status>
+      <result>data</result>
+      <count>15</count>
+      <uuid>7CE5403F-E3CA-43FF-91D5-9032D2CF57A6</uuid>
+      <latency>1.981052</latency>
+    </status>
+    <input>
+      <account>
+        <subuserid>Locate 4</subuserid>
+        <sourceid>2017-02-04 00:00:01</sourceid>
+        <groupid>15</groupid>
+        <account>138969</account>
+      </account>
+    </input>
+  </transaction>
+</root>
+

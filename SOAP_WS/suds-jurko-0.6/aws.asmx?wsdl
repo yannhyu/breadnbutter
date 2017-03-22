@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://ra.emdeon.com/AstWebService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://ra.emdeon.com/AstWebService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://ra.emdeon.com/AstWebService/">
+      <s:element name="RunTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Request" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunTransactionResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RunTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:RunTransaction" />
+  </wsdl:message>
+  <wsdl:message name="RunTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:RunTransactionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AWSSoap">
+    <wsdl:operation name="RunTransaction">
+      <wsdl:input message="tns:RunTransactionSoapIn" />
+      <wsdl:output message="tns:RunTransactionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AWSSoap" type="tns:AWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RunTransaction">
+      <soap:operation soapAction="https://ra.emdeon.com/AstWebService/RunTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AWSSoap12" type="tns:AWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RunTransaction">
+      <soap12:operation soapAction="https://ra.emdeon.com/AstWebService/RunTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AWS">
+    <wsdl:port name="AWSSoap" binding="tns:AWSSoap">
+      <soap:address location="https://ra.emdeon.com/astwebservice/aws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AWSSoap12" binding="tns:AWSSoap12">
+      <soap12:address location="https://ra.emdeon.com/astwebservice/aws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

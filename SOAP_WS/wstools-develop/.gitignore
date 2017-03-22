@@ -1,0 +1,16 @@
+dist
+*.egg-info
+*.pyc
+*.egg
+.tox
+~*.*
+build/
+.idea/
+.python-version
+.vscode
+/.idea/misc.xml
+/.idea/modules.xml
+/.cache
+/.eggs
+/ChangeLog
+/AUTHORS
