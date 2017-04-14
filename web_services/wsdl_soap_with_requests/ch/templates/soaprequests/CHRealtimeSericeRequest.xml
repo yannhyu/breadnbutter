@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ast="https://ra.emdeon.com/AstWebService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ast:RunTransaction>
+         <!--Optional:-->
+         <ast:UserName>{{ UserName }}</ast:UserName>
+         <!--Optional:-->
+         <ast:Password>{{ Password }}</ast:Password>
+         <!--Optional:-->
+         <ast:Request>{{ Data }}</ast:Request>
+      </ast:RunTransaction>
+   </soapenv:Body>
+</soapenv:Envelope>
