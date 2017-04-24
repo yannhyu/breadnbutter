@@ -6,10 +6,11 @@ from contextlib import closing
 from jinja2 import Environment, PackageLoader
 
 WSDL_URL = 'http://www.webservicex.net/stockquote.asmx?WSDL'
+URL = 'http://www.webservicex.net/stockquote.asmx'
 
 def generate_req_body(req_data):
     env = Environment(loader=PackageLoader('ch', 'templates'))
-    template = env.get_template('soaprequests/StockQuoteSericeRequest.xml')
+    template = env.get_template('soaprequests/EZStockQuoteSericeRequest.xml')
     body = template.render(Data=req_data)
     #print(body)
     return body
@@ -32,7 +33,8 @@ if __name__ == '__main__':
     ses.keep_alive = False
     for req_data in get_reqs():
         headers = get_req_headers()
-        response = ses.post(WSDL_URL,data=req_data,headers=headers,verify=True,timeout=30,auth=auth,stream=False)
+        response = ses.post(URL,data=req_data,headers=headers,verify=True,timeout=30,auth=auth,stream=False)
+        #response.raise_for_status()
         resp_payload = response.content
         print(resp_payload)
         #try:
