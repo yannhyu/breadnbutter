@@ -1,7 +1,7 @@
 # namedtuple_with_sqlalchemy_core.py
 
 # set up a data model. 
-# We’ll just track user names and email addresses, 
+# We will just track user names and email addresses, 
 # so the namedtuple will look like this
 from collections import namedtuple
 User = namedtuple('User', ["id", "name", "email"])
