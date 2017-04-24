@@ -1,0 +1,583 @@
+App Dev Cloud Data Center Mobile Open Source Security Deep Dives Reviews Resources/White Papers
+Search   
+ infoworld  Sign In | Register
+Analytics
+ALL ANALYTICS
+Big Data
+Business Intelligence
+Application Development
+ALL APPLICATION DEVELOPMENT
+Java
+JavaScript
+Node.js
+Careers
+Cloud Computing
+ALL CLOUD COMPUTING
+Cloud Storage
+IaaS
+PaaS
+SaaS
+Collaboration
+Databases
+ALL DATABASES
+Hadoop
+NoSQL
+Datacenters
+ALL DATACENTERS
+Devops
+Disaster Recovery
+Systems Management
+Hardware
+Internet of Things
+Mobile
+ALL MOBILE
+Android
+Mobile Apps
+Mobile Development
+Mobile Management
+iOS
+Networking
+ALL NETWORKING
+Internet
+SDN
+Wi-Fi
+Open Source
+Operating Systems
+ALL OPERATING SYSTEMS
+Linux
+MacOS
+Microsoft Windows
+Windows Server
+Security
+Software
+ALL SOFTWARE
+Browsers
+Office Software
+Storage
+Virtualization
+See All Technologies
+News
+Blogs
+Reviews
+Tech Watch
+Insider articles
+Newsletters
+Deep Dives
+Slideshows
+Video
+Resources/White Papers
+
+Home Application Development
+21 hot programming trends—and 21 going cold
+Hot or not? From the web to the motherboard to the training ground, get the scoop on what's in and what's out in app dev
+               
+Peter Wayner By Peter Wayner
+Contributing Editor, InfoWorld | APR 10, 2017
+
+21 hot programming trends -- and 21 going cold
+Credit: HOA420 via Wikimedia
+MORE LIKE THIS
+App dev trends going hot -- and cold
+21 hot programming trends -- and 21 going cold
+15 hot programming trends -- and 15 going cold
+
+15 trends and 15 turn-offs in app dev
+
+VIDEO
+Why you need to start using Polymer for your Web development
+
+
+
+61ijj qsz1l. sl1500
+75% off Lamicall S1 Cell Phone Dock - Deal Alert
+steam link
+Steam Link Is 18% Off - Mirror Your Gaming Setup to TV at 1080p - Deal Alert
+aukey soundtank bluetooth speaker
+18% off AUKEY SoundTank Bluetooth Water Resistant Speaker with 30-Hour...
+
+Data Analytics for Beginners: Basic …
+$12.55
+ (27)
+
+Docker in Action
+$34.21
+ (18)
+Ads by Amazon  
+RELATED ARTICLES
+Red and blue boxing gloves facing each other
+NoSQL grudge match: MongoDB vs. Couchbase Server
+electrical grid powerline
+Tap the power of Google's Go language
+shipping industry with loading binary code containers on ship representing the concept of software
+5 reasons developers love containers
+See all Insider
+Programmers love to sneer at the world of fashion where trends blow through like breezes. Skirt lengths rise and fall, pigments come and go, ties get fatter, then thinner. But in the world of technology, rigor, science, math, and precision rule over fad.
+
+That's not to say programming is a profession devoid of trends. The difference is that programming trends are driven by greater efficiency, increased customization, and ease of use. The new technologies that deliver one or more of these eclipse the previous generation. It's a meritocracy, not a whimsy-ocracy.
+
+[ Find out how to get ahead with our career development guide for developers. | Keep up with hot topics in programming with InfoWorld's App Dev Report newsletter. ]
+What follows is a list of what's hot and what's not among today's programmers. Not everyone will agree with what's A-listed, what's D-listed, and what's been left out. That's what makes programming an endlessly fascinating profession: rapid change, passionate debate, sudden comebacks.
+
+Hot: Preprocessors
+
+Not: Full language stacks
+
+It wasn't long ago that people who created a new programming language had to build everything that turned code into the bits fed to the silicon. Then someone figured out they could piggyback on the work that came before. Now people with a clever idea simply write a preprocessor that translates the new code into something old with a rich set of libraries and APIs.
+
+The scripting languages like Python or JavaScript were once limited to little projects, but now they’re the foundation for serious work. And those who didn’t like JavaScript created CoffeeScript, a preprocessor that lets them code, again, without the onerous punctuation. There are dozens of variations preslicing and predicing the syntax in a different way.
+
+The folks who loved dynamic typing created Groovy, a simpler version of Java without the overly insistent punctuation. There seem to be dozens of languages like Scala or Clojure that run on the JVM, but there's only one JVM. You can run many languages on .Net’s VM. Why reinvent the wheel?
+
+Hot: Docker
+
+Not: Hypervisors
+
+This isn’t exactly true. The hypervisors have their place, and many Docker containers run inside of operating systems running on top of hypervisors. However, Docker containers are soooo much smaller than virtual machine images, and that makes them much easier to use and deploy.
+
+When developers can, they prefer to ship only Docker containers, thanks to the ease with which they can be juggled during deployment. Clever companies such as Joyent are figuring out how to squeeze even more fat out of the stack so that the containers can run, as they like to say, on “bare metal.”
+
+In the digital business era, you need agility to seize new opportunities while efficiently maintaining legacy, on-premise systems.
+
+Hot: JavaScript MV* frameworks
+
+Not: JavaScript files
+
+Long ago, everyone learned to write JavaScript to pop up an alert box or check to see that the email address in the form contained an @ sign. Now HTML AJAX apps are so sophisticated that few people start from scratch. It's simpler to adopt an elaborate framework and write a bit of glue code to implement your business logic.
+
+There are now dozens of frameworks like Kendo, Sencha, jQuery Mobile, AngularJS, Ember, Backbone, Meteor JS, and many more, all ready to handle the events and content for your web apps and pages.
+
+Those are merely the web apps. There are also a number tuned to offering cross-platform development for the smartphone/tablet world. Technologies like NativeScript, PhoneGap, and Ext JS are a few of the options for creating apps out of HTML5 technology.
+
+Hot: CSS frameworks
+
+Not: Generic Cascading Style Sheets
+
+Once upon a time, adding a bit of pizzazz to a web page meant opening the CSS file and including a new command like font-style:italic. Then you saved the file and went to lunch after a hard morning's work. Now web pages are so sophisticated that it's impossible to fill a file with such simple commands. One tweak to a color and everything goes out of whack. It's like what they say about conspiracies and ecologies: Everything is interconnected.
+
+That's where CSS frameworks like SASS and its cousins Compass have found solid footing. They encourage literate, stable coding by offering programming constructs such as real variables, nesting blocks, and mix-ins. It may not sound like much newness in the programming layer, but it's a big leap forward for the design layer.
+
+Hot: Video tags
+
+Not: Static tags
+
+Once upon a time, video was something you watched on YouTube or Vimeo. It was a separate thing that lived on its own in a dedicated page. That’s changing as more and more websites use video as building blocks like static GIFs or JPGs. All of a sudden, the screen starts to move as the people or dogs come alive.
+
+Designers are discovering that the modern video tag is simply another rectangle, albeit a rectangle that often needs a bit more JavaScript code from the programmer to control it. We’re only beginning to understand that video isn’t the main course for that box in front of the living room couch, but a decorating option everywhere.
+
+Hot: Almost big data (analysis without Hadoop)
+
+Not: Big data (with Hadoop)
+
+Everyone likes to feel like the Big Man on Campus, and if they aren't, they're looking for a campus of the appropriate size where they can stand out. It's no surprise then that when the words "big data" started flowing through the executive suite, the suits started asking for the biggest, most powerful big data systems as if they were purchasing a yacht or a skyscraper.
+
+The funny thing is many problems aren't big enough to use the fanciest big data solutions. Sure, companies like Google or Yahoo track all of our web browsing; they have data files measured in petabytes or yottabytes. But most companies have data sets that can easily fit in the RAM of a basic PC. I'm writing this on a PC with 16GB of RAM—enough for a billion events with a handful of bytes. In most algorithms, the data doesn't need to be read into memory because streaming it from an SSD is fine.
+
+There will be instances that demand the fast response times of dozens of machines in a Hadoop cloud running in parallel, but many will do fine plugging along on a single machine without the hassles of coordination or communication.
+
+Hot: Spark
+
+Not: Hadoop
+
+It’s not so much that Hadoop is cooling off. It’s more that Spark is red hot, making the Hadoop model look a bit old. Spark borrows some of the best ideas of Hadoop’s approach to extracting meaning from large volumes of data and updates them with a few solid improvements that make the code run much, much faster. The biggest may be the way that Spark keeps data in fast memory instead of requiring everything be written to the distributed file system.
+
+Of course many people are merging the two by using Spark’s processing speed on data stored in Hadoop’s distributed file system. They’re more partners than competitors.
+
+Hot: Artificial intelligence/machine learning
+
+Not: Big data
+
+No one knows what the phrase “artificial intelligence” means, and that helps the marketers, especially since the term “big data” has run its course. They’re grabbing terms from artificial intelligence and upgrading the sophistication of the big, number-crunching algorithms that plow through our log files and clickstreams. By borrowing the more sophisticated algorithms from the 50-odd years of AI research, we stand a better chance than ever of finding that signal in the noise. Tools run the gamut from machine learning frameworks to cognitive computing, all the way up to IBM’s Watson, which you can now ping to solve your problems. Each offers its own level of machine intelligence and, with this, the promise of taking over more of the data analysis and forensics for us.
+
+Hot: Robotics
+
+Not: Virtual things
+
+Was it only a few minutes ago that we were all going to be living in virtual reality where everything was drawn on our retinas by some video card? It still might happen, but in the meantime the world of robotics is exploding. Every school has a robotics team, and every corner of the house is now open to a robotics invasion. The robot vacuum cleaners are old news and the drones are taking off.
+
+That means programmers need to start thinking about how to write code to control the new machines. For the time being, that often means writing scripts for lightweight controllers like the Raspberry Pi, but that’s bound to change as the libraries grow more sophisticated. Many roboticists, for instance, like hacking the code in OpenCV, a machine vision platform filled with C. This means new rules, new libraries, new protocols, and plenty of other new topics to think about.
+
+Hot: Single-page web apps
+
+Not: Websites
+
+Remember when URLs pointed to web pages filled with static text and images? How simple and quaint to put all information in a network of separate web pages called a website. The design team would spend hours haggling over the site map and trying to make it easy enough to navigate.
+
+New web apps are front ends to large databases filled with content. When the web app wants information, it pulls it from the database and pours it into the local mold. There's no need to mark up the data with all the web extras needed to build a web page. The data layer is completely separate from the presentation and formatting layer. Here, the rise of mobile computing is another factor: a single, responsive-designed web page that work like an app -- to better avoid the turmoil of the app stores.
+
+Hot: Mobile web apps
+
+Not: Native mobile apps
+
+Let's say you have a great idea for mobile content. You could rush off and write separate versions for iOS, Android, Windows 8, and maybe even BlackBerry OS or one of the others. Each requires a separate team speaking a different programming language. Then each platform's app store exerts its own pound of flesh before the app can be delivered to the users.
+
+Or you could build one HTML app and put it on a website to run on all the platforms. If there's a change, you don't need to return to the app store, begging for a quick review of a bug fix. Now that the HTML layer is getting faster and running on faster chips, this approach can compete with native apps better on even more complicated and interactive apps.
+
+Related: Application Development Careers Java Web Development iOS Android Hadoop
+1 2 NEXT 
+YOU MIGHT LIKE
+ Ads by Revcontent
+Why Doctors in the Know No Longer Prescribe Metformin (WATCH)
+Health Family
+Check Out These New 2017 Crossover SUV's
+Crossover SUV Sponsored Ads
+Georgia Homeowners Get $4,264 Back Thanks To New Bill
+Financial Patrol
+We Can Guess Your Education Level With This Quiz
+Definition
+Trump IQ VS Obama IQ - Guess The Winner
+PollHype
+Why the Us Dumped Helicopters Overboard During the Vietnam War
+War Bitz
+Word zero-day affects all versions of Office and Windows
+Stack Overflow: Like sleep? Don't code in C
+Intel ships latest Itanium chip, called Kittson, but grim future looms
+New Rule In Atlanta, Georgia Leaves Drivers Fuming
+Better Finances
+MOST READ
+frustrated
+Windows 10 install problems — and how to solve them
+Having trouble installing and setting up Win10? You aren’t alone. Here are many of the most common...
+
+angular angularjs book
+Angular 3 is hot on the heels of Angular 2
+How to speed up Windows 7 Update scans -- forever
+How to speed up Windows 7 Update scans—forever
+ 
+NEWSLETTERS
+Sign up and receive the latest news, reviews, and analyses on your favorite technology topics.
+Get our InfoWorld Daily Newsletter:
+
+
+Enter your email address
+ Go
+ Best Android Phone hub primary image
+Best Android phones: What should you buy?
+Picking an Android phone can be difficult, but we're here to help. These are the top Android phones you...
+
+ 
+Alternative facts: 9 falsehoods programmers believe
+9 lies programmers tell themselves
+Confidence in our power over machines also makes us guilty of hoping to bend reality to our code
+
+BRANDPOSTSLEARN MORE
+cloud image
+SPONSORED BY Hewlett Packard Enterprise
+IT decision makers reveal 6 hybrid cloud adoption trends
+RESOURCES
+
+VIDEO/WEBCAST
+SPONSORED
+Data Lake: Harnessing the Power of Unstructured Data
+VIDEO/WEBCAST
+SPONSORED
+From On-Premises to Cloud: Modernize Data Protection with Druva Phoenix and AWS
+VIDEO/WEBCAST
+SPONSORED
+How to Build a No-Compromise Enterprise-Class NAS on AWS
+
+VIDEO/WEBCAST
+SPONSORED
+IDC & Dell EMC present Digital Transformation: Analytics and The Essential Data Lake
+
+WHITE PAPER
+Optimize Your Enterprise Data Warehouse with Hadoop
+
+Search Resources
+  Go
+TOP STORIES
+future what is next
+11 technologies developers should explore now
+From machine learning to digital twins, opportunities abound in emerging (and converging) tech trends
+
+ fast computer server speed
+Why Slack can't slow down
+Slack reached a $1 billion valuation faster than any startup in history. Now it must make key decisions...
+
+ construction building crane architecture
+3 signs your Kubernetes distro is built to last
+As the container orchestration system booms in popularity and acceptance, so will commercial Kubernetes...
+
+Oracle floats Java hardware acceleration proposal
+Project Trinity would enhance Streams with data processing hardware features for greater efficiency
+
+SPONSORED LINKS
+INSTANTLY dtSearch® TERABYTES OF FILE+EMAIL+DB+WEB DATA; reviews/evals
+
+InfoWorld FOLLOW US
+Analytics  Application Development  Careers  Cloud Computing  Collaboration  Databases  Datacenters  Hardware  Internet of Things  Mobile  Networking  Open Source  Operating Systems  Security  Software  Storage  Virtualization
+News Blogs Reviews Insider Resources Newsletters
+ABOUT US CONTACT PRIVACY POLICY ADVERTISING CAREERS AT IDG SITE MAP AD CHOICES E-COMMERCE AFFILIATE RELATIONSHIPS
+Copyright © 2017 IDG Communications, Inc.
+Explore the IDG Network descend
+
+App Dev Cloud Data Center Mobile Open Source Security Deep Dives Reviews Resources/White Papers
+Search   
+ infoworld  Sign In | Register
+Analytics
+Application Development
+Careers
+Cloud Computing
+Collaboration
+Databases
+Datacenters
+Hardware
+Internet of Things
+Mobile
+Networking
+Open Source
+Operating Systems
+Security
+Software
+Storage
+Virtualization
+See All Technologies
+News
+Blogs
+Reviews
+Tech Watch
+Insider articles
+Newsletters
+Deep Dives
+Slideshows
+Video
+Resources/White Papers
+
+Home Application Development
+21 hot programming trends—and 21 going cold
+Hot or not? From the web to the motherboard to the training ground, get the scoop on what's in and what's out in app dev
+               
+Peter Wayner By Peter Wayner
+Contributing Editor, InfoWorld | APR 10, 2017
+
+MORE LIKE THIS
+App dev trends going hot -- and cold
+21 hot programming trends -- and 21 going cold
+15 hot programming trends -- and 15 going cold
+
+15 trends and 15 turn-offs in app dev
+
+VIDEO
+Why you need to start using Polymer for your Web development
+
+
+ring doorbell
+Ring Video Doorbell Pro Discounted $50 on Amazon - Deal Alert
+61ijj qsz1l. sl1500
+75% off Lamicall S1 Cell Phone Dock - Deal Alert
+steam link
+Steam Link Is 18% Off - Mirror Your Gaming Setup to TV at 1080p - Deal Alert
+RELATED ARTICLES
+controlling privacy
+How to track and secure open source in your enterprise
+Red and blue boxing gloves facing each other
+NoSQL grudge match: MongoDB vs. Couchbase Server
+electrical grid powerline
+Tap the power of Google's Go language
+See all Insider
+
+Page 2 of 2
+Hot: Android
+
+Not: iOS
+
+Was it only a few years ago that lines snaked out of Apple's store? Times change. While the iPhone and iPad continue to have dedicated fans who love their rich, sophisticated UI, the raw sales numbers continue to favor Android. Some reports even say that more than 80 percent of phones sold were Androids.
+
+The reason may be as simple as cost. While iOS devices still cost a pretty penny, the Android world is flooded with plenty of competition that's producing tablets for as low as one-fifth the price. Saving money is always a temptation.
+
+But another factor may be the effect of open source. Anyone can compete in the marketplace—and they do. There are big Android tablets and little ones. There are Android cameras and even Android refrigerators. No one has to say, "Mother, may I?" to Google to innovate. If they have an idea, they follow their mind.
+
+Apple, though, is learning from Android. The iPhone 6 comes with different screen sizes, and what do you know? The lines are starting to reappear.
+
+Hot: GPU
+
+Not: CPU
+
+When software was simple and the instructions were arranged in a nice line, the CPU was king of the computer because it did all of the heavy lifting. Now that video games are filled with extensive graphical routines that can run in parallel, the video card runs the show. It's easy to spend $500, $600, or more on a fancy video card, and some serious gamers use more than one. That's more than double the price of many basic desktops. Gamers aren't the only ones bragging about their GPU cards. Computer scientists are now converting many parallel applications to run hundreds of times faster on the GPU.
+
+Hot: GitHub
+
+Not: Résumés
+
+Sure, you could learn about a candidate by reading a puffed-up list of accomplishments that includes vice president of the junior high chess club. But reading someone's actual code is so much richer and more instructive. Do they write good comments? Do they waste too much time breaking items into tiny classes that do little? Is there a real architecture with room for expansion? All these questions can be answered by a glimpse at their code.
+
+This is why participating in open source projects is becoming more and more important for finding a job. Sharing the code from a proprietary project is hard, but open source code can go everywhere.
+
+Hot: Renting
+
+Not: Buying
+
+When Amazon rolled out its sales for computers and other electronics on Black Friday, the company forgot to include hypeworthy deals for its cloud. Give it time. Not so long ago, companies opened their own datacenter and hired their own staff to run the computers they purchased outright. Now they rent the computers, the datacenter, the staff, and even the software by the hour. No one wants the hassles of owning anything. It's all a good idea, at least until the website goes viral and you realize you're paying for everything by the click. Now if only Amazon finds a way to deliver the cloud with its drones, the trends will converge.
+
+Hot: Cloud complexity
+
+Not: Cloud simplicity
+
+The early days of cloud computing saw vendors emphasizing how easy it was to click a button and get a running machine. Simplicity was king.
+
+Now choosing the right machine and figuring out the right discount program could take more time than writing the code. There are dozens of machine profiles available, and most cloud providers support some of the older models. All offer unique levels of performance, so you better be ready to benchmark them to decide which is the most cost-effective for you. Is it worth saving 12 cents per hour to get by with less RAM? It could be if you’re spinning up 100 machines for months at a time.
+
+To make matters more complex, the cloud companies offer several options for getting discounts by paying in advance or buying in bulk. You have to put them in the spreadsheet too. It’s enough to invest in an online course on cloud cost engineering.
+
+Hot: Data movement experts
+
+Not: Backup tapes
+
+When data was small, we didn’t have to think about moving it. We could back it up to a tape or maybe install a RAID hard drive. Now data is so big that it’s not so easy to assume it is wherever we need it. This is becoming increasingly important because more services take place somewhere off in the cloud, not in the rack where the RAID array sits.
+
+Consider Amazon’s new Snowmobile, a cute inside name for a shipping container filled with hard disks that can hold 100 petabytes of data. They also make a smaller box called the Snowball that can hold 80TB. Both move data like a physical thing, not a signal in a fiber optic, which really scales. One estimate suggests that it would take 28 years to move the 100 petabytes down a 1Gbps fiber line while a tractor trailer could move the container across the country in a few days.
+
+All of this means that developers should start thinking about where data is collected and where it needs to be. We’re gathering much more data than before, and moving it to the right location is more important than ever. As Wayne Gretzky said, his success depended on planning ahead and skating where the puck was going to be, not where it happened to be right now.
+
+Hot: Audio
+
+Not: Websites
+
+Websites aren’t really dying; it’s just that the new audio interfaces are booming. Amazon, Google, and Apple are pushing everyone to speak their questions instead of getting up, walking over to the computer, and flexing those fingers.
+
+This means a bit more work for programmers because all these mechanisms have new APIs, like Alexa’s new one for controlling the light switches. If your company wants to connect with these audio interfaces, you better start hacking. Keyboards and URLs were invented in the last century, after all.
+
+Hot: Node.js
+
+Not: JavaEE, Ruby on Rails
+
+The server world has always thrived on the threaded model that let the operating system indulge any wayward, inefficient, or dissolute behavior by programmers. Whatever foolish loop or wasteful computation programmers coded, the OS would balance performance by switching between the threads.
+
+Then Node.js came along with the JavaScript callback model of programming, and the code ran really fast—faster than anyone expected was possible from a toy language once used only for alert boxes. Suddenly the overhead of creating new threads became obvious and Node.js took off. Problems arise when programmers don't behave well, but the responsibility has largely been good for them. Making resource constraints obvious to programmers usually produces faster code.
+
+The Node.js world also benefits from offering harmony between browser and server. The same code runs on both, so it's easier for developers to move around features and duplicate functionality. As a result, Node.js layers have become the hottest stacks on the internet.
+
+Hot: PHP 7.0
+
+Not: Old PHP
+
+In the past, PHP was a simple way to knock out a few dynamic web pages. If you needed a bit of variety, you could embed simple code between HTML tags. It was basic enough for web developers to embrace it, but slow enough to draw sneers from hard-core programmers.
+
+That’s old news because some PHP lovers at places like WordPress and Facebook have been competing to execute PHP code faster than ever by incorporating the Just-in-Time compiler technology that once made Java such a high-performing solution. Now tools like the HipHop Virtual Machine and PHP 7.0 are delivering speeds that may be twice as fast as the old versions. Take that, Node.js and Java.
+
+Hot: Just-in-time education
+
+Not: Four years up front
+
+The computer-mediated courses aren’t new anymore, and everyone is enjoying the advantage of watching a video lecture with buttons for speeding up, slowing down, or asking the prof to repeat that last point. The online forums also improve over the old seminar rooms where only one blowhard could dominate the discussion at a time.
+
+But it’s not only the nature of and technology behind online coursework that’s upending the education industrial complex; it’s also the flexibility to learn whenever and wherever you need to. This is changing the dynamic as people no longer have to invest four years of outrageous tuition on a big collection of courses that may or may not be relevant to their lives. Why take courses on compilers until you know you’ll actually work on a compiler? If the boss wants to switch from a relational database to a NoSQL engine, then you can invest the time in a course in modern data stores. You get fresh information when you need it and don’t clutter your brain with quickly rotting ideas.
+
+Related articles
+
+9 lies programmers tell themselves
+11 predictions for the future of programming
+The power of lazy programming
+Download: Developer career development guide
+Download: The professional programmer's business survival guide
+Download: 29 tips for succeeding as an independent developer
+The 7 most vexing problems in programming
+7 bad programming ideas that work
+22 insults no developer wants to hear
+Program the world: 12 technologies you need to know now
+Attack of the one-letter programming languages
+9 cutting-edge languages worth learning now
+5 more timeless lessons of programming 'graybeards'
+7 programming languages that we love to hate -- but can't live without
+11 cutting-edge databases worth exploring now
+33 worst lines ever said by tech recruiters
+Related: Application Development Careers Java Web Development iOS Android Hadoop
+Peter Wayner is contributing editor at InfoWorld and the author of more than 16 books on diverse topics, including open source software, autonomous cars, privacy-enhanced computation, digital transactions, and steganography.
+
+Follow
+ PREVIOUS | 1 2
+YOU MIGHT LIKE
+ Ads by Revcontent
+ 
+The Most Awkward Moments Ever Caught On Cam
+Laughfeeds
+Why Doctors in the Know No Longer Prescribe Metformin (WATCH)
+Health Family
+Check Out These New 2017 Crossover SUV's
+Crossover SUV Sponsored Ads
+Georgia Homeowners Get $4,264 Back Thanks To New Bill
+Financial Patrol
+Find the Best New Suvs of 2017 Now with Yahoo Search!
+Yahoo Search
+Find Reputable Lenders Even with Bad Credit Using Yahoo Search
+Yahoo Search
+Word zero-day affects all versions of Office and Windows
+Stack Overflow: Like sleep? Don't code in C
+Intel ships latest Itanium chip, called Kittson, but grim future looms
+We Can Guess Your Education Level With This Quiz
+Definition
+MOST READ
+frustrated
+Windows 10 install problems — and how to solve them
+Having trouble installing and setting up Win10? You aren’t alone. Here are many of the most common...
+
+angular angularjs book
+Angular 3 is hot on the heels of Angular 2
+How to speed up Windows 7 Update scans -- forever
+How to speed up Windows 7 Update scans—forever
+ 
+NEWSLETTERS
+Sign up and receive the latest news, reviews, and analyses on your favorite technology topics.
+Get our InfoWorld Daily Newsletter:
+
+
+Enter your email address
+ Go
+ Best Android Phone hub primary image
+Best Android phones: What should you buy?
+Picking an Android phone can be difficult, but we're here to help. These are the top Android phones you...
+
+ 
+Alternative facts: 9 falsehoods programmers believe
+9 lies programmers tell themselves
+Confidence in our power over machines also makes us guilty of hoping to bend reality to our code
+
+BRANDPOSTSLEARN MORE
+cloud image
+SPONSORED BY Hewlett Packard Enterprise
+IT decision makers reveal 6 hybrid cloud adoption trends
+RESOURCES
+
+WHITE PAPER
+251% ROI Achieved by Preventing Cyber Attacks
+
+WHITE PAPER
+Advanced Threat Prevention Test
+
+DATA SHEET
+SPONSORED
+Artificial Intelligence vs. Attempted Intelligence
+
+CASE STUDY
+SPONSORED
+Cape PLC Protects Power Grid from Ransomware With Cylance
+
+WHITE PAPER
+Deploying Microsoft SQL Server on Amazon Web Services
+
+Search Resources
+  Go
+TOP STORIES
+future what is next
+11 technologies developers should explore now
+From machine learning to digital twins, opportunities abound in emerging (and converging) tech trends
+
+ fast computer server speed
+Why Slack can't slow down
+Slack reached a $1 billion valuation faster than any startup in history. Now it must make key decisions...
+
+ construction building crane architecture
+3 signs your Kubernetes distro is built to last
+As the container orchestration system booms in popularity and acceptance, so will commercial Kubernetes...
+
+Oracle floats Java hardware acceleration proposal
+Project Trinity would enhance Streams with data processing hardware features for greater efficiency
+
+SPONSORED LINKS
+INSTANTLY dtSearch® TERABYTES OF FILE+EMAIL+DB+WEB DATA; reviews/evals
+InfoWorld FOLLOW US
+Analytics  Application Development  Careers  Cloud Computing  Collaboration  Databases  Datacenters  Hardware  Internet of Things  Mobile  Networking  Open Source  Operating Systems  Security  Software  Storage  Virtualization
+News Blogs Reviews Insider Resources Newsletters
+ABOUT US CONTACT PRIVACY POLICY ADVERTISING CAREERS AT IDG SITE MAP AD CHOICES E-COMMERCE AFFILIATE RELATIONSHIPS
+Copyright © 2017 IDG Communications, Inc.
+Explore the IDG Network descend
+
