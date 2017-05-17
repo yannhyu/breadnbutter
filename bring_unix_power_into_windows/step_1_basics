@@ -1,0 +1,104 @@
+step_1_basics
+
+find
+grep
+wc
+diff
+tail
+head
+
+import os
+def cd(dirname):
+ os.chdir(dirname)
+def pwd():
+ print(os.getcwd())
+def ls(dirname=''):
+ os.system('dir %s' % dirname)
+
+
+# diff.py
+import sys, difflib
+def diff(fromfile, tofile):
+ fromlines = open(fromfile).readlines()
+ tolines = open(tofile).readlines()
+ diff = difflib.context_diff(fromlines, tolines,
+ fromfile, tofile)
+ sys.stdout.writelines(diff) 
+
+
+++++++++++++++++++++++++++++++++
+python -i swiss_army_knife.py
+++++++++++++++++++++++++++++++++
+
+ >>> cd('pycode')
+>>> pwd()
+D:\Files\pycode
+>>> diff('Python-2.6/Lib/collections.py',
+... 'Python-2.6.2/Lib/collections.py')
+*** Python-2.6/Lib/collections.py
+--- Python-2.6.2/Lib/collections.py
+***************
+*** 103,109 ****
+ # where the named tuple is created. Bypass this step in enviroments
+where
+ # sys._getframe is not defined (Jython for example).
+ if hasattr(_sys, '_getframe'):
+! result.__module__ = _sys._getframe(1).f_globals['__name__']
+
+ return result
+
+--- 103,109 ----
+ # where the named tuple is created. Bypass this step in enviroments
+where
+
+
+
+
+def allfiles(topdir):
+ return ((path, filename)
+ for path, dirs, files in os.walk(topdir)
+ for filename in files)
+>>> files = allfiles('AllPython')
+>>> next(files)
+('AllPython/0/python-0.9.1', 'python.man')
+>>> next(files)
+('AllPython/0/python-0.9.1', 'README')
+>>> 
+
+
+def filetypes(topdir):
+ from collections import Counter
+ from pprint import pprint
+ c = Counter(os.path.splitext(name)[1]
+ for _, name in allfiles(topdir))
+ pprint(c.most_common())
+>>> filetypes('AllPython')
+[('.py', 125277),
+ ('.c', 27200),
+ ('', 17010),
+ ('.rst', 15439),
+ ('.h', 14782),
+ ('.tex', 12257),
+...
+
+
+>>> f = find('AllPython', '*.py')
+>>> next(f)
+('AllPython/0/python-0.9.1/demo/scripts', 'findlinksto.py')
+>>> next(f)
+('AllPython/0/python-0.9.1/demo/scripts', 'mkreal.py')
+>>> next(f)
+('AllPython/0/python-0.9.1/demo/scripts', 'ptags.py')
+>>> 
+
+
+>>> vers = find_versions('AllPython')
+>>> next(vers)
+('0.9.1', 'AllPython/0/python-0.9.1')
+>>> next(vers)
+('1.0.1', 'AllPython/1/python-1.0.1')
+>>> 
+
+
+
+
