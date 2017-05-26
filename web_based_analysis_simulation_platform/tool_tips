@@ -1,0 +1,74 @@
+
+airflow@mllxv-yu:~/workspace/james_powell_analysis_simulation_platform$ docker ps
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                    NAMES
+a1d8f5cb24d6        continuumio/anaconda3   "/usr/bin/tini -- /bi"   19 hours ago        Up 19 hours         0.0.0.0:8888->8888/tcp   tender_joliot
+airflow@mllxv-yu:~/workspace/james_powell_analysis_simulation_platform$
+
++++++++++++++++++++++++++++++++++++++++++++
+
+docker exec -t -i container_name /bin/bash
+
+docker exec -i -t tender_joliot /bin/bash
+
+++++++++++++++++++++++++++++++++++++++++++++
+scp /home/yann.yu/tips/how2python/james_powell/web_based_analysis_simulation_platform/backend/* /home/airflow/workspace/james_powell_analysis_simulation_platform
+
+docker cp ~/workspace/james_powell_analysis_simulation_platform/backend/* tender_joliot:/dev/tutorial/backend/
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+
+docker cp foo.txt mycontainer:/foo.txt
+docker cp mycontainer:/foo.txt foo.txt
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+docker cp foo.txt mycontainer:/opt/notebooks/foo.txt
+docker cp usagov_bitly_data2012-03-16-1331923249.txt serene_archimedes:/opt/notebooks/
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+python algorithm.py 'sqrt(4 - xs**2)' 0 2 0 2
+
+integrating sqrt(4 - xs**2) from 0 to 2 with 100 samples
+approx = 3.28
+ 2 0 21d8f5cb24d6:/dev/tutorial/backend# python algorithm.py 'sqrt(4 - xs**2)' 0
+integrating sqrt(4 - xs**2) from 0 to 2 with 100 samples
+approx = 3.32
+root@a1d8f5cb24d6:/dev/tutorial/backend#
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+python algorithm.py 'sqrt(4 - xs**2)' 0 2 0 2 10000
+
+time python algorithm.py 'sqrt(4 - xs**2)' 0 2 0 2 100000
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2)' 0 2 0 2 100000/dev/tutorial/backend# time python algorithm.py 'sqrt(4 - xs**
+integrating sqrt(4 - xs**2) from 0 to 2 with 100000 samples
+approx = 3.14148
+
+real	0m0.576s
+user	0m0.504s
+sys	0m0.060s
+root@a1d8f5cb24d6:/dev/tutorial/backend#
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+pip install httpie
+
+http GET http://localhost:5000 f='sqrt(4 - xs**2)' a:=0 b:=0 c:=0 d:=0
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+root@a1d8f5cb24d6:/dev/tutorial/backend#
+docker run -i -t -p 5000:5000 -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+OR
+docker run -i -t -p 5000:5000 continuumio/anaconda3 /bin/bash
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+pip install 'celery[redis]'
+conda install -c anaconda redis=3.2.0
+
+redis-server

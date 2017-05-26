@@ -1,0 +1,27 @@
+sudo -u airflow -i
+
+++++++++++++++++++++++++++
+
+docker run -i -t -p 5000:5000 -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+
+++++++++++++++++++++++++++
+
+docker run -i -t -P --name simulate -p 5000:5000 -p 8888:8888  -v /home/airflow/workspace/james_powell_analysis_simulation_platform:/jpowell continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+
+++++++++++++++++++++++++++
+
+sudo cp -r /home/yann.yu/tips/how2python/james_powell/web_based_analysis_simulation_platform/backend /home/airflow/workspace/james_powell_analysis_simulation_platform/backend
+
+sudo chown airflow:docker /home/airflow/workspace/james_powell_analysis_simulation_platform/backend/*
+
++++++++++++++++++++++++++++++++++++++++
+
+sudo cp -r /home/yann.yu/tips/how2python/james_powell/web_based_analysis_simulation_platform/frontend /home/airflow/workspace/james_powell_analysis_simulation_platform/frontend
+
+sudo chown airflow:docker /home/airflow/workspace/james_powell_analysis_simulation_platform/frontend/*
+
+++++++++++++++++++++++++++++++++++++++++
+
+grunt
+gulp
+babel

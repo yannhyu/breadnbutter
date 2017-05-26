@@ -1,0 +1,12 @@
+http://pyvideo.org/pydata-london-2017/building-web-based-analysis-simulation-platforms-with-reactredux-flask-celery-bokeh-and-numpy.html
+
+http://bit.ly/dutc-tutorial
+
+monte-carlo simulation: to estimate the value of Pi
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+C:\Users\yann.yu\AppData\Local\Continuum\Anaconda3\lib\site-packages\ipykernel\__main__.py:13: DeprecationWarning: numpy boolean negative, the `-` operator, is deprecated, use the `~` operator or the logical_not function instead.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

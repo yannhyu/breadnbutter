@@ -1,0 +1,40 @@
+(1) docker pull continuumio/anaconda3
+
+(2) grep 'docker' /etc/group
+yann.yu@mllxv-yu:payorintel$ grep 'docker' /etc/group
+docker:x:129:airflow
+therefore we have to use airflow acct
+
+(3) sudo -u airflow -i
+
+(4) docker-compose-1.9.0 --version
+airflow@mllxv-yu:~$ docker-compose-1.9.0 --version
+docker-compose version 1.9.0, build 2585387
+airflow@mllxv-yu:~$ docker --version
+Docker version 1.12.6, build 78d1802
+airflow@mllxv-yu:~$
+
+(5) airflow@mllxv-yu:~/workspace/etl-py35$ docker-compose-1.9.0 ps
+Name   Command   State   Ports
+------------------------------
+airflow@mllxv-yu:~/workspace/etl-py35$
+
+(6)
+airflow@mllxv-yu:~/workspace/james_powell_analysis_simulation_platform$ pwd
+/home/airflow/workspace/james_powell_analysis_simulation_platform
+airflow@mllxv-yu:~/workspace/james_powell_analysis_simulation_platform$
+
+(7)
+You can download and run this image using the following commands:
+
+docker pull continuumio/anaconda3
+docker run -i -t continuumio/anaconda3 /bin/bash
+Alternatively, you can start a Jupyter Notebook server and interact with Anaconda via your browser:
+
+docker run -i -t -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+You can then view the Jupyter Notebook by opening http://localhost:8888 in your browser, or http://<DOCKER-MACHINE-IP>:8888 if you are using a Docker Machine VM.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -i -t -p 5000:5000 -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
