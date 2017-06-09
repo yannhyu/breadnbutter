@@ -1,0 +1,89 @@
+model managers
++++++++++++++++++++
+
+>>> from domainchecks.models import DomainCheck
+>>> example_root = DomainCheck.objects.create(domain='example.com',  path='/')
+>>> example_test = DomainCheck.objects.create(domain='example.com', path='/test/', is_active=False)
+>>> active = DomainCheck.active.all()
+>>> active.count()
+1
+>>> active[0].path
+'/'
+>>> active[0].domain
+'example.com'
+>>> results = DomainCheck.objects.all()
+>>> results.count()
+2
+>>> results
+[<DomainCheck: GET http://example.com/>, <DomainCheck: GET http://example.com/test/>]
+>>>
+
+
+custom querysets
++++++++++++++++++++++++
+
+(intermediate) C:\Users\yann.yu\Documents\tips\how2medlytix\RPA_project\creative_workshop_06_09\intermediate\Working_Files\video-examples-custom-querysets>python manage.py shell
+Python 3.5.3 |Continuum Analytics, Inc.| (default, Feb 22 2017, 21:28:42) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from domainchecks.models import DomainCheck, CheckResult
+>>> example = DomainCheck.objects.create(domain='example.com', path='/')
+>>> example.is_active
+True
+>>> print(DomainCheck.objects.active())
+[<DomainCheck: GET http://example.com/>]
+>>> print(DomainCheck.objects.stale())
+[<DomainCheck: GET http://example.com/>]
+>>> print(DomainCheck.objects.active().stale())
+[<DomainCheck: GET http://example.com/>]
+>>> print(DomainCheck.objects.stale().active)
+<bound method DomainCheckQuerySet.active of [<DomainCheck: GET http://example.com/>]>
+>>> print(DomainCheck.objects.stale().active())
+[<DomainCheck: GET http://example.com/>]
+>>>
+>>> from django.utils.timezone import now
+>>> result = CheckResult.objects.create(domain_check=example, checked_on=now(), status_code=200, response_body='Ok', response_time=0.5)
+>>> print(DomainCheck.objects.stale())
+[]
+>>>
+
+
+annotation querysets
++++++++++++++++++++++++++++++++
+
+es\video-examples-annotations>python manage.py shell
+Python 3.5.3 |Continuum Analytics, Inc.| (default, Feb 22 2017, 21:28:42) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from domainchecks.models import DomainCheck, CheckResult
+>>> example = DomainCheck.objects.create(domain='example.com', path='/')
+>>> example = DomainCheck.objects.status().get(pk=example.pk)
+>>> example.status
+'unknown'
+>>> example.success_rate
+>>> example.last_check
+>>> example.successes
+0
+>>> example.pings
+0
+>>>
+>>> from django.utils.timezone import now
+
+>>> CheckResult.objects.create(domain_check=example, checked_on=now(), status_code=200)
+<CheckResult: CheckResult object>
+>>> CheckResult.objects.create(domain_check=example, checked_on=now(), status_code=500)
+<CheckResult: CheckResult object>
+>>> example = DomainCheck.objects.status().get(pk=example.pk)
+>>> example.status
+'poor'
+>>> example.success_rate
+50
+>>>
+>>> example.last_check
+datetime.datetime(2017, 6, 9, 18, 34, 44, 754115, tzinfo=<UTC>)
+>>> example.successes
+1
+>>> example.pings
+2
+>>>
+
