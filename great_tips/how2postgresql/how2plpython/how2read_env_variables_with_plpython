@@ -1,0 +1,39 @@
+create extension plpythonu;
+  
+create type py_environ_type as (name text, value text);
+
+create or replace function py_environ(name varchar DEFAULT NULL)
+  returns setof py_environ_type
+as $$
+  import os
+  aev = []
+  if name is None:
+    for k, v in os.environ.items():
+      aev.append((k, v))
+  else:
+    v = os.getenv(name)
+    if v is not None:
+      aev.append((name,v))
+  return aev;
+$$ language plpythonu;
+
+You can use it to get a list of all environment variables:
+
+select * from py_environ();
+test_plpython=# select * from py_environ();
+        name        |            value             
+--------------------+------------------------------
+ LANG               | en_US.UTF-8
+ LC_NUMERIC         | C
+ PG_OOM_ADJUST_FILE | /proc/self/oom_score_adj
+ PGSYSCONFDIR       | /etc/postgresql-common
+ PG_GRANDPARENT_PID | 2289
+ LC_COLLATE         | en_US.UTF-8
+ LC_CTYPE           | en_US.UTF-8
+ LC_MONETARY        | C
+ PGDATA             | /var/lib/postgresql/9.5/main
+ PWD                | /var/lib/postgresql
+ PGLOCALEDIR        | /usr/share/locale
+ LC_TIME            | C
+ LC_MESSAGES        | en_US.UTF-8
+(13 rows)

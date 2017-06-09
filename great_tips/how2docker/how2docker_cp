@@ -1,0 +1,23 @@
+docker cp ~/Med_245_20161215_fake_big.txt med-pipeline:/etl-workers/Data/Med_245_big.txt
+
+docker cp ~/Med_309_fake_big.txt med-pipeline:/etl-workers/Data/Med_309_big.txt
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/workspace/etl-py35$ docker cp ~/Med_245_20161215_fake_big.txt med-pipeline:/etl-workers/Data/Med_245_big.txt
+airflow@mllxv-yu:~/workspace/etl-py35$ docker cp ~/Med_309_fake_big.txt med-pipeline:/etl-workers/Data/Med_309_big.txt
+airflow@mllxv-yu:~/workspace/etl-py35$ docker exec -t -i med-pipeline /bin/bash
+root@8fba6922e227:/etl-workers# ls -lah Data/                                                                                                               
+total 36M
+drwxr-xr-x 2 root root 4.0K Feb 10 19:59 .
+drwxr-xr-x 9 root root 4.0K Feb 10 19:59 ..
+-rw-r--r-- 1 root root  29M Feb  7 18:20 Med_245_big.txt
+-rw-r--r-- 1 root root 6.3M Feb  7 18:20 Med_309_big.txt
+-rw-r--r-- 1 root root 966K Feb 10 19:04 Med_309_short.txt
+root@8fba6922e227:/etl-workers# ls -lah readers/
+total 16K
+drwxr-xr-x 2 root root 4.0K Feb 10 19:04 .
+drwxr-xr-x 9 root root 4.0K Feb 10 19:59 ..
+-rw-r--r-- 1 root root 3.9K Feb 10 19:04 ins00_reader_245.py
+-rw-r--r-- 1 root root 2.4K Feb 10 19:04 ins00_reader_309.py
+root@8fba6922e227:/etl-workers# 

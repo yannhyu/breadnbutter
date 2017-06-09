@@ -1,0 +1,21 @@
+https://hub.docker.com/r/samoidor/php-pgsql/
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/php7code$ ls
+lapp  phppgadmin-docker  www
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker pull samoidor/php-pgsql
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -i -d --name lapp -p 8080:80 -v /home/airflow/php7code/www:/var/www/html samoidor/php-pgsql
+
+docker exec -t -i lapp /bin/bash
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+

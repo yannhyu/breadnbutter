@@ -1,0 +1,12 @@
+You can use:
+
+from celery.execute import send_task    
+
+send_task('my_task', [], kwargs)
+Be sure that you task function has a name:
+
+from celery import task
+
+@task(name='my_task')
+def my_task():
+     ...

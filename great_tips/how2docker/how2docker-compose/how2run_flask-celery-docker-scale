@@ -1,0 +1,119 @@
+https://github.com/itsrifat/flask-celery-docker-scale
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker-compose-1.9.0
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+su - airflow
+[ airflow ]
+
+airflow@mllxv-yu:~$ pwd
+/home/airflow
+airflow@mllxv-yu:~$
+
+git clone https://github.com/itsrifat/flask-celery-docker-scale.git
+
+cd flask-celery-docker-scale/
+
+[ source ~/.profile ]
+
+workon flask-celery-docker
+deactivate
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+vim ~/.profile
+
+# Virtualenvwrapper settings
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/workspace
+source /usr/local/bin/virtualenvwrapper.sh
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/flask-celery-docker-scale$ pwd
+/home/airflow/flask-celery-docker-scale
+airflow@mllxv-yu:~/flask-celery-docker-scale$ 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+docker-compose-1.9.0 build
+docker-compose-1.9.0 up -d
+
+docker-compose-1.9.0 ps
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+do
+http://127.0.0.1:5000/add/2/3
+ in browser
+
+http://127.0.0.1:5000/check/taskid
+
+http://127.0.0.1:5555
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(flask-celery-docker) airflow@mllxv-yu:~/flask-celery-docker-scale$ docker-compose-1.9.0 ps
+              Name                            Command               State           Ports          
+--------------------------------------------------------------------------------------------------
+flaskcelerydockerscale_monitor_1   flower -A tasks --port=555 ...   Up      0.0.0.0:5555->5555/tcp 
+flaskcelerydockerscale_redis_1     docker-entrypoint.sh redis ...   Up      6379/tcp               
+flaskcelerydockerscale_web_1       python app.py                    Up      0.0.0.0:5000->5000/tcp 
+flaskcelerydockerscale_worker_1    /bin/sh -c celery -A tasks ...   Up                             
+(flask-celery-docker) airflow@mllxv-yu:~/flask-celery-docker-scale$ 
+
+
+(flask-celery-docker) airflow@mllxv-yu:~/flask-celery-docker-scale$ docker-compose-1.9.0 ps
+              Name                            Command               State           Ports          
+--------------------------------------------------------------------------------------------------
+flaskcelerydockerscale_monitor_1   flower -A tasks --port=555 ...   Up      0.0.0.0:5555->5555/tcp 
+flaskcelerydockerscale_redis_1     docker-entrypoint.sh redis ...   Up      6379/tcp               
+flaskcelerydockerscale_web_1       python app.py                    Up      0.0.0.0:5000->5000/tcp 
+flaskcelerydockerscale_worker_1    /bin/sh -c celery -A tasks ...   Up                             
+(flask-celery-docker) airflow@mllxv-yu:~/flask-celery-docker-scale$ docker-compose-1.9.0 down
+Stopping flaskcelerydockerscale_web_1 ... done
+Stopping flaskcelerydockerscale_monitor_1 ... done
+Stopping flaskcelerydockerscale_worker_1 ... done
+Stopping flaskcelerydockerscale_redis_1 ... done
+Removing flaskcelerydockerscale_web_1 ... done
+Removing flaskcelerydockerscale_monitor_1 ... done
+Removing flaskcelerydockerscale_worker_1 ... done
+Removing flaskcelerydockerscale_redis_1 ... done
+Removing network flaskcelerydockerscale_default
+(flask-celery-docker) airflow@mllxv-yu:~/flask-celery-docker-scale$
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(flask-celery-docker) airflow@mllxv-yu:~/flask-celery-docker-scale$ docker images
+REPOSITORY                                   TAG                 IMAGE ID            CREATED             SIZE
+flaskcelerydockerscale_monitor               latest              49ff187f0012        About an hour ago   429 MB
+flaskcelerydockerscale_worker                latest              49ff187f0012        About an hour ago   429 MB
+flaskcelerydockerscale_web                   latest              4bb3e68410cc        About an hour ago   409.4 MB
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+yann.yu@mllxv-yu:flask-celery-docker-scale$ pwd
+/home/yann.yu/workspace/pythoncode/flask-celery-docker-scale
+yann.yu@mllxv-yu:flask-celery-docker-scale$ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+To run the example:
+
+docker-compose-1.9.0 build
+docker-compose-1.9.0 up -d # run in detached mode
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Now load http://your-dockermachine-ip:5000/add/2/3 in browser. It should create a task and return a task id.
+
+To check the status of the job hit http://your-dockermachine-ip:5000/check/taskid. It should either show PENDING or the result 5.
+
+To monitor that the worker is working fine go to http://your-dockermachine-ip:5555.It runs a flower server. It should show one worker ready to serve.
+
+To scale the workers, now run docker-compose scale worker=5. This will create 4 more containers each running a worker. http://your-dockermachine-ip:5555 should now show 5 workers waiting for some jobs!

@@ -1,0 +1,11 @@
+$ sudo su - hello
+hello@django:~$ source bin/activate
+(hello_django)hello@django:~$ cd hello/
+(hello_django)hello@django:~/hello$ python manage.py shell
+Python 2.7.3 (default, Mar 13 2014, 11:03:55)
+[GCC 4.7.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from testapp.tasks import test
+>>> test.delay('This is just a test!')
+<AsyncResult: 79e35cf7-0a3d-4786-b746-2d3dd45a5c16>

@@ -1,0 +1,11 @@
+psql -U csp_payorintel_u -d csp_ml_db -h mlmaindb -W
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+psql -U user_name -d database_name -h 127.0.0.1 -W
+
+psql -U monty -d test -h 10.20.20.12 -W
+
+psql -U postgres -d testdb -h 127.0.0.1 -W

@@ -1,0 +1,95 @@
+https://github.com/jcalazan/youtube-audio-dl
+
+git clone https://github.com/jcalazan/youtube-audio-dl.git
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/pythoncode/youtube-audio-dl$ ls
+ansible  docker-compose.yml  ipython_config.py  LICENSE  manage.py  README.md  requirements.txt  scripts  youtubeadl
+airflow@mllxv-yu:~/pythoncode/youtube-audio-dl$
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+YouTube Audio Downloader
+
+A Django web application for extracting the audio from a YouTube video and converts it to MP3 that a user can download.
+
+Live Site: http://www.youtubeadl.com
+
+Technology Stack
+
+Python 2.7
+Django 1.8
+Twitter Bootstrap 3
+PostgreSQL
+Nginx
+Gunicorn
+Celery
+RabbitMQ
+Supervisor
+Virtualenv
+Getting Started with Docker and Docker Compose for Local Development
+
+Install Docker
+
+https://docs.docker.com/installation/
+
+Note for Boot2Docker users: In docker-compose.yml you may need to remove the ~ in ~/dockerfiles. Boot2docker automatically mounts the user directory to the Boot2Docker VM and you may run into permission issues.
+
+Install Docker Compose
+
+http://docs.docker.com/compose/install/
+
+Install the Python packages required by the project via pip
+
+In the project root (where the docker-compose.yml file is located), run:
+
+docker-compose run django pip install -r requirements.txt
+To run any command inside the Django Docker container, simply prepend docker-compose run django.
+
+Start the Docker containers
+
+docker-compose up -d
+This will start the containers in the background.
+
+Run the Django database migrations
+
+docker-compose run django python manage.py migrate
+View the logs
+
+docker-compose logs
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Getting Started
+To get the YouTube Audio Downloader app running:
+
+1. Install Docker
+
+2. Install Docker Compose
+
+3. Clone the youtube-audio-dl project from GitHub:
+
+git clone https://github.com/jcalazan/youtube-audio-dl.git
+Note for Boot2Docker users:
+
+In docker-compose.yml you may need to remove the ~ in ~/dockerfiles. Boot2Docker automatically mounts the user directory to the Boot2Docker VM and you may run into permission issues.
+
+4. In the project root (where a file called docker-compose.yml is located), run this command to install required packages with pip:
+
+docker-compose run django pip install -r requirements.txt
+This will create a ~ /dockerfiles directory on your machine where the Python files are stored.
+
+5. Start up the containers in the background.
+
+docker-compose up -d
+6. Run the Django database migrations and access the site at http://localhost.
+
+docker-compose run django python manage.py migrate
+
+To see a tail of the logs, type in docker-compose logs. You will see an output that looks something like this:
+
+To see just the logs for a specific service/container, type in docker-compose logs service_name.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

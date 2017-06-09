@@ -1,0 +1,12 @@
+https://hub.docker.com/r/abarth/oceanbrowser/
++++++++++++++++++++++++++++++++++++++++++++++++
+docker run -p 8080:80 --name my-oceanbrowser-container -v /home/yann.yu/some/netcdf/files/:/var/www/data:ro abarth/oceanbrowser
+
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Minimal configuration
+To run OceanBrowser to server the NetCDF files available at /some/netcdf/files issue the following command:
+
+docker run -p 8080:80 --name my-oceanbrowser-container \
+       -v /home/yann.yu/some/netcdf/files/:/var/www/data:ro abarth/oceanbrowser
+The web interface can be accessed now at http://localhost:8080/.

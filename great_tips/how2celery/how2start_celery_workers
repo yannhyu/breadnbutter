@@ -1,0 +1,64 @@
+~/dev/django-celery/py2django/bin/celery --app=hello.celery:app worker --loglevel=INFO
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(py2django) yann.yu@mllxv-yu:~/dev/django-celery/hello$ ../py2django/bin/celery --app=hello.celery:app worker --loglevel=INFO
+ 
+ -------------- celery@mllxv-yu v3.1.23 (Cipater)
+---- **** ----- 
+--- * ***  * -- Linux-4.4.0-36-generic-x86_64-with-Ubuntu-16.04-xenial
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         hello_django:0x7ff2f0821090
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- 
+--- ***** ----- [queues]
+ -------------- .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . testapp.tasks.test
+
+[2016-09-12 19:05:27,155: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2016-09-12 19:05:27,160: INFO/MainProcess] mingle: searching for neighbors
+[2016-09-12 19:05:28,164: INFO/MainProcess] mingle: all alone
+[2016-09-12 19:05:28,169: WARNING/MainProcess] /home/yann.yu/dev/django-celery/py2django/local/lib/python2.7/site-packages/celery/fixups/django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+[2016-09-12 19:05:28,169: WARNING/MainProcess] celery@mllxv-yu ready.
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+$ export PYTHONPATH=/webapps/hello_django/hello:$PYTHONPATH
+$ /webapps/hello_django/bin/celery --app=hello.celery:app worker --loglevel=INFO
+
+ -------------- celery@django v3.1.11 (Cipater)
+---- **** -----
+--- * ***  * -- Linux-3.2.0-4-amd64-x86_64-with-debian-7.5
+-- * - **** ---
+- ** ---------- [config]
+- ** ---------- .> app:         hello_django:0x15ae410
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     disabled
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ----
+--- ***** ----- [queues]
+ -------------- .> celery           exchange=celery(direct) key=celery
+
+[tasks]
+  . testapp.tasks.test
+
+[2014-05-20 13:53:59,740: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2014-05-20 13:53:59,748: INFO/MainProcess] mingle: searching for neighbors
+[2014-05-20 13:54:00,756: INFO/MainProcess] mingle: all alone
+[2014-05-20 13:54:00,769: WARNING/MainProcess] celery@django ready.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Testing the setup
+
+In production we will want Celery workers to be daemonized, but let’s just quickly start the workers to check that everything is configured correctly. Use the celery command located in your virtualenv’s bin directory to start the workers. Make sure that the module path hello.celery:app is available on your PYTHONPATH.

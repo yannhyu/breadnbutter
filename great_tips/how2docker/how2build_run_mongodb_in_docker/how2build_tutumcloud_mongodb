@@ -1,0 +1,14 @@
+https://github.com/tutumcloud/mongodb
+++++++++++++++++++++++++++++++++++++++
+
+git clone https://github.com/tutumcloud/mongodb.git
+
+cd mongodb
+
+++++++++++++++++++++++++++++++++++++++
+
+Usage
+
+To create the image tutum/mongodb, execute the following command on the tutum-mongodb folder:
+
+    docker build -t tutum/mongodb 3.2/.

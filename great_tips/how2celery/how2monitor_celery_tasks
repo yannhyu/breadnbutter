@@ -1,0 +1,25 @@
+(py2django) yann.yu@mllxv-yu:~/dev/django-celery/hello$ ../py2django/bin/celery --app=hello.celery:app worker --loglevel=INFO
+
+(py2django) yann.yu@mllxv-yu:~/dev/django-celery/hello$ ../py2django/bin/celery --app=hello.celery:app status
+
+(py2django) yann.yu@mllxv-yu:~/dev/django-celery/hello$ ../py2django/bin/celery --app=hello.celery:app control enable_events
+
+(py2django) yann.yu@mllxv-yu:~/dev/django-celery/hello$ ../py2django/bin/celery --app=hello.celery:app events
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Inspecting worker tasks
+
+You can check that Celery is running by issuing the celery status command:
+
+$ export PYTHONPATH=/webapps/hello_django/hello:$PYTHONPATH
+$ /webapps/hello_django/bin/celery --app=hello.celery:app status
+celery@django: OK
+
+1 node online.
+
+You can also inspect the queue using a friendly curses monitor:
+
+$ export PYTHONPATH=/webapps/hello_django/hello:$PYTHONPATH
+$ /webapps/hello_django/bin/celery --app=hello.celery:app control enable_events
+$ /webapps/hello_django/bin/celery --app=hello.celery:app events

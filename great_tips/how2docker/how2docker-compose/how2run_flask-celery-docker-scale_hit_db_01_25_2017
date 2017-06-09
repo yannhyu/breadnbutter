@@ -1,0 +1,38 @@
+su - airflow
+[ airflow ]
+
+++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/flask-celery-docker-scale$ docker --version
+Docker version 1.11.2, build b9f10c9
+airflow@mllxv-yu:~/flask-celery-docker-scale$ docker-compose --version
+docker-compose version 1.5.2, build unknown
+airflow@mllxv-yu:~/flask-celery-docker-scale$ docker-compose-1.9.0 --version
+docker-compose version 1.9.0, build 2585387
+
+++++++++++++++++++++++++++++++++++++
+
+  551  docker-compose-1.9.0 build
+  552  docker-compose-1.9.0 up -d
+  553  docker-compose-1.9.0 ps
+  554  history
+airflow@mllxv-yu:~/flask-celery-docker-scale$ 
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/flask-celery-docker-scale$ docker-compose-1.9.0 ps
+              Name                            Command               State           Ports          
+--------------------------------------------------------------------------------------------------
+flaskcelerydockerscale_monitor_1   flower -A tasks --port=555 ...   Up      0.0.0.0:5555->5555/tcp 
+flaskcelerydockerscale_redis_1     docker-entrypoint.sh redis ...   Up      6379/tcp               
+flaskcelerydockerscale_web_1       python app.py                    Up      0.0.0.0:5000->5000/tcp 
+flaskcelerydockerscale_worker_1    /bin/sh -c celery -A tasks ...   Up                             
+airflow@mllxv-yu:~/flask-celery-docker-scale$
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+http://127.0.0.1:5000/read_db_data/FIGGS
+
+
+

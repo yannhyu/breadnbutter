@@ -1,0 +1,8 @@
+\l
+
+\connect mydatabase
+
+\dt
+
+\d tablename
+\d+ tablename

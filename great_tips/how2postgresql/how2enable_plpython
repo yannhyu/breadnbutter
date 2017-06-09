@@ -1,0 +1,29 @@
+select name, default_version, installed_version 
+from pg_available_extensions 
+where name like 'plpy%';
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+sudo apt-get install postgresql-contrib postgresql-plpython-9.5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+yann.yu@mllxv-yu:~$ sudo apt-get install postgresql-contrib postgresql-plpython
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Package postgresql-plpython is a virtual package provided by:
+  postgresql-plpython-9.6 9.6.0-1.pgdg16.04+1
+  postgresql-plpython-9.5 9.5.4-1.pgdg16.04+2
+  postgresql-plpython-9.4 9.4.9-1.pgdg16.04+1
+  postgresql-plpython-9.3 9.3.14-1.pgdg16.04+1
+  postgresql-plpython-9.2 9.2.18-1.pgdg16.04+1
+  postgresql-plpython-9.1 9.1.23-1.pgdg16.04+1
+You should explicitly select one to install.
+
+E: Package 'postgresql-plpython' has no installation candidate
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+If you're on Ubuntu or Debian with their stock PostgreSQL packages:
+sudo apt-get install postgresql-contrib postgresql-plpython

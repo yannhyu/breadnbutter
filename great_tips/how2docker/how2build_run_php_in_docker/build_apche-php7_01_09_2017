@@ -1,0 +1,20 @@
+https://hub.docker.com/r/nimmis/apache-php7/
++++++++++++++++++++++++++++++++++++++++++++++
+
+plain, accessable on port 8080:
+docker run -d -p 8080:80 nimmis/apache-php7
+
++++++++++++++++++++++++++++++++++++++++++++++
+To access site contents from utside the container you should map /var/www
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+with external contents in /home/nimmis/html: 
+docker run -tid -p 81:80 --name="apache_server" -v /home/airflow/php7code:/var/www nimmis/apache-php7
+
+docker exec -it apache_server /bin/bash
+
++++++++++++++++++++++++++++++++++++++++++++++
+`docker exec -ti <container id> /bin/bash'
+
+

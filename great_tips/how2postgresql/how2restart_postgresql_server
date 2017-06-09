@@ -1,0 +1,36 @@
+sudo service postgresql restart
+
+++++++++++++++++++++++++++++++++++
+
+sudo vi /etc/postgresql/9.5/main/pg_hba.conf
+
+++++++++++++++++++++++++
+
+# Database administrative login by Unix domain socket
+local   all             postgres                                peer
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+#host    all             all             127.0.0.1/32            md5
+host    all             all              127.0.0.1/32           trust
+# IPv6 local connections:
+host    all             all             ::1/128                 md5
+
+
+++++++++++++++++++++++++++++++++++++
+
+yann.yu@mllxv-yu:~$ sudo service postgresql stop
+[sudo] password for yann.yu: 
+yann.yu@mllxv-yu:~$ sudo service postgresql status
+● postgresql.service - PostgreSQL RDBMS
+   Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+   Active: inactive (dead) since Tue 2016-11-22 14:24:36 EST; 6s ago
+ Main PID: 27277 (code=exited, status=0/SUCCESS)
+
+Nov 02 11:19:10 mllxv-yu systemd[1]: Starting PostgreSQL RDBMS...
+Nov 02 11:19:10 mllxv-yu systemd[1]: Started PostgreSQL RDBMS.
+Nov 22 14:24:36 mllxv-yu systemd[1]: Stopped PostgreSQL RDBMS.
+yann.yu@mllxv-yu:~$ 

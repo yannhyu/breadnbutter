@@ -1,0 +1,31 @@
+https://github.com/LinZap/lapp
+
++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/php7code$ ls -l
+total 8
+drwxrwxr-x 3 airflow airflow 4096 Dec 14 17:17 phppgadmin-docker
+drwxrwxrwx 3     997     995 4096 Dec 14 17:18 www
+airflow@mllxv-yu:~/php7code$ 
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+docker pull demonzap/lapp
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+git clone https://github.com/LinZap/lapp.git
+
+cd lapp
+
+docker build -t yannyu/lapp .
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -i -d --name lapp -p 8080:80 -v /home/airflow/php7code/www:/var/www/html yannyu/lapp
+
+docker exec -t -i lapp /bin/bash
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -i -d --name lapp -p 8080:80 -v /home/airflow/php7code/www:/var/www/html yannyu/lapp

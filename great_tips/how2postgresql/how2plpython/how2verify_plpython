@@ -1,0 +1,24 @@
+select name, default_version, installed_version 
+from pg_available_extensions 
+where name like 'plpy%';
+
+
+    name    | default_version | installed_version 
+------------+-----------------+-------------------
+ plpython2u | 1.0             | 
+ plpythonu  | 1.0             | 
+(2 rows)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SELECT name, default_version, installed_version, left(comment,30) As comment
+FROM pg_available_extensions
+WHERE installed_version IS NOT NULL
+ORDER BY name;
+
+   name    | default_version | installed_version |            comment             
+-----------+-----------------+-------------------+--------------------------------
+ plpgsql   | 1.0             | 1.0               | PL/pgSQL procedural language
+ plpythonu | 1.0             | 1.0               | PL/PythonU untrusted procedura
+(2 rows)
+

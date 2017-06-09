@@ -1,0 +1,8 @@
+https://github.com/jacksoncage/phppgadmin-docker
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:/home/yann.yu$
+
+
+sudo docker pull jacksoncage/phppgadmin

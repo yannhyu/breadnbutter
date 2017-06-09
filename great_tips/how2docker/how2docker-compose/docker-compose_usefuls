@@ -1,0 +1,27 @@
+docker-compose-1.9.0 ps -q
+++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/workspace/etl-design$ docker-compose-1.9.0 ps -q
+7b35a7af8de4f970b81c7128f35b4f16a0f3452c5a343f1b5441aea65921774c
+7d326d0a989a2c4a9b1071d530388a36730771d4ba93657506858aae3c85c07d
+0ce15dc3e203396a8c8dd7d847a9645c137dc0da28f6fe1088bf5a63df4ce555
+471b47b5d365c945b8518f3527d55c7c61ea97de6891282dc5c8b440bb140d46
+airflow@mllxv-yu:~/workspace/etl-design$ 
+
+++++++++++++++++++++++++++++++++++
+
+docker-compose-1.9.0 build
+docker-compose-1.9.0 up -d
+docker-compose-1.9.0 down
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/workspace/etl-design$ docker-compose-1.9.0 ps
+       Name                      Command               State           Ports          
+-------------------------------------------------------------------------------------
+etldesign_monitor_1   flower -A celery_config -- ...   Up      0.0.0.0:5555->5555/tcp 
+etldesign_redis_1     docker-entrypoint.sh redis ...   Up      6379/tcp               
+etldesign_web_1       python app.py                    Up      0.0.0.0:5000->5000/tcp 
+etldesign_worker_1    /bin/sh -c celery -A celer ...   Up                             
+airflow@mllxv-yu:~/workspace/etl-design$ docker logs etldesign_worker_1
+

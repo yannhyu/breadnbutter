@@ -1,0 +1,16 @@
+yann.yu@mllxv-yu:django-api-rest-and-angular$ pwd
+/home/yann.yu/workspace/django-api-rest-and-angular
+yann.yu@mllxv-yu:django-api-rest-and-angular$ 
+
++++++++++++++++++++++++++++++++++++++++++++
+
+sudo docker ps
+
++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+sudo docker build -t yannyu/django-api-rest .
+
+sudo docker run -i -d --name djangoapirest -p 8080:80 yannyu/django-api-rest
+

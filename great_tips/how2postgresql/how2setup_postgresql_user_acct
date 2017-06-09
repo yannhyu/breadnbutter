@@ -1,0 +1,7 @@
+sudo -u postgres psql postgres 
+
+and enter 
+
+\password postgres
+
+new password: [psql]

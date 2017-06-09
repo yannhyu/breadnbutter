@@ -1,0 +1,35 @@
+
+select version();
+
+\l
+
+\c [db name]
+
+\d
+
+\d+ [table name]
+
+create database [db name];
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+/etc/init.d/postgresql status
+
+service postgresql status
+
+sudo service postgresql start
+
+sudo service postgresql stop
+
++++++++++++++++++++++++++++++++++++++++++++++++
+
+$ sudo -u postgres createuser janbodnar
+Shall the new role be a superuser? (y/n) n
+Shall the new role be allowed to create databases? (y/n) y
+Shall the new role be allowed to create more new roles? (y/n) n
+
+We create a new role in the PostgreSQL system. We allow it to have ability to create new databases. A role is a user in a database world. Roles are separate from operating system users. We have created a new user without the -W option, e.g. we have not specified a password. This enables us to connect to a database with this user without password authentication. Note that this works only on localhost.
+
+$ sudo -u postgres createdb testdb -O janbodnar
+The createdb command creates a new PostgreSQL database with the owner janbodnar.
+

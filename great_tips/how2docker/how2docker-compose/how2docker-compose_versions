@@ -1,0 +1,12 @@
+
+docker-compose
+docker-compose-1.9.0
+
+
+
+++++++++++++++++++++++++++++++++
+yann.yu@mllxv-yu:~$ docker-compose --version
+docker-compose version 1.5.2, build unknown
+yann.yu@mllxv-yu:~$ docker-compose-1.9.0 --version
+docker-compose version 1.9.0, build 2585387
+yann.yu@mllxv-yu:~$ 

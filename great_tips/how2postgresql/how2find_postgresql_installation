@@ -1,0 +1,9 @@
+/usr/lib/postgresql/9.3/bin/postgres
+
+the data directory where all the database clusters will be stored at:
+
+/var/lib/postgresql/9.3/main
+
+and the configuration file at:
+
+/etc/postgresql/9.3/main/postgresql.conf

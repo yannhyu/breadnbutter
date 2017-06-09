@@ -1,0 +1,5 @@
+yann.yu@mllxv-yu:~$ psql -h devmaindb01 -U dev_payorintel_u -d dev_ml_db
+u782nmt5
+
+
+CONN_STRING = 'postgresql://dev_payorintel_u:u782nmt5@devmaindb01:5432/dev_ml_db'

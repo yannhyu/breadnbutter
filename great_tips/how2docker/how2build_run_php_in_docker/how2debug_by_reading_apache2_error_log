@@ -1,0 +1,5 @@
+docker run -tid -p 81:80 --name="apache_server" -v /home/airflow/php5code:/var/www nimmis/apache-php5
+docker exec -it apache_server bash
+
+root@e88c7fae3b7b:~# less /var/log/apache2/error.log
+

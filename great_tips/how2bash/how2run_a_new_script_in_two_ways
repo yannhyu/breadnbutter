@@ -1,0 +1,6 @@
+chmod +x myscript
+./myscript
+
+OR
+
+bash myscript

@@ -1,0 +1,162 @@
+\! cls
+\! pwd
+
++++++++++++++++++++++++++++++++++++++
+testdb=# \! pwd
+/var/lib/postgresql
+
++++++++++++++++++++++++++++++++++++++
+
+cp customer_reviews_nested_1998.json
+to
+/var/lib/postgresql
+
++++++++++++++++++++++++++++++++++++++
+
+The data can be loaded into a PostgreSQL database using the JSONB data type with the following commands:
+
+CREATE TABLE reviews(review jsonb);
+\copy reviews FROM 'customer_reviews_nested_1998.json'
+VACUUM ANALYZE reviews;
+
++++++++++++++++++++++++++++++++++++++
+
+CREATE INDEX on reviews USING GIN (review);
+
++++++++++++++++++++++++++++++++++++++
+
+SELECT
+    review #>> '{product,title}' AS title,
+    avg((review #>> '{review,rating}')::int)
+FROM reviews
+WHERE review @> '{"product": {"category": "Fitness & Yoga"}}'
+GROUP BY 1 ORDER BY 2;
+
+                       title                       |        avg         
+---------------------------------------------------+--------------------
+ Kathy Smith - New Yoga Challenge                  | 1.6666666666666667
+ Pumping Iron 2                                    | 2.0000000000000000
+ Kathy Smith - New Yoga Basics                     | 3.0000000000000000
+ Men Are from Mars, Women Are from Venus           | 4.0000000000000000
+ Kathy Smith - Functionally Fit - Peak Fat Burning | 4.5000000000000000
+ Kathy Smith - Pregnancy Workout                   | 5.0000000000000000
+(6 rows)
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++
+
+ it is often the case that the only operation used in the applications is the search for a subset. In this case it is possible to use a different GIN index which only supports the @> operator and is therefore considerably smaller. The syntax for creating this type of “optimised” index is as follows:
+
+ 
+
+CREATE INDEX on reviews USING GIN (review jsonb_path_ops);
+
+++++++++++++++++++++++++++++++++++++++
+
+ {"review": {"date": "1970-12-30", "votes": 10, "rating": 5, "helpful_votes": 0}, "product": {"id": "1551803542", "group": "Book", "title": "Start and Run a Coffee Bar (Start & Run a)", "category": "Business & Investing", "sales_rank": 11611, "similar_ids": ["0471136174", "0910627312", "047112138X", "0786883561", "0201570483"], "subcategory": "General"}, "customer_id": "AE22YDHSBFYIP"}
+
+ +++++++++++++++++++++++++++++++++++++
+
+ {
+  "review": {
+    "date": "1970-12-30",
+    "votes": 10,
+    "rating": 5,
+    "helpful_votes": 0
+  },
+  "product": {
+    "id": "1551803542",
+    "group": "Book",
+    "title": "Start and Run a Coffee Bar (Start & Run a)",
+    "category": "Business & Investing",
+    "sales_rank": 11611,
+    "similar_ids": [
+      "0471136174",
+      "0910627312",
+      "047112138X",
+      "0786883561",
+      "0201570483"
+    ],
+    "subcategory": "General"
+  },
+  "customer_id": "AE22YDHSBFYIP"
+}
+
+
+++++++++++++++++++++++++++++++++++++++++
+
+SELECT
+FROM reviews
+WHERE review @> '{"product": {"category": "Fitness & Yoga"}}';
+
+++++++++++++++++++++++++++++++++++++++++
+
+SELECT *
+FROM reviews
+WHERE review @> '{"product": {"category": "Fitness & Yoga"}}';
+
+ {"review": {"date": "1998-09-15", "votes": 6, "rating": 5, "helpful_votes": 6}, "product": {"id": "B00005T30Y", "group": "DVD", "title": "Men Are from Mars, Women Are from Venus", "category": "Fitness & Yoga", "sales_rank": 22142, "similar_ids": ["B00004U2MW", "006016848X", "B0007R4T3U", "B0002OXVBO"], "subcategory": "General"}, "customer_id": "A2VK03UD8VHFTT"}
+ {"review": {"date": "1998-10-05", "votes": 0, "rating": 4, "helpful_votes": 0}, "product": {"id": "B00006LPBZ", "group": "DVD", "title": "Kathy Smith - Functionally Fit - Peak Fat Burning", "category": "Fitness & Yoga", "sales_rank": 12904, "similar_ids": ["B00005QW4E", "B00004XPQ0", "0738920533", "B0000C0FG8", "B0000C0FGC"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-10-07", "votes": 1, "rating": 3, "helpful_votes": 1}, "product": {"id": "B00005QW4H", "group": "DVD", "title": "Kathy Smith - New Yoga Basics", "category": "Fitness & Yoga", "sales_rank": 24353, "similar_ids": ["1573309885", "B00005QW4I", "B00004RF7F", "B00006HB07", "1573303593"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-10-21", "votes": 9, "rating": 3, "helpful_votes": 5}, "product": {"id": "B00005T30Y", "group": "DVD", "title": "Men Are from Mars, Women Are from Venus", "category": "Fitness & Yoga", "sales_rank": 22142, "similar_ids": ["B00004U2MW", "006016848X", "B0007R4T3U", "B0002OXVBO"], "subcategory": "General"}, "customer_id": "A1BGITI33P8MZG"}
+ {"review": {"date": "1998-11-19", "votes": 134, "rating": 5, "helpful_votes": 132}, "product": {"id": "B000062XE2", "group": "DVD", "title": "Kathy Smith - Pregnancy Workout", "category": "Fitness & Yoga", "sales_rank": 2978, "similar_ids": ["B0000BYNMH", "B00008J2I7", "0784017883", "B0004Z32L0", "B00009Y3SX"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-11-25", "votes": 9, "rating": 2, "helpful_votes": 3}, "product": {"id": "B00008K77A", "group": "DVD", "title": "Pumping Iron 2", "category": "Fitness & Yoga", "sales_rank": 7721, "similar_ids": ["B0000C3I6U", "0684857219", "081475094X", "1885183011", "B00018YC3M"], "subcategory": "Weight Training"}, "customer_id": "A2HJ5RIT4CH46L"}
+ {"review": {"date": "1998-11-30", "votes": 4, "rating": 5, "helpful_votes": 4}, "product": {"id": "B00006LPBZ", "group": "DVD", "title": "Kathy Smith - Functionally Fit - Peak Fat Burning", "category": "Fitness & Yoga", "sales_rank": 12904, "similar_ids": ["B00005QW4E", "B00004XPQ0", "0738920533", "B0000C0FG8", "B0000C0FGC"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-12-01", "votes": 17, "rating": 1, "helpful_votes": 8}, "product": {"id": "B00005QW4I", "group": "DVD", "title": "Kathy Smith - New Yoga Challenge", "category": "Fitness & Yoga", "sales_rank": 8332, "similar_ids": ["1573309885", "6305150109", "B000069HQ0", "B0000C0FGC", "B00006HB07"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-12-20", "votes": 10, "rating": 3, "helpful_votes": 10}, "product": {"id": "B00005QW4I", "group": "DVD", "title": "Kathy Smith - New Yoga Challenge", "category": "Fitness & Yoga", "sales_rank": 8332, "similar_ids": ["1573309885", "6305150109", "B000069HQ0", "B0000C0FGC", "B00006HB07"], "subcategory": "Fitness"}, "customer_id": "A16JCHMALCKAD9"}
+ {"review": {"date": "1998-12-25", "votes": 5, "rating": 5, "helpful_votes": 3}, "product": {"id": "B000062XE2", "group": "DVD", "title": "Kathy Smith - Pregnancy Workout", "category": "Fitness & Yoga", "sales_rank": 2978, "similar_ids": ["B0000BYNMH", "B00008J2I7", "0784017883", "B0004Z32L0", "B00009Y3SX"], "subcategory": "Fitness"}, "customer_id": "A2OMIZGENMUBER"}
+ {"review": {"date": "1998-12-30", "votes": 2, "rating": 1, "helpful_votes": 0}, "product": {"id": "B00005QW4I", "group": "DVD", "title": "Kathy Smith - New Yoga Challenge", "category": "Fitness & Yoga", "sales_rank": 8332, "similar_ids": ["1573309885", "6305150109", "B000069HQ0", "B0000C0FGC", "B00006HB07"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+(11 rows)
+
+++++++++++++++++++++++++++++++++++++++++
+
+
+SELECT review
+FROM reviews
+WHERE review->'product'->>'category' = 'Fitness & Yoga';
+
+ {"review": {"date": "1998-09-15", "votes": 6, "rating": 5, "helpful_votes": 6}, "product": {"id": "B00005T30Y", "group": "DVD", "title": "Men Are from Mars, Women Are from Venus", "category": "Fitness & Yoga", "sales_rank": 22142, "similar_ids": ["B00004U2MW", "006016848X", "B0007R4T3U", "B0002OXVBO"], "subcategory": "General"}, "customer_id": "A2VK03UD8VHFTT"}
+ {"review": {"date": "1998-10-05", "votes": 0, "rating": 4, "helpful_votes": 0}, "product": {"id": "B00006LPBZ", "group": "DVD", "title": "Kathy Smith - Functionally Fit - Peak Fat Burning", "category": "Fitness & Yoga", "sales_rank": 12904, "similar_ids": ["B00005QW4E", "B00004XPQ0", "0738920533", "B0000C0FG8", "B0000C0FGC"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-10-07", "votes": 1, "rating": 3, "helpful_votes": 1}, "product": {"id": "B00005QW4H", "group": "DVD", "title": "Kathy Smith - New Yoga Basics", "category": "Fitness & Yoga", "sales_rank": 24353, "similar_ids": ["1573309885", "B00005QW4I", "B00004RF7F", "B00006HB07", "1573303593"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-10-21", "votes": 9, "rating": 3, "helpful_votes": 5}, "product": {"id": "B00005T30Y", "group": "DVD", "title": "Men Are from Mars, Women Are from Venus", "category": "Fitness & Yoga", "sales_rank": 22142, "similar_ids": ["B00004U2MW", "006016848X", "B0007R4T3U", "B0002OXVBO"], "subcategory": "General"}, "customer_id": "A1BGITI33P8MZG"}
+ {"review": {"date": "1998-11-19", "votes": 134, "rating": 5, "helpful_votes": 132}, "product": {"id": "B000062XE2", "group": "DVD", "title": "Kathy Smith - Pregnancy Workout", "category": "Fitness & Yoga", "sales_rank": 2978, "similar_ids": ["B0000BYNMH", "B00008J2I7", "0784017883", "B0004Z32L0", "B00009Y3SX"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-11-25", "votes": 9, "rating": 2, "helpful_votes": 3}, "product": {"id": "B00008K77A", "group": "DVD", "title": "Pumping Iron 2", "category": "Fitness & Yoga", "sales_rank": 7721, "similar_ids": ["B0000C3I6U", "0684857219", "081475094X", "1885183011", "B00018YC3M"], "subcategory": "Weight Training"}, "customer_id": "A2HJ5RIT4CH46L"}
+ {"review": {"date": "1998-11-30", "votes": 4, "rating": 5, "helpful_votes": 4}, "product": {"id": "B00006LPBZ", "group": "DVD", "title": "Kathy Smith - Functionally Fit - Peak Fat Burning", "category": "Fitness & Yoga", "sales_rank": 12904, "similar_ids": ["B00005QW4E", "B00004XPQ0", "0738920533", "B0000C0FG8", "B0000C0FGC"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-12-01", "votes": 17, "rating": 1, "helpful_votes": 8}, "product": {"id": "B00005QW4I", "group": "DVD", "title": "Kathy Smith - New Yoga Challenge", "category": "Fitness & Yoga", "sales_rank": 8332, "similar_ids": ["1573309885", "6305150109", "B000069HQ0", "B0000C0FGC", "B00006HB07"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+ {"review": {"date": "1998-12-20", "votes": 10, "rating": 3, "helpful_votes": 10}, "product": {"id": "B00005QW4I", "group": "DVD", "title": "Kathy Smith - New Yoga Challenge", "category": "Fitness & Yoga", "sales_rank": 8332, "similar_ids": ["1573309885", "6305150109", "B000069HQ0", "B0000C0FGC", "B00006HB07"], "subcategory": "Fitness"}, "customer_id": "A16JCHMALCKAD9"}
+ {"review": {"date": "1998-12-25", "votes": 5, "rating": 5, "helpful_votes": 3}, "product": {"id": "B000062XE2", "group": "DVD", "title": "Kathy Smith - Pregnancy Workout", "category": "Fitness & Yoga", "sales_rank": 2978, "similar_ids": ["B0000BYNMH", "B00008J2I7", "0784017883", "B0004Z32L0", "B00009Y3SX"], "subcategory": "Fitness"}, "customer_id": "A2OMIZGENMUBER"}
+ {"review": {"date": "1998-12-30", "votes": 2, "rating": 1, "helpful_votes": 0}, "product": {"id": "B00005QW4I", "group": "DVD", "title": "Kathy Smith - New Yoga Challenge", "category": "Fitness & Yoga", "sales_rank": 8332, "similar_ids": ["1573309885", "6305150109", "B000069HQ0", "B0000C0FGC", "B00006HB07"], "subcategory": "Fitness"}, "customer_id": "ATVPDKIKX0DER"}
+(11 rows)
+
++++++++++++++++++++++++++++++++++++
+
+SELECT count(*)
+FROM reviews
+WHERE review->'product'->>'category' like 'Fitness%';
+
++++++++++++++++++++++++++++++++++++
+
+testdb-# WHERE review->'product'->>'category' like '%Yoga';
+ count 
+-------
+    11
+(1 row)
+
+testdb=# SELECT count(*)
+testdb-# FROM reviews
+testdb-# WHERE review->'product'->>'category' like 'Fitness%';
+ count 
+-------
+   117
+(1 row)
+
+
++++++++++++++++++++++++++++++++++++
+
+SELECT review
+FROM reviews
+WHERE review->'product'->>'category' like 'Fitness%'
+LIMIT 20;

@@ -1,0 +1,87 @@
+https://semaphoreci.com/community/tutorials/dockerizing-a-php-application
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+let's create a new one:
+$ docker run -d nimmis/apache-php5
+
+We created a new container from the nimmis/apache-php5 image, and we used the -d flag to run the job in the background. The output hash is our container id, we can use it to access the container and play around with it. Let's print our containers first:
+$ docker ps
+
+$ docker run -d --name="apache_server" nimmis/apache-php5
+
+
+We can now access our container by executing the bash command and attaching it to our terminal:
+
+$ docker exec -it apache_server bash
+root@bc75f6df4d82:~# /etc/init.d/apache2 status
+* apache2 is running
+root@bc75f6df4d82:~#
+
+To avoid polluting our VM with unused containers, make sure to delete unused ones:
+
+# Delete container using ID or name
+docker rm -f <container>
+
+# Delete all available containers
+docker rm -f $(docker ps -aq)
+
+++++++++++++++++++++++++++++++++++++++++
+
+Since our container is an Apache server, it makes sense to have a way to access it through a browser. When creating an image, we need to make sure to expose it through a specific port so that the other containers, browsers, etc. can access it. We will cover this in more detail in the Dockerfiles section.
+
+# Expose default ports
+docker run -tid -P  --name apache_server nimmis/apache-php5
+
+# Specify a different post <host port>:<container port>
+docker run -tid -p 80:80 --name apache_server  nimmis/apache-php5
+
+
+$ sudo docker inspect -f "{{ .Config.Env }}" c3f279d17e0a
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/mongodb$ docker ps
+CONTAINER ID        IMAGE                COMMAND             CREATED             STATUS              PORTS               NAMES
+03f07ade8e7b        nimmis/apache-php5   "/my_init"          6 minutes ago       Up 6 minutes        80/tcp              apache_server
+airflow@mllxv-yu:~/mongodb$ docker inspect -f "{{ .Config.Env }}" apache-server
+
+Error: No such image or container: apache-server
+airflow@mllxv-yu:~/mongodb$ docker inspect -f "{{ .Config.Env }}" 03f07ade8e7b
+[PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin DEBIAN_FRONTEND=noninteractive HOME=/root]
+airflow@mllxv-yu:~/mongodb$ 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+We can get our VM machine's IP by running docker-machine ip default, or by printing the environment variables.
+
+$ docker-machine ip default
+192.168.99.100
+
+$ docker-machine env default
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/admin/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+# Run this command to configure your shell:
+# eval "$(docker-machine env default)"
+
+The last part is to map the Apache server to run our application instead of the default Apache homepage. This means that we need to keep our application folder synced with the server root folder (/var/www). We can do that using the -v option. You can read more about container volumes in the Docker documentation.
+
+docker run -tid -p 80:80 --name="apache_server" -v /Users/admin/Desktop/www/500pxAPI_Test:/var/www nimmis/apache-php5
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+  531  docker run -d --name="apache_server" nimmis/apache-php5
+  532  docker ps
+  533  docker exec -it apache_server bash
+  534  docker ip default
+  535  docker env default
+  536  docker --help
+  537  docker ps
+  538  docker inspect -f "{{ .Config.Env }}" apache-server
+  539  docker inspect -f "{{ .Config.Env }}" 03f07ade8e7b
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+docker run -tid -p 81:80 --name="apache_server" -v /home/airflow/php5code:/var/www nimmis/apache-php5
+docker exec -it apache_server bash

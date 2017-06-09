@@ -1,0 +1,10 @@
+yann.yu@mllxv-yu:autointel$ ls
+bin  build.xml  config  install  lib  scripts  sql
+yann.yu@mllxv-yu:autointel$ echo $?
+0
+yann.yu@mllxv-yu:autointel$ 
+yann.yu@mllxv-yu:autointel$ ls somethingthatdoesnotexist
+ls: cannot access 'somethingthatdoesnotexist': No such file or directory
+yann.yu@mllxv-yu:autointel$ echo $?
+2
+yann.yu@mllxv-yu:autointel$ 

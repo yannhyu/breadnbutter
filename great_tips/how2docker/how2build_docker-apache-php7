@@ -1,0 +1,53 @@
+https://github.com/bylexus/docker-apache-php7
++++++++++++++++++++++++++++++++++++++++++++++
+
+docker run -i -d --name php7 -p 8080:80 -v /home/airflow/php7code/www:/var/www yannyu/apache-php7
+
+docker exec -t -i php7 /bin/bash
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+airflow@mllxv-yu:~/php7code$ pwd
+/home/airflow/php7code
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+git clone https://github.com/bylexus/docker-apache-php7.git
+
+cd docker-apache-php7
+
+docker build -t yannyu/apache-php7 .
++++++++++++++++++++++++++++++++++++++++++++++
+
+Usage
+
+$ docker run -d -P bylexus/apache-php7
+With all the options:
+
+$ docker run -d -p 8080:80 \
+    -v /home/user/webroot:/var/www \
+    -e PHP_ERROR_REPORTING='E_ALL & ~E_STRICT' \
+    bylexus/apache-php7
+-v [local path]:/var/www maps the container's webroot to a local path
+-p [local port]:80 maps a local port to the container's HTTP port 80
+-e PHP_ERROR_REPORTING=[php error_reporting settings] sets the value of error_reporting in the php.ini files.
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Access apache logs
+
+Apache is configured to log both access and error log to STDOUT. So you can simply use docker logs to get the log output:
+
+docker logs -f container-id
+
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Default Configurations
+
+Apache: .htaccess-Enabled in webroot (mod_rewrite with AllowOverride all)
+php.ini:
+display_errors = On
+error_reporting = E_ALL (default, overridable per env variable)
+
++++++++++++++++++++++++++++++++++++++++++++++++
+

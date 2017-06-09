@@ -1,0 +1,5 @@
+testdb=# select CURRENT_USER;
+ current_user 
+--------------
+ airflow
+(1 row)
