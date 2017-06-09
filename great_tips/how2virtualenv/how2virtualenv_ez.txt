@@ -1,0 +1,24 @@
+
+conda env list
+
+source activate [ ]
+activate [ ]
+
+++++++++++++++++++++++++++++++++++
+
+python2.7 -m virtualenv venv
+
+
+++++++++++++++++++++++++++++++++++
+$ python2.6 -m venv myvenv2.6
+$ python2.7 -m venv myvenv2.7
+$ python3.4 -m venv myvenv3.4
+$ python3.5 -m venv myvenv3.5
+
+
+
+virtualenv -p python3 
+or 
+virtualenv -p python2
+
+Don't need the -p option for whatever interpreter is the system default.

@@ -1,0 +1,32 @@
+cd C:\tmp\msys64\home\yann.yu\dev\
+mapped to
+/home/yann.yu/dev
++++++++++++++++++++++++++++++++++++++++++++++
+
+(1) install virtualenvwrapper in home dir:
+sudo -H pip install virtualenvwrapper
+
+(2) tell bash about it
+open ~/.bashrc or ~/.profile
+
+add to the bottom:
+
+# Virtualenvwrapper settings
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+source /usr/local/bin/virtualenvwrapper.sh
+
+(3) 
+mkvirtualenv -p /usr/bin/python3.4 dabeaz
+
+(4) toggle:
+deactivate
+workon dabeaz
+
+
+
+++++++++++++++++++++++++++++++++++
+
+rmvirtualenv dabeaz
+
+++++++++++++++++++++++++++++++++++

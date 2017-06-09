@@ -1,0 +1,37 @@
+python --version
+python -m venv sqlalchemy
+sqlalchemy\Scripts\activate
+python --version
+pip --version
+
+
++++++++++++++++++++++++++++++++++++++++
+C:\Users\yann.yu\Documents\dev\py3code\awesome-python>python -m venv awesomepy3
+
+C:\Users\yann.yu\Documents\dev\py3code\awesome-python>awesomepy3\Scripts\activate
+(awesomepy3) C:\Users\yann.yu\Documents\dev\py3code\awesome-python>python --version
+Python 3.5.2 :: Anaconda 4.1.1 (64-bit)
+
+(awesomepy3) C:\Users\yann.yu\Documents\dev\py3code\awesome-python>pip --version
+pip 8.1.1 from c:\users\yann.yu\documents\dev\py3code\awesome-python\awesomepy3\lib\site-packages (python 3.5)
+
+(awesomepy3) C:\Users\yann.yu\Documents\dev\py3code\awesome-python>
+
+++++++++++++++++++++++++++++++++++++++++
+pyvenv-3.5 venv
+
+++++++++++++++++++++++++++++++++++++++++
+for python2:
+pyvenv venv --no-site-packages
+
+++++++++++++++++++++++++++++++++++++++++
+
+conda create -n python27 python=2.7 anaconda
+conda create -n python35 python=3.5 anaconda
+
++++++++++++++++++++++++++++++++++++++++++
+
+conda create -n batch_app_dev_env python=3.5.2 anaconda
+
++++++++++++++++++++++++++++++++++++++++++
+

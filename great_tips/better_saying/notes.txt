@@ -1,0 +1,5 @@
+﻿[‎3/‎20/‎2017 5:52 PM] Christophe Conseil: 
+Yann please structure your on-going program the same way than for ebureau with
+a) config file
+b) database access
+b)storing passwords

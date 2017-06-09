@@ -1,0 +1,3 @@
+C:\Users\yann.yu\AppData\Local\Continuum\Anaconda2
+C:\Users\yann.yu\AppData\Local\Continuum\Anaconda3
+

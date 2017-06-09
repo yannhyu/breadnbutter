@@ -1,0 +1,6 @@
+
+mkvirtualenv -p C:\Users\yann.yu\AppData\Local\Continuum\Anaconda2\python.exe py2clean --no-site-packages
+
++++++++++++++++++++
+source ~/.profile
++++++++++++++++++++

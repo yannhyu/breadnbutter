@@ -1,0 +1,10 @@
+To limit this configuration to Ruby files, first open up a Ruby file in the editor, 
+and then go to Preferences -> Settings -> More -> Syntax Specific -> User. 
+This should open a settings window named Ruby.sublime-settings
+
+Save these settings:
+
+{
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true
+}

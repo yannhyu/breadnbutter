@@ -1,0 +1,50 @@
+Microsoft Windows [Version 10.0.10586]
+(c) 2015 Microsoft Corporation. All rights reserved.
+
+C:\Users\yann.yu>pip --version
+pip 8.1.2 from C:\Users\yann.yu\AppData\Local\Continuum\Anaconda3\lib\site-packages (python 3.5)
+
+C:\Users\yann.yu>python --version
+Python 3.5.2 :: Anaconda 4.1.1 (64-bit)
+
+C:\Users\yann.yu>virtualenv --version
+15.0.3
+
++++++++++++++++++++++++++++++++++++++++++++++
+
+(1) install virtualenvwrapper in home dir:
+pip install virtualenvwrapper-win
+
+(2) tell bash about it
+In Windows, the default path for WORKON_HOME is %USERPROFILE%Envs
+
+add to the bottom:
+
+# Virtualenvwrapper settings
+In Windows, the default path for WORKON_HOME is %USERPROFILE%Envs
+
+(3) 
+mkvirtualenv -p C:\Users\yann.yu\AppData\Local\Continuum\Anaconda3\python dabeaz
+mkvirtualenv dabeaz
+
+(4) toggle:
+deactivate
+workon dabeaz
+
+
+
+++++++++++++++++++++++++++++++++++
+
+rmvirtualenv dabeaz
+
+++++++++++++++++++++++++++++++++++
+Other useful commands
+lsvirtualenv
+List all of the environments.
+cdvirtualenv
+Navigate into the directory of the currently activated virtual environment, so you can browse its site-packages, for example.
+cdsitepackages
+Like the above, but directly into site-packages directory.
+lssitepackages
+Shows contents of site-packages directory.
+++++++++++++++++++++++++++++++++++
