@@ -1,0 +1,13 @@
+author|title|genre|publish_date
+Gambardella, Matthew|XML Developer's Guide|Computer|2000-10-01
+Ralls, Kim|Midnight Rain|Fantasy|2000-12-16
+Corets, Eva|Maeve Ascendant|Fantasy|2000-11-17
+Corets, Eva|Oberon's Legacy|Fantasy|2001-03-10
+Corets, Eva|The Sundered Grail|Fantasy|2001-09-10
+Randall, Cynthia|Lover Birds|Romance|2000-09-02
+Thurman, Paula|Splish Splash|Romance|2000-11-02
+Knorr, Stefan|Creepy Crawlies|Horror|2000-12-06
+Kress, Peter|Paradox Lost|Science Fiction|2000-11-02
+O'Brien, Tim|Microsoft .NET: The Programming Bible|Computer|2000-12-09
+O'Brien, Tim|MSXML3: A Comprehensive Guide|Computer|2000-12-01
+Galos, Mike|Visual Studio 7: A Comprehensive Guide|Computer|2001-04-16
