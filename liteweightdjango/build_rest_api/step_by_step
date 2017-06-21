@@ -129,5 +129,68 @@ let’s build out some validations to secure the state of our data.
    http://localhost:8000/api/tasks/?assigned=demo2
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+To look at how the client’s request of that markup is translated back into
+creating a model instance. For a typical Django view, this would be handled by a Form
+or ModelForm . In django-rest-framework , this is handled by the serializer.
 
-   
+One thing the API should prevent is creating sprints that have happened prior to the
+current date and time. To handle this, the SprintSerializer needs to check the value
+of the end date submitted by the client. Each serializer field has a validate_<field>
+hook that is called to perform additional validations on the field. Again, this parallels
+the clean_<field> in Django’s forms. This should be added to SprintSerializer in
+board/serializers.py.   
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+To see this in action, we can attempt to create a historical sprint on http://localhost:8000/
+api/sprints/. You should now get a 400 BAD REQUEST response.
+HTTP 400 BAD REQUEST
+Vary: Accept
+Content-Type: application/json
+Allow: GET, POST, HEAD, OPTIONS
+{
+"end": [
+"End date cannot be in the past."
+]
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+TypeError at /api/sprints/
+
+validate_end() missing 1 required positional argument: 'source'
+Note from the Author or Editor:
+The original code for this section was written for Django Rest Framework version 2.4.X. After publication, version 3.0 was released with incompatible changes for the serializers. If you see this error, to make the code compatible with version 3.0.X you need to change the SprintSerializer.validate_end:
+
+    class SprintSerializer(serializers.ModelSerializer):
+        ...
+        def validate_end(self, value):
+            new = self.instance is None
+            changed = self.instance and self.instance.end != value
+            if (new or changed) and (value < date.today()):
+                msg = _('End date cannot be in the past.')
+                raise serializers.ValidationError(msg)
+            return value
+
+
+and TaskSerializer.validate_sprint:
+
+class TaskSerializer(serializers.ModelSerializer):
+    ...
+    def validate_sprint(self, value):
+        if self.instance and self.instance.pk:
+            if value != self.instance.sprint:
+                if self.instance.status == Task.STATUS_DONE:
+                    msg = _('Cannot change the sprint of a completed task.')
+                    raise serializers.ValidationError(msg)
+                if value and value.end < date.today():
+                    msg = _('Cannot assign tasks to past sprints.')
+                    raise serializers.ValidationError(msg)
+        else:
+            if value and value.end < date.today():
+                msg = _('Cannot add tasks to past sprints.')
+                raise serializers.ValidationError(msg)
+        return value
+
+See http://www.django-rest-framework.org/topics/3.0-announcement/#serializers and updates
+to the example project https://github.com/lightweightdjango/examples/commit/bbf88e20765ede522cd2026e08e2a24c7da33b89 for more details.
