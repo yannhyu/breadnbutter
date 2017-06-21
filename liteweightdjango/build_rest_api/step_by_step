@@ -73,3 +73,17 @@ It is redundant to specify `get_status_display` on SerializerMethodField 'status
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+filters
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Since there is only one task with the name “First Task,” searching for “foo” via 
+
+  http://localhost:8000/api/tasks/?search=foo 
+
+will yield no results, while seaching for “first” with
+  http://localhost:8000/api/tasks/?search=first 
+will.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
