@@ -108,7 +108,6 @@ rather than
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-   http://localhost:8000/api/sprints/?end_min=2014-07-01 
    
 will show all sprints that ended
 after July 1, 2014, and 
