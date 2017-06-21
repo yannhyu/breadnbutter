@@ -87,3 +87,15 @@ will.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+This will make
+  http://localhost:8000/api/tasks/?backlog=True 
+
+return all tasks that aren’t assigned to a sprint.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+TemplateDoesNotExist at /api/tasks/
+django_filters/rest_framework/form.html
+
+may need to add 'django_filters' to INSTALLED_APPS.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
