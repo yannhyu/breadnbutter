@@ -1,0 +1,75 @@
+mkvirtualenv -p /usr/bin/python3.5 lwdjango
+
+psql -U monty -d testdb -h 127.0.0.1 -W
+psql -U postgres -d testdb -h 127.0.0.1 -W
++++++++++++++++++++++++++++++++++++++++++++
+
+Switch to the postgres user:<br>
+sudo su postgres<br><br>
+Execute the postgres createdb command:<br>
+createdb <dbname> --encoding='utf-8' --locale=en_US.utf8 --template=template0;<br><br>
+List the databases from psql:<br> 
+psql<br>
+\l<br><br>
+Quit back to the previous user:<br>
+exit
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+(djrestfw) C:\Users\yann.yu\Documents\tips\how2medlytix\ISO_project\creative_workshop_06_20_2017\lwdj\build_rest_api>
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+django-admin.py startproject scrum
+django-admin startproject scrum
+
+cd scrum
+
+python manage.py startapp board
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+ C:\>cd C:\Program Files\PostgreSQL\9.5\bin
+
+++++++++++++++++++++++++++++++++++++++++++++++ 
+
+hostname $ pip install psycopg2
+hostname $ createdb -E UTF-8 scrum
+
+C:\"Program Files"\PostgreSQL\9.5\bin\createdb -E UTF-8 scrum
+
+++++++++++++++++++++++++++++++++++++++++++++++
+
+python manage.py makemigrations board
+
+python manage.py migrate
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+psycopg2.OperationalError: fe_sendauth: no password supplied
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+python manage.py createsuperuser
+
+create the
+user with the username 
+   demo 
+and the password 
+   test.
+hostname $ python manage.py createsuperuser
+Username (leave blank to use 'username'): demo
+Email address: demo@example.com
+Password:
+Password (again):
+Superuser created successfully.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+It is redundant to specify `get_links` on SerializerMethodField 'links' in serializer 'SprintSerializer', because it is the same as the default method name. Remove the `method_name` argument.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+It is redundant to specify `get_status_display` on SerializerMethodField 'status_display' in serializer 'TaskSerializer', because it is the same as the default method name. Remove the `method_name` argument.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

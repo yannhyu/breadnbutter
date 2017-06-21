@@ -1,0 +1,8 @@
+django-admin startproject image_server --template=project_name
+
++++++++++++++++++++++++++++++++++++++++++
+
+pip install Pillow
+
++++++++++++++++++++++++++++++++++++++++++
+
