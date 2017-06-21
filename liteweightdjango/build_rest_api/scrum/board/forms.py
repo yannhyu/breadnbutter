@@ -1,5 +1,8 @@
 import django_filters
+from django.contrib.auth import get_user_model
 from .models import Task
+
+User = get_user_model()
 
 class NullFilter(django_filters.BooleanFilter):
     """Filter on a field set as null or not."""
@@ -14,3 +17,8 @@ class TaskFilter(django_filters.FilterSet):
     class Meta:
         model = Task
         fields = ('sprint', 'status', 'assigned', 'backlog', )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.filters['assigned'].extra.update(
+            {'to_field_name': User.USERNAME_FIELD})

@@ -99,3 +99,11 @@ django_filters/rest_framework/form.html
 may need to add 'django_filters' to INSTALLED_APPS.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+With this change in place, the tasks assigned to the one and only demo user can now be
+retrived using
+  http://localhost:8000/api/tasks/?assigned=demo
+
+rather than
+  http://localhost:8000/api/tasks/?assigned=1.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
