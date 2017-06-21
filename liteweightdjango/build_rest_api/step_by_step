@@ -118,3 +118,16 @@ all sprints that ended before August 1, 2014. These can be combined to limit spr
 a given date range.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Since the views for sprints and tasks support filtering, you can create links to link a
+sprint to its related tasks and users to their tasks by modifying board/serializers.py.
+
+With our filters in place, and to continue the benefits of using this browsable interface,
+let’s build out some validations to secure the state of our data.
+
+   http://localhost:8000/api/tasks/?sprint=1
+   http://localhost:8000/api/tasks/?assigned=demo2
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+   
