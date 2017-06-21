@@ -107,3 +107,15 @@ rather than
   http://localhost:8000/api/tasks/?assigned=1.
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+   http://localhost:8000/api/sprints/?end_min=2014-07-01 
+   
+will show all sprints that ended
+after July 1, 2014, and 
+   http://localhost:8000/api/sprints/?end_max=2014-08-01 
+
+will show
+all sprints that ended before August 1, 2014. These can be combined to limit sprints to
+a given date range.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
