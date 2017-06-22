@@ -8,3 +8,4 @@ print('The answer is {a} today'.format(a=x))
 
 # available for python3.6+
 print(f'The answer is {x} today')
+print(f'The answer is {x :08d} today')
