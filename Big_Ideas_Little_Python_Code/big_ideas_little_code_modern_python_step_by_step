@@ -1,0 +1,18 @@
+mkvirtualenv -p /usr/local/bin/python3.6 modernpython
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    (modernpython) $ pip install pyflakes
+    (modernpython) $ pip install bottle
+    (modernpython) $ pip install pytest
+    (modernpython) $ pip install hypothesis
+    (modernpython) $ pip install mypy
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+git clone https://github.com/rhettinger/modernpython.git
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+

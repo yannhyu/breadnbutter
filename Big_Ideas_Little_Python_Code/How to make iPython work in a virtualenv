@@ -1,0 +1,31 @@
+How to make iPython work in a virtualenv virtual environment
+by tyler (183)
+Trying to run iPython inside of a virtualenv virtual environment will likely result in this error:
+
+WARNING: Attempting to work in a virtualenv. If you encounter problems, please install IPython inside the virtualenv.
+This is a problem because my virtual environment is running Python 3.5, and iPython is using the system's Python 2.7.
+
+1
+Install iPython inside of your virtual environment
+Make sure your virtual environment is activated. For this demo, mine is called py3.
+
+workon py3
+Now install iPython.
+
+pip install iPython
+or
+
+pip3 install iPython
+After running iPython you may still see the warning find that it's still trying to use Python 2.7. If so, look at Step 2.
+
+2
+Run hash -r
+From your bash shell, run:
+
+hash -r
+And try running iPython again.
+
+When you've run iPython previously in a shell session, that command was cached. This command simply resets the cache. And now when you run:
+
+ipython
+it will refer to the version of iPython that you installed in your virtual environment.
