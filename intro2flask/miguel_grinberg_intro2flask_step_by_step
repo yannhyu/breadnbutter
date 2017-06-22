@@ -1,0 +1,19 @@
+python3.6 --version
+which python3.6
+
+mkvirtualenv -p /usr/local/bin/python3.6 py36flask
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(py36flask) yann.yu@mllxv-yu:breadnbutter$ python --version
+Python 3.6.1
+(py36flask) yann.yu@mllxv-yu:breadnbutter$
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+git clone https://github.com/miguelgrinberg/oreilly-intro-to-flask-video.git
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(py36flask) yann.yu@mllxv-yu:intro2flask$ cd oreilly-intro-to-flask-video/
+(py36flask) yann.yu@mllxv-yu:oreilly-intro-to-flask-video$ ls
+1a  2a  2c  2e  2g  3a  3c  4a  4c  6a  7a  8b  9a  9c       README.md
+1b  2b  2d  2f  2h  3b  3d  4b  5a  6b  8a  8c  9b  LICENSE  requirements.txt
+(py36flask) yann.yu@mllxv-yu:oreilly-intro-to-flask-video$ 
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
