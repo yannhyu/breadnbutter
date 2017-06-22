@@ -194,3 +194,127 @@ class TaskSerializer(serializers.ModelSerializer):
 
 See http://www.django-rest-framework.org/topics/3.0-announcement/#serializers and updates
 to the example project https://github.com/lightweightdjango/examples/commit/bbf88e20765ede522cd2026e08e2a24c7da33b89 for more details.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+hostname $ pip install requests
+In one terminal run the server with runserver , and in another start the Python inter‐
+active shell. Similar to the browser, we can start by fetching the root of the API at http://
+localhost:8000/api/:
+hostname $ python
+>>> import requests
+>>> import pprint
+>>> response = requests.get('http://localhost:8000/api/')
+>>> response.status_code
+200
+>>> api = response.json()
+>>> pprint.pprint(api)
+{'sprints': 'http://localhost:8000/api/sprints/',
+'tasks': 'http://localhost:8000/api/tasks/',
+'users': 'http://localhost:8000/api/users/'}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(lwdjango) yann.yu@mllxv-yu:build_rest_api$ python
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import requests
+>>> import pprint
+>>> response = requests.get('http://localhost:8000/api/')
+>>> response.status_code
+200
+>>> api = response.json()
+>>> pprint.pprint(api)
+{'sprints': 'http://localhost:8000/api/sprints/',
+ 'tasks': 'http://localhost:8000/api/tasks/',
+ 'users': 'http://localhost:8000/api/users/'}
+>>> response = requests.get(api['sprints'])
+>>> response.status_code
+401
+>>> response = requests.get(api['sprints'], auth=('demo', 'test'))
+>>> response.status_code
+200
+>>> 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Using this demo user, we’ll create a new sprint and add some tasks to it. Creating a sprint
+requires sending a POST request to the sprint’s endpoint, giving a name and end date
+to the sprint.
+>>> import datetime
+>>> today = datetime.date.today()
+>>> two_weeks = datetime.timedelta(days=14)
+>>> data = {'name': 'Current Sprint', 'end': today + two_weeks}
+>>> response = requests.post(api['sprints'], data=data, auth=('demo', 'test'))
+>>> response.status_code
+201
+>>> sprint = response.json()
+>>> pprint.pprint(sprint)
+{'description': '',
+'end': '2014-08-31',
+'id': 2,
+'links': {'self': 'http://localhost:8000/api/sprints/2/',
+'tasks': 'http://localhost:8000/api/tasks/?sprint=2'},
+'name': 'Current Sprint'}
+With the sprint created, we can now add tasks associated with it. The URL for the sprint
+defines a unique reference for it, and that will be passed to the request to create a task.
+>>> data = {'name': 'Something Task', 'sprint': sprint['id']}
+>>> response = requests.post(api['tasks'], data=data, auth=('demo', 'test'))
+>>> response.status_code
+201
+>>> task = response.json()
+>>> pprint.pprint(task)
+{'assigned': None,
+'completed': None,
+'description': '',
+'due': None,
+'id': 2,
+'links': {'assigned': None,
+'self': 'http://localhost:8000/api/tasks/2/',
+'sprint': 'http://localhost:8000/api/sprints/2/'},
+'name': 'Something Task',
+'order': 0,
+'sprint': 2,
+'started': None,
+'status': 1,
+'status_display': 'Not Started'}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+We can update the tasks by sending a PUT with the new task data to its URL. Let’s update
+the status and start date and assign the task to the demo user.
+>>>
+>>>
+>>>
+>>>
+task['assigned'] = 'demo'
+task['status'] = 2
+task['started'] = today
+response = requests.put(task['links']['self'],
+...data=task, auth=('demo', 'test'))
+>>> response.status_code
+200
+>>> task = response.json()
+>>> pprint.pprint(task)
+{'assigned': 'demo',
+'completed': None,
+'description': '',
+'due': None,
+'id': 2,
+'links': {'assigned': 'http://localhost:8000/api/users/demo/',
+'self': 'http://localhost:8000/api/tasks/2/',
+'sprint': 'http://localhost:8000/api/sprints/2/'},
+'name': 'Something Task',
+'order': 0,
+'sprint': 2,
+'started': '2014-08-17',
+'status': 2,
+'status_display': 'In Progress'}
+Notice that throughout this process the URLs were not built by the client but rather
+were given by the API. Similar to using the browsable API, the client did not need to
+know how the URLs were constructed. The client explores the API and finds that the
+resources and logic were about parsing the information out of the server responses and
+manipulating them. This makes the client much easier to maintain.
+
+++++++++++++++++++++++++++
