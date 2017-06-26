@@ -36,9 +36,10 @@ theoretical_res = (getting_5_heads_out_of_7_spins
 print(theoretical_res)
 print()
 
-# Out empirical result
+# Out empirical result, through simulations
 # seven spins, do we get 5 or more heads?
 print('Our empirical result:')
+# Set up trial and count the number of successes
 trial = lambda: choices(['heads', 'tails'], cum_weights=[0.60, 1.00], k=7).count('heads') >= 5
 n = 100000
 print(sum(trial() for i in range(n)) / n)
