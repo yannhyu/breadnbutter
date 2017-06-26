@@ -31,3 +31,9 @@ second_quartile = n // 4
 third_quartile = n * 3 // 4
 print(f'For a population of {n}')
 print(f'We want median to fall inside {second_quartile} and {third_quartile}')
+
+# Asking
+print('???')
+falls_inside = n // 4 < median(sample(range(n), 5)) <= 3 * n // 4
+print(falls_inside)
+print()
