@@ -2,6 +2,7 @@
 
 from random import *
 
+# To generate consistent sequence of numbers
 print(random())
 seed(8675309)
 print(random())
