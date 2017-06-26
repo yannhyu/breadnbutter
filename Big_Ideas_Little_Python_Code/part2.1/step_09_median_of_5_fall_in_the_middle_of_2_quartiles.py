@@ -37,3 +37,15 @@ print('???')
 falls_inside = n // 4 < median(sample(range(n), 5)) <= 3 * n // 4
 print(falls_inside)
 print()
+
+# Now we make the above defers
+print('The probability:')
+trial = lambda: n // 4 < median(sample(range(n), 5)) <= 3 * n // 4
+number_of_trials = 10000
+print(sum(trial() for i in range(number_of_trials)) / number_of_trials)
+print()
+
+# The question: what is the probability that the median
+# of five samples falls in a middle quartile?
+# Big idea: this is expressible in one short amd simpe line
+# of Python
