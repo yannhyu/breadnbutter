@@ -6,7 +6,8 @@
 # median give us?
 
 # Do we need a larger number?
-# A good median falls in the 2nd or 3rd quartile
+# A good median falls in the 2nd or 3rd quartile;
+# the middle 2/3 of the population??
 # How often does a median of 5 fall in those areas?
 from random import *
 from statistics import *
@@ -21,3 +22,12 @@ print(median(sample_pop_of_size_5))
 print('median is:')
 print(sorted(sample_pop_of_size_5)[2])
 print()
+
+# If population size is 100k
+# we want to know if median falls
+# between 25k and 75k?
+n = 100000
+second_quartile = n // 4
+third_quartile = n * 3 // 4
+print(f'For a population of {n}')
+print(f'We want median to fall inside {second_quartile} and {third_quartile}')
