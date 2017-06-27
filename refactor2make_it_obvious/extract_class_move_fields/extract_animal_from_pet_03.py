@@ -23,6 +23,7 @@ class Pet(object):
         # Must be using the old way, issue warning for now
         if animal is None:
             warnings.warn('Ought to use Animal')
+            # Ensure backward compatibility
             animal = Animal(**kwargs)
         self.name = name
         self.age = age
