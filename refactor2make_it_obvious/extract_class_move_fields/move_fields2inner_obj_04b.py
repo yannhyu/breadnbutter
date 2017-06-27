@@ -1,4 +1,4 @@
-# extract_animal_from_pet_03b.py
+# move_fields2inner_obj_04.py
 import warnings
 
 class Animal(object):
@@ -29,9 +29,24 @@ class Pet(object):
         self.age = age
         self.treats_eaten = 0
         self.animal = animal
+    
+    # For backward compatibility
+    @property
+    def has_scales(self):
+        warnings.warn('Use animal attribute')
+        return self.animal.has_scales
 
-    def give_treats(self, count):
-        self.treats_eaten += count
+    # For backward compatibility
+    @property
+    def lays_eggs(self):
+        warnings.warn('Use animal attribute')
+        return self.animal.lays_eggs
+
+    # For backward compatibility
+    @property
+    def drinks_milk(self):
+        warnings.warn('Use animal attribute')
+        return self.animal.drinks_milk
 
     @property
     def needs_heat_lamp(self):
@@ -40,9 +55,11 @@ class Pet(object):
             self.lays_eggs and
             not self.drinks_milk)
 
+    def give_treats(self, count):
+        self.treats_eaten += count
 
 if __name__ == '__main__':
-    # New constructor usage doesn't warn
+    # New attributes don't warn
     animal = Animal(has_scales=True,
                     lays_eggs=True)
 
@@ -50,5 +67,5 @@ if __name__ == '__main__':
               3,
               animal)
 
-    print(f'{pet.name} is {pet.age} years old')
+    print(f'{pet.name} has scales ? {pet.animal.has_scales}')
                 
