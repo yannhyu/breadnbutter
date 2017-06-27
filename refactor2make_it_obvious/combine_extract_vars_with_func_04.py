@@ -1,5 +1,8 @@
 # combine_extract_vars_with_func_04.py
 
+# Extract variables and functions to
+# improve readability
+
 MONTHS = ('January',
           'February',
           'March',

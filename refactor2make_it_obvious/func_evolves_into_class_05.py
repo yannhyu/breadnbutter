@@ -13,12 +13,17 @@ MONTHS = ('January',
           'November',
           'December')
 
+# Extract variables into classes to
+# improve testability
 class OystersGood:
     def __init__(self, month):
         lowered = month.lower()
         self.r = lowered.endswith('r')
         self.ary = lowered.endswith('ary')
         self._result = self.r or self.ary
+
+    # Use __bool__ to indicate a class is a
+    # paper trail  
     def __bool__(self): # aka __nonzero__
         return self._result
 
@@ -28,6 +33,8 @@ class TomatoesGood:
         self.index = MONTHS.index(month)
         self._result = 8 > self.index > 4
 
+    # Use __bool__ to indicate a class is a
+    # paper trail
     def __bool__(self): # aka __nonzero__
         return self._result
 
