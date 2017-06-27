@@ -51,9 +51,9 @@ class Pet(object):
     @property
     def needs_heat_lamp(self):
         return (
-            self.has_scales and 
-            self.lays_eggs and
-            not self.drinks_milk)
+            self.animal.has_scales and 
+            self.animal.lays_eggs and
+            not self.animal.drinks_milk)
 
     def give_treats(self, count):
         self.treats_eaten += count
@@ -68,4 +68,5 @@ if __name__ == '__main__':
               animal)
 
     print(f'{pet.name} has scales ? {pet.animal.has_scales}')
+    print(f'{pet.name} needs heat_lamp ? {pet.needs_heat_lamp}')
                 
