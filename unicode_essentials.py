@@ -23,3 +23,15 @@ in_str = 'à'
 print(type(in_str))
 in_unicode = convert_unicode(in_str)
 print(type(in_unicode))
+
+# But to write to a file, it must be encoded back to bytes
+# --> Gives UnicodeEncodeError
+# Instead encode it like this
+a = u'à'
+print(type(a))
+with open('tmp.txt','w') as f:
+    # --> Gives UnicodeEncodeError without this
+    a = a.encode('utf-8',errors='ignore')
+    f.write(a)
+print(type(a))
+print('done')
