@@ -34,3 +34,10 @@ if __name__ == '__main__':
     print(means[:20])
     print(means[-20:])
     print(mean(means))
+
+    # for 90% confidence interval, that is 5% on each side
+    print(round(n * 0.05))    # 500 on each side
+    print(means[500])
+    print(means[-500])
+    print(f'The observed mean of {mean(timings)}')
+    print(f'Falls in a 90% confidence interval from {means[500] :.1f} to {means[-500] :.1f}')   
