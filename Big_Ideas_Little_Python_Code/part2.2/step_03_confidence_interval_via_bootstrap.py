@@ -26,3 +26,11 @@ if __name__ == '__main__':
     # if we do enough number of re-sampling 
     # we can get the confidence interval
 
+    # at least do this many 
+    n = 10000
+    # get that many means
+    means = sorted(mean(bootstrap(timings)) for i in range(n))
+    print(len(means))
+    print(means[:20])
+    print(means[-20:])
+    print(mean(means))
