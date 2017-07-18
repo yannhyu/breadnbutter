@@ -57,10 +57,12 @@ def trial():
     drug = comb[:nd]
     placebo = comb[nd:]
     new_diff = mean(drug) - mean(placebo)
+    # is the new mean diff the same or more extreme?
     return new_diff >= obs_diff
 
 # our usual minimum repeat trial times
 n = 10000
 
-avg_of_trials = sum(trial() for i in range(n)) / n
-print(f'Our average of trials is {avg_of_trials}')
+# how often do we get that result?
+how_often_get_that_result = sum(trial() for i in range(n)) / n
+print(f'P-value is {how_often_get_that_result}')
