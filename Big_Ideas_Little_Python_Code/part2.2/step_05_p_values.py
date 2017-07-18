@@ -65,4 +65,6 @@ n = 10000
 
 # how often do we get that result?
 how_often_get_that_result = sum(trial() for i in range(n)) / n
+
+# p-value: Likelihood that the outcome was solely due to chance
 print(f'P-value is {how_often_get_that_result}')
