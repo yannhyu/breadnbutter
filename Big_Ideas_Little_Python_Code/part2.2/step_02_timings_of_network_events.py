@@ -2,6 +2,9 @@
 from statistics import mean, stdev
 from random import choices
 
+# timing in minutes from a large db query
+# not normal distribution; it is more like
+# exponential distribution
 timings = [7.18, 8.59, 12.24, 7.39, 8.16, 8.68, 6.98,
            8.31, 9.06, 7.06, 7.67, 10.02, 6.87, 9.07]
 
@@ -13,6 +16,7 @@ print(f'standard deviation: {stdev(timings)}')
 def bootstrap(data):
     # make another sample with replacement
     # from the same sample
+    # based on solid mathematical models
     return choices(data, k=len(data))
 
 

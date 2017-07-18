@@ -15,6 +15,11 @@
 # Bootstraping is used when obtaining new
 # samples is expensive
 
+# Learn characteristics of our sample by
+# re-sampling of our original sample
+
+
+
 
 
 
