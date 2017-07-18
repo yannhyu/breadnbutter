@@ -68,3 +68,16 @@ how_often_get_that_result = sum(trial() for i in range(n)) / n
 
 # p-value: Likelihood that the outcome was solely due to chance
 print(f'P-value is {how_often_get_that_result}')
+
+# P-value is 0.0574
+# P-value is 0.061
+# common standard is 5% or better.
+# most people would reject the NULL hyppothesis, yet
+# would also propose more tests, and bigger sample size
+# going forward.
+
+# A serious and more formal question such as
+# Is the observed diff in means statistically significant?
+# is translated into python:
+# If we reshuffle (permuting or relabeling) the participants,
+# is the new mean diff the same or more extreme than we observed?
