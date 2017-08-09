@@ -1,0 +1,6 @@
+git clone https://bitbucket.org/zzzeek/pycon2013_student_package.git
+
+cd pycon2013_student_package
+'c:\\users\\yann.yu\\appdata\\local\\continuum\\anaconda2'
+
+mkvirtualenv -p c:\\users\\yann.yu\\appdata\\local\\continuum\\anaconda2\\python.exe --no-site-packages sqlalchemy
