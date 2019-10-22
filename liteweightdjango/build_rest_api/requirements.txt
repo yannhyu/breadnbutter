@@ -9,7 +9,7 @@ httpie==0.9.9
 idna==2.5
 Markdown==2.6.8
 olefile==0.44
-Pillow==4.1.1
+Pillow==6.2.0
 psycopg2==2.7.1
 Pygments==2.2.0
 pytz==2015.4
